@@ -895,18 +895,10 @@ AppAsset::register($this);
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="<?= Yii::$app->urlManager->createUrl(['alamat-kategori/index']) ?>" class="nav-link">
-                <i class="far fa-circle nav-icon text-danger"></i>
-                <p>
-                  kategori Alamat
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
               <a href="<?= Yii::$app->urlManager->createUrl(['alamat/index']) ?>" class="nav-link">
                 <i class="far fa-circle nav-icon text-danger"></i>
                 <p>
-                  Detail Alamat
+                  Alamat
                 </p>
               </a>
             </li>

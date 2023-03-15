@@ -16,13 +16,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'password_data')->label('Password')->passwordInput() ?>
+    <?= $form->field($model, 'password_data')->label('Password')->passwordInput(['placeholder' => 'password boleh kosong']) ?>
 
     <?= $form->field($model, 'no_hp')->textInput() ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'foto')->fileInput() ?>
+    <?= $form->field($model, '_foto')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

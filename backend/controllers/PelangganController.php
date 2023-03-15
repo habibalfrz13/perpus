@@ -97,8 +97,8 @@ class PelangganController extends Controller
 
                     if ($model->_foto) {
                         $fotoName = 'foto_' . time() . '.' . $model->_foto->extension;
-                        $model->_foto->saveAs(Yii::getAlias('@app/uploads/foto/') . $fotoName);
                         $model->foto = $fotoName;
+                        $model->_foto->saveAs(Yii::getAlias('@app/uploads/foto/') . $fotoName);
                     }
                     $model->save(false);
                     return $this->redirect(['index']);
@@ -126,8 +126,33 @@ class PelangganController extends Controller
     public function actionUpdate($id_pelanggan)
     {
         $model = $this->findModel($id_pelanggan);
+        $modelUser = User::find()->where(['id' => $model->id_user])->one();
+        $model->username = $modelUser->username;
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+        if ($this->request->isPost) {
+            $model->load($this->request->post());
+
+            // Set create_at field
+            $model->create_at = date('Y-m-d H:i:s');
+
+            if ($model->password_data) {
+                $modelUser->setPassword($model->password_data);
+                $modelUser->generateAuthKey();
+            }
+            $modelUser->email = $model->email;
+            $modelUser->save();
+
+            $model->create_at = strtotime(date('Y-m-d H:i:s'));
+            // Handle uploaded photo
+            $model->_foto = UploadedFile::getInstance($model, '_foto');
+
+            if ($model->_foto) {
+                $fotoName = 'foto_' . time() . '.' . $model->_foto->extension;
+                $model->foto = $fotoName;
+                $model->_foto->saveAs(Yii::getAlias('@app/uploads/foto/') . $fotoName);
+            }
+            $model->save();
+
             return $this->redirect(['view', 'id_pelanggan' => $model->id_pelanggan]);
         }
 

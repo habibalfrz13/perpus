@@ -88,6 +88,7 @@ class UserController extends Controller
     public function actionCreate()
     {
         $model = new User();
+        $otpCode = sprintf("%06d", rand(1, 999999));
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
                 $model->status = 10;
@@ -101,7 +102,7 @@ class UserController extends Controller
                         $modelTeknisi = new Teknisi();
                         $modelTeknisi->nama_lengkap = $model->nama;
                         $modelTeknisi->id_user = $model->id;
-                        $modelTeknisi->created_at = date('Y-m-d H:i:s');
+                        $modelTeknisi->create_at = date('Y-m-d H:i:s');
                         $modelTeknisi->status = 10;
                         $modelTeknisi->save(false);
                     } else if ($model->role == 'teknisi') {
@@ -109,16 +110,20 @@ class UserController extends Controller
                         $modelTeknisi->nama_lengkap = $model->nama;
                         $modelTeknisi->username = $model->username;
                         $modelTeknisi->id_user = $model->id;
-                        $modelTeknisi->created_at = date('Y-m-d H:i:s');
+                        $modelTeknisi->create_at = date('Y-m-d H:i:s');
                         $modelTeknisi->status = 10;
+                        $modelTeknisi->point = 0;
                         $modelTeknisi->save(false);
                     } else if ($model->role == 'customer') {
                         $modelPelanggan = new Pelanggan();
                         $modelPelanggan->nama = $model->nama;
+                        $modelPelanggan->email = $model->email;
                         $modelPelanggan->username = $model->username;
                         $modelPelanggan->id_user = $model->id;
-                        $modelPelanggan->created_at = date('Y-m-d H:i:s');
+                        $modelPelanggan->create_at = date('Y-m-d H:i:s');
+                        $modelPelanggan->point = 0;
                         $modelPelanggan->status = 10;
+                        $modelPelanggan->kode_otp = $otpCode;
                         $modelPelanggan->save(false);
                     }
 

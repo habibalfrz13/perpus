@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 /** @var yii\web\View $this */
 /** @var backend\models\Alamat $model */
@@ -28,11 +29,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'longitude')->textInput() ?>
 
-    <?= $form->field($model, 'status')->dropDownList([ 0 => '0', 10 => '10', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'status')->dropDownList([0 => '0', 10 => '10',], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'create_at')->textInput() ?>
 
-    <?= $form->field($model, 'id_kategori')->textInput() ?>
+    <?= $form->field($model, 'id_kategori')->dropDownList([
+        '' => '- Pilih Kategori -',
+        1 => 'Kantor',
+        2 => 'Rumah',
+        3 => 'Kos-Kosan',
+    ]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

@@ -3,10 +3,14 @@
 namespace backend\controllers;
 
 use backend\models\Alamat;
+use backend\models\AlamatKategori;
+use backend\models\User;
 use backend\models\AlamatSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * AlamatController implements the CRUD actions for Alamat model.
@@ -68,6 +72,9 @@ class AlamatController extends Controller
     public function actionCreate()
     {
         $model = new Alamat();
+        $model->create_at = date('Y-m-d H:i:s');
+        $user = Yii::$app->user->identity;
+        $model->id_user = $user->id;
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
