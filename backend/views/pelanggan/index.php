@@ -39,9 +39,6 @@ $this->params['breadcrumbs'][] = $this->title;
         </p>
     <?php endif; ?>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); 
-    ?>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -53,11 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'nama',
             'no_hp',
             'email:email',
-            //'point',
-            //'status',
-            //'foto',
-            //'create_at',
-            //'kode_otp',
+            'foto',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Pelanggan $model, $key, $index, $column) {
@@ -66,6 +59,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]); ?>
-
-
 </div>

@@ -93,13 +93,14 @@ class PelangganController extends Controller
                     $model->status = '10';
                     $model->point = 0;
                     $model->kode_otp = $otpCode;
-                    $model->_foto = UploadedFile::getInstance($model, 'foto_');
 
+                    $model->_foto = UploadedFile::getInstance($model, '_foto');
                     if ($model->_foto) {
                         $fotoName = 'foto_' . time() . '.' . $model->_foto->extension;
-                        $model->foto = $fotoName;
                         $model->_foto->saveAs(Yii::getAlias('@app/uploads/foto/') . $fotoName);
+                        $model->foto = $fotoName;
                     }
+
                     $model->save(false);
                     return $this->redirect(['index']);
                 }
@@ -145,7 +146,6 @@ class PelangganController extends Controller
             $model->create_at = strtotime(date('Y-m-d H:i:s'));
             // Handle uploaded photo
             $model->_foto = UploadedFile::getInstance($model, '_foto');
-
             if ($model->_foto) {
                 $fotoName = 'foto_' . time() . '.' . $model->_foto->extension;
                 $model->foto = $fotoName;

@@ -7,6 +7,7 @@ use backend\models\OrderDisplaySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use Yii;
 
 /**
  * OrderDisplayController implements the CRUD actions for OrderDisplay model.
@@ -67,7 +68,11 @@ class OrderDisplayController extends Controller
      */
     public function actionCreate()
     {
+        $user = Yii::$app->user->identity;
         $model = new OrderDisplay();
+        $model->id_user = $user->id;
+        $model->tgl_pesan = date('Y-m-d H:i:s');
+        $model->status = 'dipesan';
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -114,6 +119,17 @@ class OrderDisplayController extends Controller
         $this->findModel($id_order)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionTerima($id_order)
+    {
+        $model = $this->findModel($id_order);
+        $user = Yii::$app->user->identity;
+        $model->id_teknisi = $user->id;
+        $model->status = 'diterima';
+        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+            return $this->redirect(['index']);
+        }
     }
 
     /**

@@ -45,12 +45,13 @@ class OrderDisplay extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
     public function rules()
     {
         return [
-            [['id_user', 'jumlah', 'jenis_layanan', 'detail', 'masalah', 'id_merk', 'type_ac', 'alamat', 'jadwal_pengerjaan', 'status', 'tgl_pesan', 'id_teknisi', 'point_teknisi'], 'required'],
+            [['id_user', 'jumlah', 'jenis_layanan', 'detail', 'masalah', 'id_merk', 'alamat', 'jadwal_pengerjaan', 'status', 'tgl_pesan'], 'required'],
             [['id_user', 'jumlah', 'id_merk', 'id_teknisi', 'point_teknisi'], 'integer'],
-            [['jadwal_pengerjaan', 'tgl_pesan'], 'safe'],
+            [['jadwal_pengerjaan', 'tgl_pesan', 'type_ac', 'id_teknisi', 'point_teknisi'], 'safe'],
             [['status'], 'string'],
             [['jenis_layanan', 'detail', 'masalah', 'type_ac', 'alamat'], 'string', 'max' => 50],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
@@ -170,5 +171,10 @@ class OrderDisplay extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'id_user']);
+    }
+
+    public function getAlamat()
+    {
+        return $this->hasOne(Alamat::class, ['id_user' => 'id_user']);
     }
 }

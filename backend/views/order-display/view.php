@@ -42,7 +42,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'status',
             'tgl_pesan',
             'id_teknisi',
-            'point_teknisi',
         ],
     ]) ?>
 

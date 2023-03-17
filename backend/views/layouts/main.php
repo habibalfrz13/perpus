@@ -672,12 +672,22 @@ AppAsset::register($this);
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
+
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= Yii::$app->urlManager->createUrl(['order-display/index']) ?>" class="nav-link">
+                <i class="far fa-circle nav-icon text-danger"></i>
+                <p>
+                  Data Order
+                </p>
+              </a>
+            </li>
+          </ul>
         </li>
 
         <!-- FeedBack -->
         <li class="nav-item">
           <a href="#" class="nav-link">
-
             <i class="nav-icon fas bi bi-list-check "></i>
             <p>
               Data FeedBack
