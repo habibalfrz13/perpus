@@ -21,26 +21,26 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Point Konversi', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); 
+    ?>
+    <div class="card card-body table-hover">
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'jumlah_point',
-            'harga',
-            'create_at',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, PointKonversi $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                 }
+                'id',
+                'jumlah_point',
+                'harga',
+                'create_at',
+                [
+                    'class' => ActionColumn::className(),
+                    'urlCreator' => function ($action, PointKonversi $model, $key, $index, $column) {
+                        return Url::toRoute([$action, 'id' => $model->id]);
+                    }
+                ],
             ],
-        ],
-    ]); ?>
-
-
+        ]); ?>
+    </div>
 </div>

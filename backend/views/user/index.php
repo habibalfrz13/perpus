@@ -30,35 +30,34 @@ if (!Yii::$app->user->isGuest) {
 $this->title = 'Users';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="user-index table-responsive">
+<h3><?= Html::encode($this->title) ?></h3>
 
-    <h3><?= Html::encode($this->title) ?></h3>
+<p>
+    <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
+</p>
 
-    <p>
-        <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); 
-    ?>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'options' => [
-            'style' => 'width: 100%; border: 1px solid #ddd; padding: 10px;',
-        ],
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            'username',
-            'email',
-            'status',
-            'role',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, User $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                }
+<?php // echo $this->render('_search', ['model' => $searchModel]); 
+?>
+<div class="card card-body">
+    <div>
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'options' => [
+                'style' => 'width: 100%; border: 1px solid #ddd; padding: 10px;',
             ],
-        ],
-    ]); ?>
-</div>
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
+                'username',
+                'email',
+                'status',
+                'role',
+                [
+                    'class' => ActionColumn::className(),
+                    'urlCreator' => function ($action, User $model, $key, $index, $column) {
+                        return Url::toRoute([$action, 'id' => $model->id]);
+                    }
+                ],
+            ],
+        ]); ?>
+    </div>

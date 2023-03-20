@@ -652,20 +652,28 @@ AppAsset::register($this);
         <!-- Point -->
         <li class="nav-item">
           <a href="#" class="nav-link">
-
             <i class="nav-icon fas bi bi-database "></i>
             <p>
               Data Point
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= Yii::$app->urlManager->createUrl(['topup/create']) ?>" class="nav-link">
+                <i class="far fa-circle nav-icon text-danger"></i>
+                <p>
+                  Top Up Point
+                </p>
+              </a>
+            </li>
+          </ul>
         </li>
 
 
         <!-- Order -->
         <li class="nav-item">
           <a href="#" class="nav-link">
-
             <i class="nav-icon fas bi bi-bag-dash-fill "></i>
             <p>
               Data Order

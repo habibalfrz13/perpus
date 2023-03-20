@@ -21,24 +21,26 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Alamat Kategori', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); 
+    ?>
+    <div class="card card-body table-hover">
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'nama',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, AlamatKategori $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                 }
+                'id',
+                'nama',
+                [
+                    'class' => ActionColumn::className(),
+                    'urlCreator' => function ($action, AlamatKategori $model, $key, $index, $column) {
+                        return Url::toRoute([$action, 'id' => $model->id]);
+                    }
+                ],
             ],
-        ],
-    ]); ?>
+        ]); ?>
+    </div>
 
 
 </div>

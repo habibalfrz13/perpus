@@ -10,7 +10,7 @@ use yii\helpers\ArrayHelper;
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="order-display-form">
+<div class="card card-header">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -53,7 +53,6 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'tgl_pesan')->textInput(['disabled' => true]) ?>
 
-    <?= $form->field($model, 'id_teknisi')->textInput() ?>
 
 
     <div class="form-group">

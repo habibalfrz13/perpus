@@ -25,23 +25,44 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
+    <?php if (Yii::$app->user->identity->role == 'admin') : ?>
+        <?= DetailView::widget([
+            'model' => $model,
+            'attributes' => [
+                'id_alamat',
+                'id_user',
+                'provinsi',
+                'kota',
+                'kecamatan',
+                'alamat',
+                'kode_pos',
+                'latitude',
+                'longitude',
+                // 'status',
+                // 'create_at',
+                'id_kategori',
+            ],
+        ]) ?>
+    <?php endif; ?>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id_alamat',
-            'id_user',
-            'provinsi',
-            'kota',
-            'kecamatan',
-            'alamat',
-            'kode_pos',
-            'latitude',
-            'longitude',
-            'status',
-            'create_at',
-            'id_kategori',
-        ],
-    ]) ?>
+    <?php if (Yii::$app->user->identity->role == 'customer') : ?>
+        <?= DetailView::widget([
+            'model' => $model,
+            'attributes' => [
+                // 'id_alamat',
+                // 'id_user',
+                'provinsi',
+                'kota',
+                'kecamatan',
+                'alamat',
+                'kode_pos',
+                'latitude',
+                'longitude',
+                // 'status',
+                // 'create_at',
+                // 'id_kategori',
+            ],
+        ]) ?>
+    <?php endif; ?>
 
 </div>

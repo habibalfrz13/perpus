@@ -7,27 +7,29 @@ use yii\widgets\ActiveForm;
 /** @var backend\models\Pelanggan $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
+<div class="card card-body">
+    <div class="pelanggan-form">
 
-<div class="pelanggan-form">
+        <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+        <?= $form->field($model, 'nama')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'nama')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'password_data')->label('Password')->passwordInput(['placeholder' => 'password boleh kosong']) ?>
 
-    <?= $form->field($model, 'password_data')->label('Password')->passwordInput(['placeholder' => 'password boleh kosong']) ?>
+        <?= $form->field($model, 'no_hp')->textInput() ?>
 
-    <?= $form->field($model, 'no_hp')->textInput() ?>
+        <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, '_foto')->fileInput() ?>
 
-    <?= $form->field($model, '_foto')->fileInput() ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <div class="form-group">
+            <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        </div>
     </div>
+</div>
 
-    <?php ActiveForm::end(); ?>
+<?php ActiveForm::end(); ?>
 
 </div>

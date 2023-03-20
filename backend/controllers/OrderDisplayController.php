@@ -4,6 +4,8 @@ namespace backend\controllers;
 
 use backend\models\OrderDisplay;
 use backend\models\OrderDisplaySearch;
+use backend\models\OrderHistori;
+use backend\models\Teknisi;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -76,6 +78,7 @@ class OrderDisplayController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
+
                 return $this->redirect(['view', 'id_order' => $model->id_order]);
             }
         } else {
@@ -97,15 +100,34 @@ class OrderDisplayController extends Controller
     public function actionUpdate($id_order)
     {
         $model = $this->findModel($id_order);
-
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id_order' => $model->id_order]);
+        $id_user = Yii::$app->user->identity->id;
+        $teknisiId = Teknisi::find()
+            ->select('teknisi.id_teknisi')
+            ->joinWith('user')
+            ->where(['user.id' => $id_user])
+            ->scalar();
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            if ($model->status == 'dipesan') {
+                $model->status = 'diterima';
+                $model->id_teknisi = $teknisiId;
+                $model->save();
+                Yii::$app->session->setFlash('success', 'Pesanan berhasil diterima.');
+            } else if ($model->status == 'diterima') {
+                $model->status = 'dipesan';
+                $model->id_teknisi = null;
+                $model->save();
+                Yii::$app->session->setFlash('success', 'Pesanan dikembalikan ke status "dipesan".');
+            } else {
+                Yii::$app->session->setFlash('error', 'Tidak dapat mengubah status pesanan.');
+            }
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [
             'model' => $model,
         ]);
     }
+
 
     /**
      * Deletes an existing OrderDisplay model.
@@ -116,20 +138,31 @@ class OrderDisplayController extends Controller
      */
     public function actionDelete($id_order)
     {
-        $this->findModel($id_order)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    public function actionTerima($id_order)
-    {
         $model = $this->findModel($id_order);
-        $user = Yii::$app->user->identity;
-        $model->id_teknisi = $user->id;
-        $model->status = 'diterima';
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
+        if ($this->request->isPost) {
+            if ($model->status == 'dipesan') {
+                $modelHistory = new OrderHistori();
+                $modelHistory->status = 'Dibatalkan';
+                $modelHistory->id_user = $model->id_user;
+                $modelHistory->id_order = $model->id_order;
+                $modelHistory->jenis_layanan = $model->jenis_layanan;
+                $modelHistory->save();
+                $this->findModel($id_order)->delete();
+                Yii::$app->session->setFlash('error', 'Pesanan berhasil dibatalkan.');
+            } else if ($model->status == 'diterima') {
+                $modelHistory = new OrderHistori();
+                $modelHistory->status = 'Selesai';
+                $modelHistory->id_user = $model->id_user;
+                $modelHistory->id_order = $model->id_order;
+                $modelHistory->jenis_layanan = $model->jenis_layanan;
+                $modelHistory->save();
+                $this->findModel($id_order)->delete();
+                Yii::$app->session->setFlash('Success', 'Pesanan Telah Selesai".');
+            } else {
+                Yii::$app->session->setFlash('error', 'Tidak dapat mengubah status pesanan.');
+            }
         }
+        return $this->redirect(['index']);
     }
 
     /**
