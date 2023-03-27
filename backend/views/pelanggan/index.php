@@ -38,26 +38,56 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::a('Create Pelanggan', ['create'], ['class' => 'btn btn-success']) ?>
         </p>
     <?php endif; ?>
-    <div class="card card-body table-hover">
-        <?= GridView::widget([
-            'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
-            'columns' => [
-                ['class' => 'yii\grid\SerialColumn'],
 
-                // 'id_pelanggan',
-                // 'id_user',
-                'nama',
-                'no_hp',
-                'email:email',
-                'foto',
-                [
-                    'class' => ActionColumn::className(),
-                    'urlCreator' => function ($action, Pelanggan $model, $key, $index, $column) {
-                        return Url::toRoute([$action, 'id_pelanggan' => $model->id_pelanggan]);
-                    }
+    <?php if (Yii::$app->user->identity->role == 'admin') : ?>
+        <div class="card card-body table-hover">
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                'filterModel' => $searchModel,
+                'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
+
+                    // 'id_pelanggan',
+                    // 'id_user',
+                    'nama',
+                    'no_hp',
+                    'email:email',
+                    'foto',
+                    [
+                        'class' => ActionColumn::className(),
+                        'urlCreator' => function ($action, Pelanggan $model, $key, $index, $column) {
+                            return Url::toRoute([$action, 'id_pelanggan' => $model->id_pelanggan]);
+                        }
+                    ],
                 ],
-            ],
-        ]); ?>
-    </div>
+            ]); ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (Yii::$app->user->identity->role == 'customer') : ?>
+        <div class="card card-body table-hover">
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                'filterModel' => $searchModel,
+                'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
+
+                    // 'id_pelanggan',
+                    // 'id_user',
+                    'nama',
+                    'no_hp',
+                    'email:email',
+                    'foto',
+                    [
+                        'class' => ActionColumn::className(),
+                        'urlCreator' => function ($action, Pelanggan $model, $key, $index, $column) {
+                            return Url::toRoute([$action, 'id_pelanggan' => $model->id_pelanggan]);
+                        }
+                    ],
+                ],
+            ]); ?>
+        </div>
+    <?php endif; ?>
+
+
 </div>

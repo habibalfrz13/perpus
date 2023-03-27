@@ -17,32 +17,41 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create Order Histori', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?php if (Yii::$app->user->identity->role == 'admin') : ?>
+        <p>
+            <?= Html::a('Create Order Histori', ['create'], ['class' => 'btn btn-success']) ?>
+        </p>
+    <?php endif; ?>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); 
+    ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
 
-            'id_historis',
-            'id_user',
-            'id_order',
-            'jenis_layanan',
-            'tanggal',
-            //'status',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, OrderHistori $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id_historis' => $model->id_historis]);
-                 }
-            ],
-        ],
-    ]); ?>
+    <div class="card">
+        <div class="card-body table-hover">
+            <?php if (Yii::$app->user->identity->role == 'customer') : ?>
+                <?= GridView::widget([
+                    'dataProvider' => $dataProvider,
+                    'filterModel' => $searchModel,
+                    'columns' => [
+                        ['class' => 'yii\grid\SerialColumn'],
 
+                        'id_historis',
+                        'id_user',
+                        'id_order',
+                        'jenis_layanan',
+                        'tanggal',
+                        //'status',
+                        [
+                            'class' => ActionColumn::className(),
+                            'urlCreator' => function ($action, OrderHistori $model, $key, $index, $column) {
+                                return Url::toRoute([$action, 'id_historis' => $model->id_historis]);
+                            }
+                        ],
+                    ],
+                ]); ?>
+            <?php endif; ?>
+        </div>
+    </div>
 
 </div>

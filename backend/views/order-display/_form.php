@@ -17,7 +17,7 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'jumlah')->label('Jumlah Ac')->textInput() ?>
 
-    <?= $form->field($model, 'jenis_layanan')->label('Merk AC')->dropDownList([
+    <?= $form->field($model, 'jenis_layanan')->label('Jenis Layanan')->dropDownList([
         '' => '- Pilih Kategori -',
         1 => 'Cuci Ac',
         2 => 'Service Ac',
@@ -53,11 +53,20 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'tgl_pesan')->textInput(['disabled' => true]) ?>
 
+    <?php if (Yii::$app->user->identity->role == 'operator') : ?>
+        <?= $form->field($model, 'id_teknisi')->dropDownList(
+            ArrayHelper::map(\backend\models\Teknisi::find()->all(), 'id_teknisi', 'nama_lengkap'),
+            ['prompt' => 'Pilih Teknisi']
+        ) ?>
+    <?php endif; ?>
 
+    <?php if ($model->status == 'diterima') : ?>
+        <?= Html::submitButton('Cancel', ['class' => 'btn btn-danger']) ?>
+    <?php endif; ?>
+    <?php if ($model->status == 'dipesan') : ?>
+        <?= Html::submitButton('Terima', ['class' => 'btn btn-success']) ?>
+    <?php endif; ?>
 
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-    </div>
 
     <?php ActiveForm::end(); ?>
 

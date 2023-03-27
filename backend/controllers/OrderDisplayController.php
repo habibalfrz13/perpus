@@ -6,6 +6,7 @@ use backend\models\OrderDisplay;
 use backend\models\OrderDisplaySearch;
 use backend\models\OrderHistori;
 use backend\models\Teknisi;
+use Codeception\Step\Retry;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -44,9 +45,21 @@ class OrderDisplayController extends Controller
         $searchModel = new OrderDisplaySearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
+        $searchModel1 = new OrderDisplaySearch();
+        $dataProvider1 = $searchModel1->search(Yii::$app->request->queryParams);
+        $dataProvider1->query->andWhere(['jenis_layanan' => 1]);
+
+        $searchModel2 = new OrderDisplaySearch();
+        $dataProvider2 = $searchModel2->search(Yii::$app->request->queryParams);
+        $dataProvider2->query->andWhere(['jenis_layanan' => 2]);
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'searchModel1' => $searchModel1,
+            'dataProvider1' => $dataProvider1,
+            'searchModel2' => $searchModel2,
+            'dataProvider2' => $dataProvider2,
         ]);
     }
 
@@ -79,7 +92,7 @@ class OrderDisplayController extends Controller
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
 
-                return $this->redirect(['view', 'id_order' => $model->id_order]);
+                return $this->redirect(['index']);
             }
         } else {
             $model->loadDefaultValues();
@@ -136,34 +149,43 @@ class OrderDisplayController extends Controller
      * @return \yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
+    // kode yang
     public function actionDelete($id_order)
     {
+        $modelHistory = new OrderHistori();
         $model = $this->findModel($id_order);
         if ($this->request->isPost) {
             if ($model->status == 'dipesan') {
-                $modelHistory = new OrderHistori();
                 $modelHistory->status = 'Dibatalkan';
                 $modelHistory->id_user = $model->id_user;
                 $modelHistory->id_order = $model->id_order;
                 $modelHistory->jenis_layanan = $model->jenis_layanan;
-                $modelHistory->save();
-                $this->findModel($id_order)->delete();
-                Yii::$app->session->setFlash('error', 'Pesanan berhasil dibatalkan.');
+                $modelHistory->tanggal = date('Y-m-d H:i:s');
+                if ($modelHistory->save()) {
+                    Yii::$app->session->setFlash('success', 'Pesanan berhasil dibatalkan.');
+                } else {
+                    Yii::$app->session->setFlash('error', 'Gagal menyimpan data.');
+                }
+                return $this->redirect(['order-history/index']);
             } else if ($model->status == 'diterima') {
                 $modelHistory = new OrderHistori();
                 $modelHistory->status = 'Selesai';
                 $modelHistory->id_user = $model->id_user;
                 $modelHistory->id_order = $model->id_order;
                 $modelHistory->jenis_layanan = $model->jenis_layanan;
-                $modelHistory->save();
-                $this->findModel($id_order)->delete();
-                Yii::$app->session->setFlash('Success', 'Pesanan Telah Selesai".');
+                $modelHistory->tanggal = date('Y-m-d H:i:s');
+                if ($modelHistory->save()) {
+                    Yii::$app->session->setFlash('success', 'Pesanan Telah Selesai.');
+                } else {
+                    Yii::$app->session->setFlash('error', 'Gagal menyimpan data.');
+                }
+                return $this->redirect(['feedback/create']);
             } else {
                 Yii::$app->session->setFlash('error', 'Tidak dapat mengubah status pesanan.');
             }
         }
-        return $this->redirect(['index']);
     }
+
 
     /**
      * Finds the OrderDisplay model based on its primary key value.

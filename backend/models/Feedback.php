@@ -72,7 +72,7 @@ class Feedback extends \yii\db\ActiveRecord
      */
     public function getFotoFeedbacks()
     {
-        return $this->hasMany(FotoFeedback::className(), ['id_feedback' => 'id_feedback']);
+        return $this->hasMany(Feedback::className(), ['id_feedback' => 'id_feedback']);
     }
 
     /**

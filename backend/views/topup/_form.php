@@ -22,9 +22,6 @@ use yii\helpers\ArrayHelper;
         ['prompt' => 'Pilih Jumlah Topup']
     ) ?>
 
-
-    <?= $form->field($model, 'keterangan')->textInput(['maxlength' => true]) ?>
-
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

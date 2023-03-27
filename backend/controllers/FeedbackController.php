@@ -2,11 +2,18 @@
 
 namespace backend\controllers;
 
+
 use backend\models\Feedback;
+use backend\models\OrderDisplay;
+use backend\models\User;
+use backend\models\Teknisi;
 use backend\models\FeedbackSearch;
+use backend\models\OrderHistori;
+use PhpParser\Node\Scalar;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use Yii;
 
 /**
  * FeedbackController implements the CRUD actions for Feedback model.
@@ -67,10 +74,26 @@ class FeedbackController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Feedback();
+        $id_user = Yii::$app->user->identity->id;
+        $orderid = OrderHistori::find()
+            ->select('order_histori.id_order')
+            ->joinWith('user')
+            ->where(['user.id' => $id_user])
+            ->scalar();
 
+        $teknisiid = OrderHistori::find()
+            ->select('order_histori.id_teknisi')
+            ->joinWith('user')
+            ->where(['user.id' => $id_user])
+            ->scalar();
+        $model = new Feedback();
+        $user = Yii::$app->user->identity;
+        $model->id_user = $user->id;
+        $model->id_order = $orderid;
+        $model->create_at = date('Y-m-d H:i:s');
+        $model->id_teknisi = $teknisiid;
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post())) {
                 return $this->redirect(['view', 'id_feedback' => $model->id_feedback]);
             }
         } else {
