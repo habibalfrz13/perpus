@@ -13,14 +13,13 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_user')->textInput() ?>
-
-    <?= $form->field($model, 'jumlah_topup')->dropDownList(
-        ArrayHelper::map(\backend\models\PointKonversi::find()->all(), 'id', function ($model) {
+    <?= $form->field($model, 'jumlah_point')->dropDownList(
+        ArrayHelper::map(\backend\models\PointKonversi::find()->all(), 'jumlah_point', function ($model) {
             return $model->harga . ' ( ' . $model->jumlah_point . ' point )';
         }),
-        ['prompt' => 'Pilih Jumlah Topup']
+        ['prompt' => 'Pilih Jumlah Point']
     ) ?>
+    <?= $form->field($model, 'keterangan')->textInput([]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

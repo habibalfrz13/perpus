@@ -427,7 +427,49 @@ AppAsset::register($this);
 
 
 
-
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas bi bi-people "></i>
+            <p>
+              Data User
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= Yii::$app->urlManager->createUrl(['/user/index']) ?>" class="nav-link">
+                <i class="far fa-circle nav-icon text-danger"></i>
+                <p>
+                  User
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= Yii::$app->urlManager->createUrl(['/teknisi/index']) ?>" class="nav-link">
+                <i class="far fa-circle nav-icon text-success"></i>
+                <p>
+                  Teknisi
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= Yii::$app->urlManager->createUrl(['/teknisi/index2']) ?>" class="nav-link">
+                <i class="far fa-circle nav-icon text-success"></i>
+                <p>
+                  Operator
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= Yii::$app->urlManager->createUrl(['/pelanggan/index']) ?>" class="nav-link">
+                <i class="far fa-circle nav-icon text-info"></i>
+                <p>
+                  Pelanggan
+                </p>
+              </a>
+            </li>
+          </ul>
+        </li>
         <!-- Point -->
         <li class="nav-item">
           <a href="#" class="nav-link">
@@ -439,6 +481,14 @@ AppAsset::register($this);
             </p>
           </a>
           <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= Yii::$app->urlManager->createUrl(['topup/index']) ?>" class="nav-link">
+                <i class="far fa-circle nav-icon text-danger"></i>
+                <p>
+                  Topup
+                </p>
+              </a>
+            </li>
             <li class="nav-item">
               <a href="<?= Yii::$app->urlManager->createUrl(['point-master/index']) ?>" class="nav-link">
                 <i class="far fa-circle nav-icon text-danger"></i>
@@ -723,35 +773,6 @@ AppAsset::register($this);
         </li>
 
         <!-- Data Alamat -->
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-
-            <i class="nav-icon fas bi bi-map-fill "></i>
-            <p>
-              Data Alamat
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="<?= Yii::$app->urlManager->createUrl(['alamat-kategori/index']) ?>" class="nav-link">
-                <i class="far fa-circle nav-icon text-danger"></i>
-                <p>
-                  kategori Alamat
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= Yii::$app->urlManager->createUrl(['alamat/index']) ?>" class="nav-link">
-                <i class="far fa-circle nav-icon text-danger"></i>
-                <p>
-                  Detail Alamat
-                </p>
-              </a>
-            </li>
-          </ul>
-        </li>
-
 
         <!-- Data Invoice -->
         <li class="nav-item">

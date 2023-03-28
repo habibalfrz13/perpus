@@ -52,7 +52,6 @@ class Teknisi extends \yii\db\ActiveRecord
             [['create_at', 'username', 'password_data'], 'safe'],
             [['nama_lengkap', 'tempat_lahir', 'alamat', 'email', 'card_idy', 'status'], 'string', 'max' => 50],
             [['cv', 'foto'], 'file', 'extensions' => ['pdf', 'doc', 'docx', 'jpg', 'jpeg', 'png'], 'maxSize' => 1024 * 1024 * 10],
-            ['password_data', 'required'],
             ['password_data', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
             [['tgl_lahir'], 'date', 'format' => 'php:Y-m-d'],

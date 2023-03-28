@@ -236,6 +236,21 @@ class TeknisiController extends Controller
         ]);
     }
 
+    public function actionUpdate($id_teknisi)
+    {
+        $model = $this->findModel($id_teknisi);
+
+        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+            if (empty($model->password_data)) {
+                $model->password_data = $model->getOldAttribute('password_data');
+            }
+            return $this->redirect(['view', 'id' => $model->id_teknisi]);
+        }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
+    }
 
     /**
      * Deletes an existing Teknisi model.

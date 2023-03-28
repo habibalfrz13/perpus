@@ -67,16 +67,32 @@ class TopupController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
+    // 
+
     public function actionCreate()
     {
-        $id_user = Yii::$app->user->identity->id;
         $model = new Topup();
-        $model->id_user = $id_user;
         if ($this->request->isPost) {
-            if ($model->load($this->request->post())) {
-                $modelTeknisi = Teknisi::find()->where;
-                $modelTeknisi->point = $model->jumlah_point;
-                return $this->redirect(['view', 'id_topup' => $model->id_topup]);
+            $model->load($this->request->post());
+            $model->id_user = $_GET['id_user'];
+            if ($model->validate()) {
+                if ($model->save()) {
+                    $modelTeknisi = Teknisi::findOne(['id_user' => $model->id_user]);
+                    $modelTeknisi->point += $model->jumlah_point;
+                    $modelTeknisi->password_data = $modelTeknisi->getOldAttribute('password_data');
+                    $modelTeknisi->save();
+                    if (!$modelTeknisi->save()) {
+                        print_r($modelTeknisi->getErrors());
+                        die;
+                    }
+                    return $this->redirect(['teknisi/index']);
+                } else {
+                    print_r($model->getErrors());
+                    die;
+                }
+            } else {
+                print_r($model->getErrors());
+                die;
             }
         } else {
             $model->loadDefaultValues();
@@ -86,6 +102,8 @@ class TopupController extends Controller
             'model' => $model,
         ]);
     }
+
+
 
     /**
      * Updates an existing Topup model.

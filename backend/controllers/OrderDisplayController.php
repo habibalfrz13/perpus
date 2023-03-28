@@ -123,12 +123,20 @@ class OrderDisplayController extends Controller
             if ($model->status == 'dipesan') {
                 $model->status = 'diterima';
                 $model->id_teknisi = $teknisiId;
-                $model->save();
+                if ($model->save(false)) {
+                    $modelTeknisi = Teknisi::findOne(['id_user' => $id_user]);
+                    $modelTeknisi->point -= 10;
+                    $modelTeknisi->save();
+                }
                 Yii::$app->session->setFlash('success', 'Pesanan berhasil diterima.');
             } else if ($model->status == 'diterima') {
                 $model->status = 'dipesan';
                 $model->id_teknisi = null;
-                $model->save();
+                if ($model->save(false)) {
+                    $modelTeknisi = Teknisi::findOne(['id_user' => $id_user]);
+                    $modelTeknisi->point += 10;
+                    $modelTeknisi->save();
+                }
                 Yii::$app->session->setFlash('success', 'Pesanan dikembalikan ke status "dipesan".');
             } else {
                 Yii::$app->session->setFlash('error', 'Tidak dapat mengubah status pesanan.');

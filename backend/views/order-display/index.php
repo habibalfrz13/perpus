@@ -71,7 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'filterModel' => $searchModel1,
                         'columns' => [
                             ['class' => 'yii\grid\SerialColumn'],
-                            'id_order',
+                            // 'id_order',
                             // 'id_user',
                             // 'jumlah',
                             'jenis_layanan',
@@ -83,7 +83,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             //'jadwal_pengerjaan',
                             'status',
                             //'tgl_pesan',
-                            // 'id_teknisi',
+                            'id_teknisi',
                             //'point_teknisi',
                             [
                                 'class' => ActionColumn::className(),
