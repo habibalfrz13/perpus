@@ -250,7 +250,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 if ($model->status == 'diterima') {
                                     return Html::a(
                                         '<i class="">Done</i>',
-                                        ['order-display/delete', 'id_order' => $model->id_order],
+                                        ['order-display/delete', 'id_order' => $model->id_order, 'id_teknisi' => $model->id_teknisi],
                                         [
                                             'title' => Yii::t('yii', 'Pesanan Selesai'),
                                             'data-confirm' => Yii::t('yii', 'Apakah pesanan anda sudah selesai?'),

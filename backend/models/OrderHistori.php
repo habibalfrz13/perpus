@@ -34,11 +34,12 @@ class OrderHistori extends \yii\db\ActiveRecord
     {
         return [
             [['id_user', 'id_order', 'jenis_layanan', 'tanggal', 'status'], 'required'],
-            [['id_user', 'id_order', 'jenis_layanan'], 'integer'],
+            [['id_user', 'id_order', 'jenis_layanan', 'id_teknisi'], 'integer'],
             [['tanggal'], 'safe'],
             [['status'], 'string', 'max' => 50],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
             [['id_order'], 'exist', 'skipOnError' => true, 'targetClass' => OrderDisplay::className(), 'targetAttribute' => ['id_order' => 'id_order']],
+            [['id_teknisi'], 'exist', 'skipOnError' => true, 'targetClass' => OrderDisplay::className(), 'targetAttribute' => ['id_teknisi' => 'id_teknisi']],
         ];
     }
 
@@ -75,5 +76,10 @@ class OrderHistori extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'id_user']);
+    }
+
+    public function getTeknisi()
+    {
+        return $this->hasOne(Teknisi::className(), ['id' => 'id_teknisi']);
     }
 }

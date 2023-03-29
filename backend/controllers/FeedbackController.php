@@ -9,6 +9,7 @@ use backend\models\User;
 use backend\models\Teknisi;
 use backend\models\FeedbackSearch;
 use backend\models\OrderHistori;
+use backend\models\PointMaster;
 use PhpParser\Node\Scalar;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -76,25 +77,28 @@ class FeedbackController extends Controller
     {
         $id_user = Yii::$app->user->identity->id;
         $orderid = OrderHistori::find()
-            ->select('order_histori.id_order')
-            ->joinWith('user')
-            ->where(['user.id' => $id_user])
+            ->select('id_order')
+            ->where(['id_user' => $id_user])
+            ->orderBy(['id_order' => SORT_DESC])
             ->scalar();
-
-        $teknisiid = OrderHistori::find()
-            ->select('order_histori.id_teknisi')
-            ->joinWith('user')
-            ->where(['user.id' => $id_user])
-            ->scalar();
-        $model = new Feedback();
+        $idteknisi = OrderHistori::find()->select('id_teknisi')->where(['id_order' => $orderid])->scalar();
+        $point = PointMaster::find()->select('jumlah_point')->where(['status' => '1'])->scalar();
         $user = Yii::$app->user->identity;
-        $model->id_user = $user->id;
-        $model->id_order = $orderid;
-        $model->create_at = date('Y-m-d H:i:s');
-        $model->id_teknisi = $teknisiid;
+        $model = new Feedback();
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
-                return $this->redirect(['view', 'id_feedback' => $model->id_feedback]);
+                $model->id_user = $user->id;
+                $model->id_order = $orderid;
+                $model->id_teknisi = $idteknisi;
+                $model->create_at = date('Y-m-d H:i:s');
+                $model->point = $point;
+                if ($model->save(false)) {
+
+                    return $this->redirect(['view', 'id_feedback' => $model->id_feedback]);
+                } else {
+                    print_r($model->getErrors());
+                    die;
+                }
             }
         } else {
             $model->loadDefaultValues();
@@ -104,6 +108,7 @@ class FeedbackController extends Controller
             'model' => $model,
         ]);
     }
+
 
     /**
      * Updates an existing Feedback model.

@@ -37,7 +37,7 @@ class Feedback extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_user', 'id_order', 'id_teknisi', 'rating', 'ulasan', 'create_at', 'point'], 'required'],
+            [['id_user', 'id_teknisi', 'rating', 'ulasan', 'create_at', 'point'], 'required'],
             [['id_user', 'id_order', 'id_teknisi', 'point'], 'integer'],
             [['rating'], 'number'],
             [['create_at'], 'safe'],

@@ -5,6 +5,7 @@ namespace backend\controllers;
 use backend\models\OrderDisplay;
 use backend\models\OrderDisplaySearch;
 use backend\models\OrderHistori;
+use backend\models\PointMaster;
 use backend\models\Teknisi;
 use Codeception\Step\Retry;
 use yii\web\Controller;
@@ -114,6 +115,7 @@ class OrderDisplayController extends Controller
     {
         $model = $this->findModel($id_order);
         $id_user = Yii::$app->user->identity->id;
+
         $teknisiId = Teknisi::find()
             ->select('teknisi.id_teknisi')
             ->joinWith('user')
@@ -160,10 +162,10 @@ class OrderDisplayController extends Controller
     // kode yang
     public function actionDelete($id_order)
     {
-        $modelHistory = new OrderHistori();
         $model = $this->findModel($id_order);
         if ($this->request->isPost) {
             if ($model->status == 'dipesan') {
+                $modelHistory = new OrderHistori();
                 $modelHistory->status = 'Dibatalkan';
                 $modelHistory->id_user = $model->id_user;
                 $modelHistory->id_order = $model->id_order;
@@ -171,28 +173,34 @@ class OrderDisplayController extends Controller
                 $modelHistory->tanggal = date('Y-m-d H:i:s');
                 if ($modelHistory->save()) {
                     Yii::$app->session->setFlash('success', 'Pesanan berhasil dibatalkan.');
+                    $model->delete(); // Hapus Model setelah ModelHistory berhasil disimpan
+                    return $this->redirect(['order-history/index']);
                 } else {
                     Yii::$app->session->setFlash('error', 'Gagal menyimpan data.');
                 }
-                return $this->redirect(['order-history/index']);
             } else if ($model->status == 'diterima') {
                 $modelHistory = new OrderHistori();
-                $modelHistory->status = 'Selesai';
+                $modelHistory->status = 'selesai';
                 $modelHistory->id_user = $model->id_user;
                 $modelHistory->id_order = $model->id_order;
                 $modelHistory->jenis_layanan = $model->jenis_layanan;
                 $modelHistory->tanggal = date('Y-m-d H:i:s');
+                $modelHistory->id_teknisi = $model->id_teknisi;
                 if ($modelHistory->save()) {
                     Yii::$app->session->setFlash('success', 'Pesanan Telah Selesai.');
+                    $model->delete(); // Hapus Model setelah ModelHistory berhasil disimpan
+                    return $this->redirect(['feedback/create']);
                 } else {
                     Yii::$app->session->setFlash('error', 'Gagal menyimpan data.');
                 }
-                return $this->redirect(['feedback/create']);
             } else {
                 Yii::$app->session->setFlash('error', 'Tidak dapat mengubah status pesanan.');
             }
         }
     }
+
+
+
 
 
     /**

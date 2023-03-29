@@ -130,6 +130,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         'ulasan',
                         //'create_at',
                         'point',
+                        [
+                            'class' => ActionColumn::className(),
+                            'urlCreator' => function ($action, Feedback $model, $key, $index, $column) {
+                                return Url::toRoute([$action, 'id_feedback' => $model->id_feedback]);
+                            }
+                        ],
                     ],
                 ]); ?>
             </div>

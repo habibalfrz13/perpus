@@ -28,11 +28,11 @@ class Alamat extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public $kategoriList = [
-        'Kantor' => 'Kantor',
-        'Rumah' => 'Rumah',
-        'Kos-Kosan' => 'Kos Kosan'
-    ];
+    // public $kategoriList = [
+    //     'Kantor' => 'Kantor',
+    //     'Rumah' => 'Rumah',
+    //     'Kos-Kosan' => 'Kos Kosan'
+    // ];
     public static function tableName()
     {
         return 'alamat';

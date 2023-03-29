@@ -17,22 +17,21 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'jumlah')->label('Jumlah Ac')->textInput() ?>
 
-    <?= $form->field($model, 'jenis_layanan')->label('Jenis Layanan')->dropDownList([
-        '' => '- Pilih Kategori -',
-        1 => 'Cuci Ac',
-        2 => 'Service Ac',
-    ]) ?>
+
+    <?= $form->field($model, 'jenis_layanan')->label('Jenis Layanan')->dropDownList(
+        ArrayHelper::map(\backend\models\Layanan::find()->all(), 'id_layanan', 'nama_layanan'),
+        ['prompt' => '- Pilih Jenis Layanan -']
+    ) ?>
 
     <?= $form->field($model, 'detail')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'masalah')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'id_merk')->label('Merk AC')->dropDownList([
-        '' => '- Pilih Kategori -',
-        1 => 'Panasnibos',
-        2 => 'Krisspy',
-        3 => 'Mbakpion',
-    ]) ?>
+
+    <?= $form->field($model, 'id_merk')->label('Merk AC')->dropDownList(
+        ArrayHelper::map(\backend\models\MerkAc::find()->all(), 'id', 'nama'),
+        ['prompt' => 'Pilih Merk Ac']
+    ) ?>
 
     <?= $form->field($model, 'type_ac')->textInput(['maxlength' => true, 'placeholder' => 'Nomor Seri AC / Boleh kosong']) ?>
 
