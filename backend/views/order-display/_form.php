@@ -59,11 +59,21 @@ use yii\helpers\ArrayHelper;
         ) ?>
     <?php endif; ?>
 
+
     <?php if ($model->status == 'diterima') : ?>
         <?= Html::submitButton('Cancel', ['class' => 'btn btn-danger']) ?>
     <?php endif; ?>
-    <?php if ($model->status == 'dipesan') : ?>
-        <?= Html::submitButton('Terima', ['class' => 'btn btn-success']) ?>
+
+    <?php if (Yii::$app->user->identity->role == 'customer') : ?>
+        <?php if ($model->status == 'dipesan') : ?>
+            <?= Html::submitButton('Pesan', ['class' => 'btn btn-success']) ?>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <?php if (Yii::$app->user->identity->role != 'customer') : ?>
+        <?php if ($model->status == 'dipesan') : ?>
+            <?= Html::submitButton('Terima', ['class' => 'btn btn-success']) ?>
+        <?php endif; ?>
     <?php endif; ?>
 
 

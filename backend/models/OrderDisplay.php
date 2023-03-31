@@ -177,4 +177,14 @@ class OrderDisplay extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Alamat::class, ['id_user' => 'id_user']);
     }
+
+    public function getLayanan()
+    {
+        return $this->hasOne(Layanan::class, ['id_layanan' => 'jenis_layanan']);
+    }
+
+    public function getMerkAc()
+    {
+        return $this->hasOne(MerkAc::class, ['id_merk' => 'nama']);
+    }
 }

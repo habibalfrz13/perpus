@@ -19,8 +19,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_user') ?>
 
-    <?= $form->field($model, 'jumlah_topup') ?>
-
     <?= $form->field($model, 'jumlah_point') ?>
 
     <?= $form->field($model, 'keterangan') ?>

@@ -18,7 +18,6 @@ class TopupSearch extends Topup
     {
         return [
             [['id_topup', 'id_user', 'jumlah_point'], 'integer'],
-            [['jumlah_topup'], 'number'],
             [['keterangan'], 'safe'],
         ];
     }
@@ -61,7 +60,6 @@ class TopupSearch extends Topup
         $query->andFilterWhere([
             'id_topup' => $this->id_topup,
             'id_user' => $this->id_user,
-            'jumlah_topup' => $this->jumlah_topup,
             'jumlah_point' => $this->jumlah_point,
         ]);
 

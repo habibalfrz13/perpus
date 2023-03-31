@@ -32,7 +32,6 @@ class Topup extends \yii\db\ActiveRecord
     {
         return [
             [['id_user', 'jumlah_point'], 'integer'],
-            [['jumlah_topup'], 'number'],
             [['keterangan'], 'string', 'max' => 50],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
         ];
@@ -46,7 +45,6 @@ class Topup extends \yii\db\ActiveRecord
         return [
             'id_topup' => 'Id Topup',
             'id_user' => 'Id User',
-            'jumlah_topup' => 'Jumlah Topup',
             'jumlah_point' => 'Jumlah Point',
             'keterangan' => 'Keterangan',
         ];

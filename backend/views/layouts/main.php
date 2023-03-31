@@ -863,7 +863,7 @@ AppAsset::register($this);
           <a href="<?= Yii::$app->urlManager->createUrl(['/pelanggan/index']) ?>" class="nav-link">
             <i class="far fa-circle nav-icon text-info"></i>
             <p>
-              Pelanggan
+              Profil
             </p>
           </a>
         </li>
@@ -884,7 +884,7 @@ AppAsset::register($this);
               <a href="<?= Yii::$app->urlManager->createUrl(['order-display/index']) ?>" class="nav-link">
                 <i class="far fa-circle nav-icon text-danger"></i>
                 <p>
-                  Order Display
+                  Create Order
                 </p>
               </a>
             </li>
@@ -892,7 +892,7 @@ AppAsset::register($this);
               <a href="<?= Yii::$app->urlManager->createUrl(['order-history/index']) ?>" class="nav-link">
                 <i class="far fa-circle nav-icon text-danger"></i>
                 <p>
-                  Order History
+                  History Order
                 </p>
               </a>
             </li>

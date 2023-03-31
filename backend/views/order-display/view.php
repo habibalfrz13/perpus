@@ -65,7 +65,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'id_order',
                 'id_user',
                 'jumlah',
-                'jenis_layanan',
+                'jenis_layanan' => [
+                    'attribute' => 'jenis_layanan',
+                    'value' => function ($model) {
+                        return $model->layanan->nama_layanan;
+                    },
+                ],
                 'detail',
                 'masalah',
                 'id_merk',
@@ -85,12 +90,22 @@ $this->params['breadcrumbs'][] = $this->title;
                 // 'id_order',
                 // 'id_user',
                 'jumlah',
-                'jenis_layanan',
+                'jenis_layanan' => [
+                    'attribute' => 'jenis_layanan',
+                    'value' => function ($model) {
+                        return $model->layanan->nama_layanan;
+                    },
+                ],
                 'detail',
                 'masalah',
                 'id_merk',
                 'type_ac',
-                'alamat',
+                'alamat' => [
+                    'attribute' => 'alamat',
+                    'value' => function ($model) {
+                        return $model->alamat;
+                    },
+                ],
                 'jadwal_pengerjaan',
                 'status',
                 'tgl_pesan',

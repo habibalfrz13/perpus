@@ -18,8 +18,10 @@ if (!Yii::$app->user->isGuest) {
     // Jika pengguna adalah admin, maka data yang ditampilkan tidak dibatasi
     if ($user->role == 'admin') {
         $searchModel->id_user = null;
+    } else if ($user->role == 'operator') {
+        $searchModel->id_user = null;
     }
-    // Jika pengguna bukan admin, maka data yang ditampilkan dibatasi hanya pada data yang sesuai dengan akun mereka
+    // Jika pengguna bukan admin dan operator, maka data yang ditampilkan dibatasi hanya pada data yang sesuai dengan akun mereka
     else {
         $searchModel->username = $user->id;
         $dataProvider->query->andWhere(['id_user' => $user->id]);
@@ -65,6 +67,31 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php endif; ?>
 
     <?php if (Yii::$app->user->identity->role == 'customer') : ?>
+        <div class="card card-body table-hover">
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                'filterModel' => $searchModel,
+                'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
+
+                    // 'id_pelanggan',
+                    // 'id_user',
+                    'nama',
+                    'no_hp',
+                    'email:email',
+                    'foto',
+                    [
+                        'class' => ActionColumn::className(),
+                        'urlCreator' => function ($action, Pelanggan $model, $key, $index, $column) {
+                            return Url::toRoute([$action, 'id_pelanggan' => $model->id_pelanggan]);
+                        }
+                    ],
+                ],
+            ]); ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (Yii::$app->user->identity->role == 'operator') : ?>
         <div class="card card-body table-hover">
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,

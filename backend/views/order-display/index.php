@@ -74,7 +74,12 @@ $this->params['breadcrumbs'][] = $this->title;
                             // 'id_order',
                             // 'id_user',
                             // 'jumlah',
-                            'jenis_layanan',
+                            'jenis_layanan' => [
+                                'attribute' => 'jenis_layanan',
+                                'value' => function ($model) {
+                                    return $model->layanan->nama_layanan;
+                                },
+                            ],
                             'detail',
                             //'masalah',
                             //'id_merk',
@@ -110,7 +115,12 @@ $this->params['breadcrumbs'][] = $this->title;
                             // 'id_order',
                             // 'id_user',
                             // 'jumlah',
-                            'jenis_layanan',
+                            'jenis_layanan' => [
+                                'attribute' => 'jenis_layanan',
+                                'value' => function ($model) {
+                                    return $model->layanan->nama_layanan;
+                                },
+                            ],
                             'detail',
                             //'masalah',
                             //'id_merk',
@@ -151,18 +161,23 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php endif; ?>
 
 
-<div class="card-body table-hover">
-    <?php if (Yii::$app->user->identity->role == 'teknisi') : ?>
+<?php if (Yii::$app->user->identity->role == 'teknisi') : ?>
+    <div class="card-body table-hover">
         <?= GridView::widget([
-            'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
+            'dataProvider' => $dataProvider1,
+            'filterModel' => $searchModel1,
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
                 'id_order',
                 // 'id_user',
                 // 'jumlah',
-                'jenis_layanan',
+                'jenis_layanan' => [
+                    'attribute' => 'jenis_layanan',
+                    'value' => function ($model) {
+                        return $model->layanan->nama_layanan;
+                    },
+                ],
                 'detail',
                 //'masalah',
                 //'id_merk',
@@ -175,49 +190,42 @@ $this->params['breadcrumbs'][] = $this->title;
                 //'point_teknisi',
                 [
                     'class' => ActionColumn::className(),
-                    'template' => '{terima} {view}',
+                    'template' => '{terima} {invoice} {view}',
                     'buttons' => [
                         'terima' => function ($url, $model) {
-                            if ($model->status == 'diterima') {
-                                return Html::a(
-                                    '<i class="">Cancel</i>',
-                                    ['order-display/update', 'id_order' => $model->id_order],
-                                    [
-                                        'title' => Yii::t('yii', 'Cancel Pesanan'),
-                                        'data-confirm' => Yii::t('yii', 'Apakah anda yakin ingin membatalkan pesanan?'),
-                                        'data-method' => 'post',
-                                        'class' => 'btn btn-danger',
-                                    ]
-                                ); // Jika status pesanan sudah diterima, tombol Terima tidak ditampilkan
+                            $label = $model->status == 'diterima' ? 'Cancel' : 'Terima';
+                            $confirm = $model->status == 'diterima' ? 'Apakah anda yakin ingin membatalkan pesanan?' : 'Apakah anda yakin ingin menerima pesanan ini?';
+                            $class = $model->status == 'diterima' ? 'btn-danger' : 'btn-success';
+
+                            return Html::a($label, ['order-display/update', 'id_order' => $model->id_order], [
+                                'title' => $model->status == 'diterima' ? 'Cancel Pesanan' : 'Terima Pesanan',
+                                'data-confirm' => Yii::t('yii', $confirm),
+                                'data-method' => 'post',
+                                'class' => 'btn ' . $class,
+                            ]);
+                        },
+                        'invoice' => function ($url, $model) {
+                            if ($model->status == 'dipesan') {
+                                return ''; // Jika pesanan belum diterima, tombol invoice tidak ditampilkan
                             } else {
-                                return Html::a(
-                                    '<i class="">Terima</i>',
-                                    ['order-display/update', 'id_order' => $model->id_order],
-                                    [
-                                        'title' => Yii::t('yii', 'Terima Pesanan'),
-                                        'data-confirm' => Yii::t('yii', 'Apakah anda yakin ingin menerima pesanan ini?'),
-                                        'data-method' => 'post',
-                                        'class' => 'btn btn-success',
-                                    ]
-                                );
+                                return Html::a('Invoice', ['invoice/create', 'id_order' => $model->id_order], [
+                                    'title' => Yii::t('yii', 'Proses Pesanan'),
+                                    'class' => 'btn btn-info',
+                                ]);
                             }
                         },
                         'view' => function ($url, $model) {
-                            return Html::a(
-                                '<i class="fa fa-eye"></i>',
-                                ['order-display/view', 'id_order' => $model->id_order],
-                                [
-                                    'title' => Yii::t('yii', 'View Detail'),
-                                    'class' => 'btn btn-info',
-                                ]
-                            );
+                            return Html::a('<i class="fa fa-eye"></i>', ['order-display/view', 'id_order' => $model->id_order], [
+                                'title' => Yii::t('yii', 'View Detail'),
+                                'class' => 'btn btn-info',
+                            ]);
                         },
                     ],
                 ],
             ],
         ]); ?>
-    <?php endif; ?>
-</div>
+    </div>
+<?php endif; ?>
 
 <?php if (Yii::$app->user->identity->role == 'customer') : ?>
     <div class="card table-hover mx-1,5">

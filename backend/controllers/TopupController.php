@@ -74,7 +74,10 @@ class TopupController extends Controller
         $model = new Topup();
         if ($this->request->isPost) {
             $model->load($this->request->post());
-            $model->id_user = $_GET['id_user'];
+            if (isset($_GET['id_user'])) {
+                // Set nilai id_user dari GET parameter
+                $model->id_user = $_GET['id_user'];
+            }
             if ($model->validate()) {
                 if ($model->save()) {
                     $modelTeknisi = Teknisi::findOne(['id_user' => $model->id_user]);

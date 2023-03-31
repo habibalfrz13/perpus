@@ -4,6 +4,8 @@ namespace backend\controllers;
 
 use backend\models\Invoice;
 use backend\models\InvoiceSearch;
+use backend\models\OrderDisplay;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -68,9 +70,14 @@ class InvoiceController extends Controller
     public function actionCreate()
     {
         $model = new Invoice();
-
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post())) {
+                $orderid = $_GET['id_order'];
+                $idteknisi = OrderDisplay::find()->select('id_teknisi')->where(['id_order' => $orderid])->scalar();
+                $model->create_at = date('Y-m-d H:i:s');
+                $model->id_order = $orderid;
+                $model->id_teknisi = $idteknisi;
+                $model->save(false);
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {

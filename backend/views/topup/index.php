@@ -21,7 +21,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Topup', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); 
+    ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -31,14 +32,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id_topup',
             'id_user',
-            'jumlah_topup',
             'jumlah_point',
             'keterangan',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Topup $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id_topup' => $model->id_topup]);
-                 }
+                }
             ],
         ],
     ]); ?>
