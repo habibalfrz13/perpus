@@ -28,6 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php endif; ?>
 
         <?php if (Yii::$app->user->identity->role == 'operator') : ?>
+            <?= Html::a('Invoice', ['invoice-detail/create', 'id_order' => $model->id_order], ['class' => 'btn btn-info']) ?>
             <?= Html::a('Update', ['update', 'id_order' => $model->id_order], ['class' => 'btn btn-primary']) ?>
             <?= Html::a('Delete', ['delete', 'id_order' => $model->id_order], [
                 'class' => 'btn btn-danger',

@@ -9,6 +9,8 @@ use backend\models\User;
 use backend\models\Teknisi;
 use backend\models\FeedbackSearch;
 use backend\models\OrderHistori;
+use backend\models\Pelanggan;
+use backend\models\PointHistory;
 use backend\models\PointMaster;
 use PhpParser\Node\Scalar;
 use yii\web\Controller;
@@ -82,7 +84,8 @@ class FeedbackController extends Controller
             ->orderBy(['id_order' => SORT_DESC])
             ->scalar();
         $idteknisi = OrderHistori::find()->select('id_teknisi')->where(['id_order' => $orderid])->scalar();
-        $point = PointMaster::find()->select('jumlah_point')->where(['status' => '1'])->scalar();
+        $point = PointMaster::find()->select('jumlah_point')->where(['keterangan' => 'Feedback'])->scalar();
+        $pointvalue = $point;
         $user = Yii::$app->user->identity;
         $model = new Feedback();
         if ($this->request->isPost) {
@@ -93,7 +96,15 @@ class FeedbackController extends Controller
                 $model->create_at = date('Y-m-d H:i:s');
                 $model->point = $point;
                 if ($model->save(false)) {
-
+                    $modelPelanggan = Pelanggan::find()->where(['id_user' => $model->id_user])->one();
+                    $modelPelanggan->point += $pointvalue;
+                    if ($modelPelanggan->save(false)) {
+                        $historiPoint = new PointHistory();
+                        $historiPoint->id_user = $id_user;
+                        $historiPoint->point = $point;
+                        $historiPoint->created_at = date('Y-m-d H:i:s');
+                        $historiPoint->save(false);
+                    }
                     return $this->redirect(['view', 'id_feedback' => $model->id_feedback]);
                 } else {
                     print_r($model->getErrors());

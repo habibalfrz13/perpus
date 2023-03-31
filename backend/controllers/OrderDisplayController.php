@@ -5,6 +5,8 @@ namespace backend\controllers;
 use backend\models\OrderDisplay;
 use backend\models\OrderDisplaySearch;
 use backend\models\OrderHistori;
+use backend\models\PointHistory;
+use backend\models\Pelanggan;
 use backend\models\PointMaster;
 use backend\models\Teknisi;
 use Codeception\Step\Retry;
@@ -124,8 +126,8 @@ class OrderDisplayController extends Controller
             $model->id_teknisi = $teknisiId;
         }
         $jumlahAc = $model->jumlah;
+        // kurang sama dengan, atau lebih sama dengan
         $point = PointMaster::find()->where(['>=', 'jumlah_ac', $jumlahAc])->one();
-
         $pointvalue = $point->jumlah_point;
         if ($this->request->isPost && $model->load($this->request->post())) {
             if ($model->status == 'dipesan') {
@@ -133,7 +135,15 @@ class OrderDisplayController extends Controller
                 if ($model->save(false)) {
                     $modelTeknisi = Teknisi::findOne(['id_teknisi' => $model->id_teknisi]);
                     $modelTeknisi->point -= $pointvalue;
-                    $modelTeknisi->save();
+                    if ($modelTeknisi->save()) {
+                        if (Yii::$app->user->identity->role == 'teknisi') {
+                            $historiPoint = new PointHistory();
+                            $historiPoint->id_user = $id_user;
+                            $historiPoint->point = $pointvalue;
+                            $historiPoint->created_at = date('Y-m-d H:i:s');
+                            $historiPoint->save(false);
+                        }
+                    }
                 }
                 Yii::$app->session->setFlash('success', 'Pesanan berhasil diterima.');
             } else if ($model->status == 'diterima') {
@@ -143,6 +153,14 @@ class OrderDisplayController extends Controller
                     $model->status = 'dipesan';
                     $model->id_teknisi = null;
                     $model->save(false);
+
+                    if (Yii::$app->user->identity->role == 'teknisi') {
+                        $historiPoint = new PointHistory();
+                        $historiPoint->id_user = $id_user;
+                        $historiPoint->point = $pointvalue;
+                        $historiPoint->created_at = date('Y-m-d H:i:s');
+                        $historiPoint->save(false);
+                    }
                     Yii::$app->session->setFlash('success', 'Pesanan dikembalikan ke status "dipesan".');
                 }
             } else {

@@ -490,6 +490,14 @@ AppAsset::register($this);
               </a>
             </li>
             <li class="nav-item">
+              <a href="<?= Yii::$app->urlManager->createUrl(['point-history/index']) ?>" class="nav-link">
+                <i class="far fa-circle nav-icon text-danger"></i>
+                <p>
+                  History Point
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="<?= Yii::$app->urlManager->createUrl(['point-master/index']) ?>" class="nav-link">
                 <i class="far fa-circle nav-icon text-danger"></i>
                 <p>

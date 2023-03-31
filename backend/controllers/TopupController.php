@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use backend\models\Topup;
 use backend\models\Teknisi;
+use backend\models\PointHistory;
 use backend\models\TopupSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -84,6 +85,12 @@ class TopupController extends Controller
                     $modelTeknisi->point += $model->jumlah_point;
                     $modelTeknisi->password_data = $modelTeknisi->getOldAttribute('password_data');
                     $modelTeknisi->save();
+
+                    $historiPoint = new PointHistory();
+                    $historiPoint->id_user = $model->id_user;
+                    $historiPoint->point = $model->jumlah_point;
+                    $historiPoint->created_at = date('Y-m-d H:i:s');
+                    $historiPoint->save(false);
                     if (!$modelTeknisi->save()) {
                         print_r($modelTeknisi->getErrors());
                         die;
