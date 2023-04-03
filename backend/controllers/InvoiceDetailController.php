@@ -2,8 +2,11 @@
 
 namespace backend\controllers;
 
+use backend\models\Invoice;
 use backend\models\InvoiceDetail;
 use backend\models\InvoiceDetailSearch;
+use backend\models\OrderDisplay;
+use backend\models\Teknisi;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -67,11 +70,23 @@ class InvoiceDetailController extends Controller
      */
     public function actionCreate()
     {
+        $orderId = $_GET['id_order'];
+        $teknisiId = OrderDisplay::find()->select('id_teknisi')->where(['id_order' => $orderId]);
         $model = new InvoiceDetail();
+        $model->create_at = date('Y-m-d H:i:s');
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load($this->request->post())) {
+                $modelInvoice = new Invoice();
+                $modelInvoice->id_order = $orderId;
+                $modelInvoice->id_teknisi = $teknisiId;
+                $modelInvoice->total = $model->harga;
+                $modelInvoice->create_at = date('Y-m-d H:i:s');
+                $modelInvoice->save(false);
+
+                $model->id_invoice = $modelInvoice->id;
+                $model->save(false);
+                return $this->redirect(['index']);
             }
         } else {
             $model->loadDefaultValues();

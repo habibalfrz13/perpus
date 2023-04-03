@@ -8,24 +8,27 @@ use yii\widgets\ActiveForm;
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="invoice-detail-form">
+<div class="card">
+    <div class="card-body">
+        <?php $form = ActiveForm::begin(); ?>
 
-    <?php $form = ActiveForm::begin(); ?>
+        <?= $form->field($model, 'nama')->textInput() ?>
 
-    <?= $form->field($model, 'id_invoice')->textInput() ?>
+        <div class="row">
+            <div class="col-sm-6">
+                <?= $form->field($model, 'detail')->textarea([]) ?>
+            </div>
+            <div class="col-sm-6">
+                <?= $form->field($model, 'harga')->textInput() ?>
+            </div>
+        </div>
 
-    <?= $form->field($model, 'nama')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'harga')->textInput() ?>
 
-    <?= $form->field($model, 'id_kondisi')->textInput() ?>
+        <div class="form-group">
+            <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        </div>
 
-    <?= $form->field($model, 'create_at')->textInput() ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?php ActiveForm::end(); ?>
     </div>
-
-    <?php ActiveForm::end(); ?>
-
 </div>

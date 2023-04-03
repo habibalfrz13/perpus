@@ -33,10 +33,10 @@ class InvoiceDetail extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_invoice', 'nama', 'harga', 'id_kondisi', 'create_at'], 'required'],
+            [['id_invoice', 'nama', 'id_kondisi', 'create_at'], 'required'],
             [['id_invoice', 'id_kondisi'], 'integer'],
             [['harga'], 'number'],
-            [['create_at'], 'safe'],
+            [['create_at', 'harga', 'detail'], 'safe'],
             [['nama'], 'string', 'max' => 50],
             [['id_invoice'], 'exist', 'skipOnError' => true, 'targetClass' => Invoice::className(), 'targetAttribute' => ['id_invoice' => 'id']],
             [['id_kondisi'], 'exist', 'skipOnError' => true, 'targetClass' => KondisiAc::className(), 'targetAttribute' => ['id_kondisi' => 'id']],
@@ -55,6 +55,7 @@ class InvoiceDetail extends \yii\db\ActiveRecord
             'harga' => 'Harga',
             'id_kondisi' => 'Id Kondisi',
             'create_at' => 'Create At',
+            'detail' => 'Detail',
         ];
     }
 

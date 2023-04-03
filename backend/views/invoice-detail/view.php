@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'id_invoice',
             'nama',
+            'detail',
             'harga',
             'id_kondisi',
             'create_at',
