@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php endif; ?>
 
 <?php if (Yii::$app->user->identity->role == 'admin') : ?>
-    <div class="card-body">
+    <div class="card card-body">
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,

@@ -1019,9 +1019,6 @@ AppAsset::register($this);
 
 
 
-
-
-
 <footer class="main-footer">
   <div class="container">
     <p class="float-start">&copy; 2023</p>

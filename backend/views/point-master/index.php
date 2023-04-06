@@ -21,27 +21,32 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Point Master', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); 
+    ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+    <?php if (Yii::$app->user->identity->role == 'admin') : ?>
+        <div class="card card-body">
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                'filterModel' => $searchModel,
+                'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
 
-            'id_point',
-            'keterangan',
-            'jumlah_ac',
-            'jumlah_order',
-            'jumlah_point',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, PointMaster $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id_point' => $model->id_point]);
-                 }
-            ],
-        ],
-    ]); ?>
+                    'id_point',
+                    'keterangan',
+                    'jumlah_ac',
+                    'jumlah_order',
+                    'jumlah_point',
+                    [
+                        'class' => ActionColumn::className(),
+                        'urlCreator' => function ($action, PointMaster $model, $key, $index, $column) {
+                            return Url::toRoute([$action, 'id_point' => $model->id_point]);
+                        }
+                    ],
+                ],
+            ]); ?>
+        </div>
+    <?php endif; ?>
 
 
 </div>

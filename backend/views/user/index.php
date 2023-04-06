@@ -39,25 +39,24 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php // echo $this->render('_search', ['model' => $searchModel]); 
 ?>
 <div class="card card-body">
-    <div>
-        <?= GridView::widget([
-            'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
-            'options' => [
-                'style' => 'width: 100%; border: 2px solid #ddd;',
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'options' => [
+            'style' => 'width: 100%;',
+        ],
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+            'username',
+            'email',
+            'status',
+            'role',
+            [
+                'class' => ActionColumn::className(),
+                'urlCreator' => function ($action, User $model, $key, $index, $column) {
+                    return Url::toRoute([$action, 'id' => $model->id]);
+                }
             ],
-            'columns' => [
-                ['class' => 'yii\grid\SerialColumn'],
-                'username',
-                'email',
-                'status',
-                'role',
-                [
-                    'class' => ActionColumn::className(),
-                    'urlCreator' => function ($action, User $model, $key, $index, $column) {
-                        return Url::toRoute([$action, 'id' => $model->id]);
-                    }
-                ],
-            ],
-        ]); ?>
-    </div>
+        ],
+    ]); ?>
+</div>

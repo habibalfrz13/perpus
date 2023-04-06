@@ -21,26 +21,54 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Layanan', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); 
+    ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+    <?php if (Yii::$app->user->identity->role == 'admin') : ?>
+        <div class="card card-body">
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                'filterModel' => $searchModel,
+                'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
 
-            'id_layanan',
-            'nama_layanan',
-            'jenis_layanan',
-            'deskripsi',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, Layanan $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id_layanan' => $model->id_layanan]);
-                 }
-            ],
-        ],
-    ]); ?>
+                    'id_layanan',
+                    'nama_layanan',
+                    'jenis_layanan',
+                    'deskripsi',
+                    [
+                        'class' => ActionColumn::className(),
+                        'urlCreator' => function ($action, Layanan $model, $key, $index, $column) {
+                            return Url::toRoute([$action, 'id_layanan' => $model->id_layanan]);
+                        }
+                    ],
+                ],
+            ]); ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (Yii::$app->user->identity->role == 'operator') : ?>
+        <div class="card card-body">
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                'filterModel' => $searchModel,
+                'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
+
+                    'id_layanan',
+                    'nama_layanan',
+                    'jenis_layanan',
+                    'deskripsi',
+                    [
+                        'class' => ActionColumn::className(),
+                        'urlCreator' => function ($action, Layanan $model, $key, $index, $column) {
+                            return Url::toRoute([$action, 'id_layanan' => $model->id_layanan]);
+                        }
+                    ],
+                ],
+            ]); ?>
+        </div>
+    <?php endif; ?>
 
 
 </div>
