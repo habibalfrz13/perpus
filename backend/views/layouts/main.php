@@ -845,8 +845,12 @@ AppAsset::register($this);
   </div>
 
 <?php } ?>
-<?php if (Yii::$app->user->identity->role == 'customer') { ?>
 
+<?php if (Yii::$app->user->identity->role == 'customer') { ?>
+  <?php
+  $user_id = Yii::$app->user->id;
+  $url = Url::to(['/pelanggan/view', 'id' => $user_id]);
+  ?>
   <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
