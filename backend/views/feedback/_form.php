@@ -8,18 +8,21 @@ use yii\widgets\ActiveForm;
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="feedback-form">
+<div class="card card-body">
+    <div class="feedback-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+        <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'rating')->textInput() ?>
+        <?= $form->field($model, 'rating')->textInput() ?>
 
-    <?= $form->field($model, 'ulasan')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'ulasan')->textInput(['maxlength' => true]) ?>
 
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <div class="form-group">
+            <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+            <a href="<?= Yii::$app->request->referrer ?>" class="btn btn-dark">Back</a>
+        </div>
+
+        <?php ActiveForm::end(); ?>
+
     </div>
-
-    <?php ActiveForm::end(); ?>
-
 </div>

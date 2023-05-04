@@ -26,6 +26,34 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); 
     ?>
 
+    <?php if (Yii::$app->user->identity->role == 'admin') : ?>
+        <div class="card">
+            <div class="card-body table-hover">
+                <?= GridView::widget([
+                    'dataProvider' => $dataProvider,
+                    'filterModel' => $searchModel,
+                    'columns' => [
+                        ['class' => 'yii\grid\SerialColumn'],
+
+                        // 'id_historis',
+                        // 'id_user',
+                        // 'id_order',
+                        'jenis_layanan',
+                        'tanggal',
+                        'id_teknisi',
+                        //'status',
+                        [
+                            'class' => ActionColumn::className(),
+                            'urlCreator' => function ($action, OrderHistori $model, $key, $index, $column) {
+                                return Url::toRoute([$action, 'id_historis' => $model->id_historis]);
+                            }
+                        ],
+                    ],
+                ]); ?>
+            </div>
+        </div>
+    <?php endif; ?>
+
     <?php if (Yii::$app->user->identity->role == 'customer') : ?>
         <div class="card">
             <div class="card-body table-hover">

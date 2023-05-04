@@ -26,6 +26,7 @@ use yii\widgets\ActiveForm;
 
         <div class="form-group">
             <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+            <a href="<?= Yii::$app->request->referrer ?>" class="btn btn-dark">Back</a>
         </div>
     </div>
 </div>

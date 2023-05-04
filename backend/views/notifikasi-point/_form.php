@@ -8,26 +8,27 @@ use yii\widgets\ActiveForm;
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="notifikasi-point-form">
+<div class="card card-body">
+    <div class="notifikasi-point-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+        <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_order')->textInput() ?>
+        <?= $form->field($model, 'id_order')->textInput() ?>
 
-    <?= $form->field($model, 'id_user')->textInput() ?>
+        <?= $form->field($model, 'id_user')->textInput() ?>
 
-    <?= $form->field($model, 'jumlah_point')->textInput() ?>
+        <?= $form->field($model, 'jumlah_point')->textInput() ?>
 
-    <?= $form->field($model, 'judul')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'judul')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'keterangan')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'keterangan')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'create_at')->textInput() ?>
+        <div class="form-group">
+            <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+            <a href="<?= Yii::$app->request->referrer ?>" class="btn btn-dark">Back</a>
+        </div>
 
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?php ActiveForm::end(); ?>
+
     </div>
-
-    <?php ActiveForm::end(); ?>
-
 </div>

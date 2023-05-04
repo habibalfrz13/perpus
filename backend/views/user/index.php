@@ -1,5 +1,7 @@
 <?php
 
+use backend\models\Pelanggan;
+use backend\models\Teknisi;
 use backend\models\User;
 use yii\data\ActiveDataProvider;
 use yii\grid\ActionColumn;
@@ -38,25 +40,46 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?php // echo $this->render('_search', ['model' => $searchModel]); 
 ?>
+
+
 <div class="card card-body">
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'options' => [
-            'style' => 'width: 100%;',
-        ],
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            'username',
-            'email',
-            'status',
-            'role',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, User $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                }
-            ],
-        ],
-    ]); ?>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id User</th>
+                <th scope="col">Username</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Role</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $no = 1;
+            foreach ($model as $data) {
+                $pelanggan = Pelanggan::find()->where(['id_user' => $data->id])->one();
+                $teknisi = Teknisi::find()->where(['id_user' => $data->id])->one();
+
+            ?>
+                <tr>
+                    <th scope="row"><?= $no++ ?></th>
+
+                    <td><?= $data->id ?></td>
+                    <td><?= $data->username ?></td>
+                    <td><?php if ($pelanggan) {
+                            echo $pelanggan->nama;
+                        } else if ($teknisi) {
+                            echo $teknisi->nama_lengkap;
+                        } else {
+                            echo $data->username;
+                        }
+                        ?></td>
+                    <td><?= $data->role ?></td>
+                    <td></td>
+                </tr>
+
+            <?php } ?>
+        </tbody>
+    </table>
 </div>
