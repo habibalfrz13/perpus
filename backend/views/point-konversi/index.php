@@ -30,9 +30,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
-                'id',
+                // 'id',
                 'jumlah_point',
-                'harga',
+                [
+                    'attribute' => 'harga',
+                    'content' => function ($model) {
+                        return 'Rp.' . number_format($model->harga, 0, ',', '.');
+                    },
+                    'contentOptions' => ['style' => 'text-align:left'],
+                ],
                 'create_at',
                 [
                     'class' => ActionColumn::className(),

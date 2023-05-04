@@ -8,20 +8,21 @@ use yii\widgets\ActiveForm;
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="point-konversi-form">
+<div class="card card-body">
+    <div class="point-konversi-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+        <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'jumlah_point')->textInput() ?>
+        <?= $form->field($model, 'jumlah_point')->textInput() ?>
 
-    <?= $form->field($model, 'harga')->textInput() ?>
+        <?= $form->field($model, 'harga')->textInput() ?>
 
-    <?= $form->field($model, 'create_at')->textInput() ?>
+        <div class="form-group">
+            <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+            <a href="<?= Yii::$app->request->referrer ?>" class="btn btn-dark">Back</a>
+        </div>
 
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?php ActiveForm::end(); ?>
+
     </div>
-
-    <?php ActiveForm::end(); ?>
-
 </div>

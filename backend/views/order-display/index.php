@@ -14,11 +14,6 @@ $this->title = 'Order Display';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<?php if (Yii::$app->user->identity->role == 'admin') : ?>
-    <p>
-        <?= Html::a('Create Order', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-<?php endif; ?>
 
 <?php if (Yii::$app->user->identity->role == 'customer') : ?>
     <p>
@@ -34,10 +29,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
-                'id_order',
+                // 'id_order',
                 // 'id_user',
                 // 'jumlah',
-                'jenis_layanan',
+                'jenis_layanan' => [
+                    'attribute' => 'jenis_layanan',
+                    'value' => function ($model) {
+                        return $model->layanan->nama_layanan;
+                    },
+                ],
                 'detail',
                 //'masalah',
                 //'id_merk',
