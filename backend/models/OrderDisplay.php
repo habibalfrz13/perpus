@@ -175,7 +175,7 @@ class OrderDisplay extends \yii\db\ActiveRecord
 
     public function getAlamat()
     {
-        return $this->hasOne(Alamat::class, ['id_user' => 'id_user']);
+        return $this->hasOne(Alamat::class, ['id_user' => 'provinsi']);
     }
 
     public function getLayanan()

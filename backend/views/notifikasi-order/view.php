@@ -16,23 +16,16 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="notifikasi-order-view">
 
         <h1><?= Html::encode($this->title) ?></h1>
-
-        <p>
-            <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-            <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-                'class' => 'btn btn-danger',
-                'data' => [
-                    'confirm' => 'Are you sure you want to delete this item?',
-                    'method' => 'post',
-                ],
-            ]) ?>
-        </p>
-
         <?= DetailView::widget([
             'model' => $model,
             'attributes' => [
                 'id',
-                'id_order',
+                [
+                    'label' => 'Nama Pelanggan',
+                    'value' => function ($model) {
+                        return $model->nama_pelanggan; // Ganti "nama_pelanggan" dengan nama atribut yang sesuai di model Anda
+                    }
+                ],
                 'judul',
                 'keterangan',
                 'create_at',

@@ -47,6 +47,7 @@ class NotifikasiOrder extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'id_order' => 'Id Order',
+            'jenis_layanan' => 'Jenis Layanan',
             'judul' => 'Judul',
             'keterangan' => 'Keterangan',
             'create_at' => 'Create At',
@@ -61,5 +62,10 @@ class NotifikasiOrder extends \yii\db\ActiveRecord
     public function getOrder()
     {
         return $this->hasOne(OrderDisplay::className(), ['id_order' => 'id_order']);
+    }
+
+    public function getLayanan()
+    {
+        return $this->hasOne(Layanan::className(), ['id_layanan' => 'nama_layanan']);
     }
 }

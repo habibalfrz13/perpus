@@ -41,7 +41,6 @@ class UserController extends Controller
     {
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
-
         $model = User::find()->all();
 
         return $this->render('index', [

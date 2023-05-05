@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 <div class="card card-body">
-    <table class="table table-hover">
+    <table class="table table-hover text-center">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -64,7 +64,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ?>
                 <tr>
                     <th scope="row"><?= $no++ ?></th>
-
                     <td><?= $data->id ?></td>
                     <td><?= $data->username ?></td>
                     <td><?php if ($pelanggan) {
@@ -76,9 +75,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         }
                         ?></td>
                     <td><?= $data->role ?></td>
-                    <td></td>
+                    <td>
+                        <a href="view?id=<?= $data->id ?>" class="btn btn-primary"><i class="bi bi-eye"></i></a>
+                        <a href="update?id=<?= $data->id ?>" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+                        <a href="delete?id=<?= $data->id ?>" class="btn btn-danger"><i class="bi bi-x-circle"></i></a>
+                    </td>
                 </tr>
-
             <?php } ?>
         </tbody>
     </table>

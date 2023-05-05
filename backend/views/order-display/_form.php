@@ -10,7 +10,7 @@ use yii\helpers\ArrayHelper;
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="card card-header">
+<div class="card card-body">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -59,24 +59,27 @@ use yii\helpers\ArrayHelper;
         ) ?>
     <?php endif; ?>
 
-
-    <?php if ($model->status == 'diterima') : ?>
-        <?= Html::submitButton('Cancel', ['class' => 'btn btn-danger']) ?>
-    <?php endif; ?>
-
-    <?php if (Yii::$app->user->identity->role == 'customer') : ?>
-        <?php if ($model->status == 'dipesan') : ?>
-            <?= Html::submitButton('Pesan', ['class' => 'btn btn-success']) ?>
+    <div>
+        <?php if ($model->status == 'diterima') : ?>
+            <?= Html::submitButton('Cancel', ['class' => 'btn btn-danger']) ?>
         <?php endif; ?>
-    <?php endif; ?>
 
-    <?php if (Yii::$app->user->identity->role != 'customer') : ?>
-        <?php if ($model->status == 'dipesan') : ?>
-            <?= Html::submitButton('Terima', ['class' => 'btn btn-success']) ?>
+        <?php if (Yii::$app->user->identity->role == 'customer') : ?>
+            <?php if ($model->status == 'dipesan') : ?>
+                <?= Html::submitButton('Pesan', ['class' => 'btn btn-success']) ?>
+            <?php endif; ?>
         <?php endif; ?>
-    <?php endif; ?>
+
+        <?php if (Yii::$app->user->identity->role != 'customer') : ?>
+            <?php if ($model->status == 'dipesan') : ?>
+                <?= Html::submitButton('Terima', ['class' => 'btn btn-success']) ?>
+            <?php endif; ?>
+        <?php endif; ?>
 
 
-    <?php ActiveForm::end(); ?>
+        <?php ActiveForm::end(); ?>
+
+        <a href="<?= Yii::$app->request->referrer ?>" class="btn btn-dark">Back</a>
+    </div>
 
 </div>

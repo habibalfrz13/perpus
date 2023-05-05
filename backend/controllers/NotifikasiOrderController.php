@@ -40,10 +40,12 @@ class NotifikasiOrderController extends Controller
     {
         $searchModel = new NotifikasiOrderSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
+        $modelnotif = NotifikasiOrder::find()->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'modelnotif' => $modelnotif,
         ]);
     }
 

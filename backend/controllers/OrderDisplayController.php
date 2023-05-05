@@ -56,6 +56,8 @@ class OrderDisplayController extends Controller
         $dataProvider2 = $searchModel2->search(Yii::$app->request->queryParams);
         $dataProvider2->query->andWhere(['jenis_layanan' => 2]);
 
+        $modelorder = OrderDisplay::find()->all();
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -63,6 +65,7 @@ class OrderDisplayController extends Controller
             'dataProvider1' => $dataProvider1,
             'searchModel2' => $searchModel2,
             'dataProvider2' => $dataProvider2,
+            'modelorder' => $modelorder,
         ]);
     }
 

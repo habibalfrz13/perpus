@@ -1,6 +1,11 @@
 <?php
 
 use backend\models\OrderDisplay;
+use backend\models\Alamat;
+use backend\models\Layanan;
+use backend\models\Pelanggan;
+use PhpParser\Node\Stmt\Label;
+use yii\bootstrap5\ActiveForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -23,39 +28,53 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?php if (Yii::$app->user->identity->role == 'admin') : ?>
     <div class="card card-body">
-        <?= GridView::widget([
-            'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
-            'columns' => [
-                ['class' => 'yii\grid\SerialColumn'],
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <!-- <th scope="col">Nomor Order</th> -->
+                    <!-- <th scope="col">Id User</th> -->
+                    <th scope="col">Nama User</th>
+                    <th scope="col">Jenis Layanan</th>
+                    <th scope="col">Jumlah AC</th>
+                    <th scope="col">Alamat</th>
+                    <!-- <th scope="col">Detail</th> -->
+                    <th scope="col">Status</th>
+                    <th width="104" scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $no = 1;
+                foreach ($modelorder as $data) {
+                    $alamat = Alamat::find()->where(['id_user' => $data->id_user])->one();
+                    $layanan = Layanan::find()->where(['id_layanan' => $data->jenis_layanan])->one();
+                    $pelanggan = Pelanggan::find()->where(['id_user' => $data->id_user])->one();
+                ?>
+                    <tr>
+                        <th scope="row"><?= $no++ ?></th>
+                        <td><?= $pelanggan->nama ?></td>
+                        <td><?= $layanan->nama_layanan ?></td>
+                        <td><?= $data->jumlah ?></td>
+                        <td><?= $alamat->alamat ?></td>
+                        <td><?= $data->status ?></td>
+                        <td>
+                            <a href="view?id_order=<?= $data->id_order ?>" class="btn btn-primary"><i class="bi bi-eye"></i></a>
+                            <a href="update?id_order=<?= $data->id_order ?>" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
 
-                // 'id_order',
-                // 'id_user',
-                // 'jumlah',
-                'jenis_layanan' => [
-                    'attribute' => 'jenis_layanan',
-                    'value' => function ($model) {
-                        return $model->layanan->nama_layanan;
-                    },
-                ],
-                'detail',
-                //'masalah',
-                //'id_merk',
-                //'type_ac',
-                'alamat',
-                //'jadwal_pengerjaan',
-                'status',
-                //'tgl_pesan',
-                // 'id_teknisi',
-                //'point_teknisi',
-                [
-                    'class' => ActionColumn::className(),
-                    'urlCreator' => function ($action, OrderDisplay $model, $key, $index, $column) {
-                        return Url::toRoute([$action, 'id_order' => $model->id_order]);
-                    }
-                ],
-            ],
-        ]); ?>
+                            <?php $form = ActiveForm::begin([
+                                'action' => ['order-display/delete', 'id_order' => $data->id_order],
+                                'method' => 'post',
+                            ]) ?>
+                            <button type="submit" class="btn btn-danger my-2"><i class="bi bi-x-circle"></i></button>
+                            <?php ActiveForm::end() ?>
+
+
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
 <?php endif; ?>
 
