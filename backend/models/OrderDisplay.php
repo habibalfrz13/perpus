@@ -51,7 +51,7 @@ class OrderDisplay extends \yii\db\ActiveRecord
         return [
             [['id_user', 'jumlah', 'jenis_layanan', 'detail', 'masalah', 'id_merk', 'alamat', 'jadwal_pengerjaan', 'status', 'tgl_pesan'], 'required'],
             [['id_user', 'jumlah', 'id_merk', 'id_teknisi', 'point_teknisi'], 'integer'],
-            [['jadwal_pengerjaan', 'tgl_pesan', 'type_ac', 'id_teknisi', 'point_teknisi'], 'safe'],
+            [['jadwal_pengerjaan', 'tgl_pesan', 'type_ac', 'id_teknisi', 'point_teknisi', 'kondisi_ac'], 'safe'],
             [['status'], 'string'],
             [['jenis_layanan', 'detail', 'masalah', 'type_ac', 'alamat'], 'string', 'max' => 50],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
@@ -72,6 +72,7 @@ class OrderDisplay extends \yii\db\ActiveRecord
             'jenis_layanan' => 'Jenis Layanan',
             'detail' => 'Detail',
             'masalah' => 'Masalah',
+            'kondisi' => 'Kondisi Ac',
             'id_merk' => 'Id Merk',
             'type_ac' => 'Type Ac',
             'alamat' => 'Alamat',

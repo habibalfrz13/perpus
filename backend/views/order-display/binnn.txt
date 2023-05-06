@@ -63,3 +63,85 @@
             ],
         ],
     ]); ?>
+
+
+
+      <div class="card table-hover">
+            <div class="card-body">
+                <?= GridView::widget([
+                    'dataProvider' => $dataProvider,
+                    'filterModel' => $searchModel,
+                    'columns' => [
+                        ['class' => 'yii\grid\SerialColumn'],
+
+                        // 'id_feedback',
+                        'id_user' => [
+                            'attribute' => 'id_user',
+                            'label' => 'Nama Pelanggan',
+                            'value' => $pelanggan->nama,
+                        ],
+                        'id_order' => [
+                            'attribute' => 'id_order',
+                            'label' => 'Jenis Layanan',
+                            'value' => $layanan->jenis_layanan,
+                        ],
+                        'id_teknisi',
+                        'rating',
+                        'ulasan',
+                        //'create_at',
+                        //'point',
+                        [
+                            'class' => ActionColumn::className(),
+                            'urlCreator' => function ($action, Feedback $model, $key, $index, $column) {
+                                return Url::toRoute([$action, 'id_feedback' => $model->id_feedback]);
+                            }
+                        ],
+                    ],
+                ]); ?>
+            </div>
+        </div>
+
+
+
+
+           <?= $form->field($model, 'status')->dropDownList([0 => '0', 10 => '10',], ['prompt' => '']) ?>
+
+
+            <div class="card card-body">
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                'filterModel' => $searchModel,
+                'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
+
+                    // 'id',
+                    // 'id_order',
+                    'id_user' => [
+                        'attribute' => 'id_user',
+                        'label' => 'Nama Pelanggan',
+                        'value' => function ($model) {
+                            $pelanggan = Pelanggan::find()->where(['id_user' => $model->id_user])->one();
+                            return $pelanggan ? $pelanggan->nama : "Pelanggan Belum Ada";
+                        },
+                    ],
+                    [
+                        'label' => 'Jenis Layanan',
+                        'value' => function ($model) {
+                            $history = OrderDisplay::find()->where(['id_order' => $model->id_order])->one();
+                            $layanan = Layanan::find()->where(['id_layanan' => $history->jenis_layanan])->one();
+                            return $layanan ? $layanan->nama_layanan : "Tidak ada";
+                        },
+                    ],
+                    'jumlah_point',
+                    'judul',
+                    //'keterangan',
+                    //'create_at',
+                    [
+                        'class' => ActionColumn::className(),
+                        'urlCreator' => function ($action, NotifikasiPoint $model, $key, $index, $column) {
+                            return Url::toRoute([$action, 'id' => $model->id]);
+                        }
+                    ],
+                ],
+            ]); ?>
+        </div>

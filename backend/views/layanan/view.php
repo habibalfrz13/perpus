@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
 
         <div class="mt-3">
-            <a href="<?= Yii::$app->request->referrer ?>" class="btn btn-dark">Back</a>
+            <?= Html::a('Back', ['index'], ['class' => 'btn btn-dark']) ?>
         </div>
     </div>
 </div>

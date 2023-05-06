@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use backend\models\Pelanggan;
+use backend\models\AlamatKategori;
 
 /** @var yii\web\View $this */
 /** @var backend\models\Alamat $model */
@@ -31,7 +33,22 @@ $this->params['breadcrumbs'][] = $this->title;
                 'model' => $model,
                 'attributes' => [
                     'id_alamat',
-                    'id_user',
+                    'id_user' => [
+                        'attribute' => 'id_user',
+                        'label' => 'Nama Pelanggan',
+                        'value' => function ($model) {
+                            $pelanggan = Pelanggan::find()->where(['id_user' => $model->id_user])->one();
+                            return $pelanggan ? $pelanggan->nama : "Pelanggan Belum Ada";
+                        },
+                    ],
+                    'id_kategori' => [
+                        'attribute' => 'id_kategori',
+                        'label' => 'Kategori Alamat',
+                        'value' => function ($model) {
+                            $alamat = AlamatKategori::find()->where(['id' => $model->id_kategori])->one();
+                            return $alamat ? $alamat->nama : "Alamat Tidak Tersedia";
+                        },
+                    ],
                     'provinsi',
                     'kota',
                     'kecamatan',
@@ -41,7 +58,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     'longitude',
                     // 'status',
                     // 'create_at',
-                    'id_kategori',
                 ],
             ]) ?>
         <?php endif; ?>
@@ -68,6 +84,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     </div>
     <div class="mt-3">
-        <a href="<?= Yii::$app->request->referrer ?>" class="btn btn-dark">Back</a>
+        <?= Html::a('Back', ['index'], ['class' => 'btn btn-dark']) ?>
     </div>
 </div>

@@ -40,10 +40,12 @@ class NotifikasiPointController extends Controller
     {
         $searchModel = new NotifikasiPointSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
+        $modelnotif = NotifikasiPoint::find()->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'modelnotif' => $modelnotif,
         ]);
     }
 

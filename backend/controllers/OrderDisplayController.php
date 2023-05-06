@@ -2,6 +2,8 @@
 
 namespace backend\controllers;
 
+use backend\models\NotifikasiOrder;
+use backend\models\NotifikasiPoint;
 use backend\models\OrderDisplay;
 use backend\models\OrderDisplaySearch;
 use backend\models\OrderHistori;
@@ -94,10 +96,15 @@ class OrderDisplayController extends Controller
         $model->id_user = $user->id;
         $model->tgl_pesan = date('Y-m-d H:i:s');
         $model->status = 'dipesan';
-
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-
+                $modelnotiforder = new NotifikasiOrder();
+                $modelnotiforder->id_order = $model->id_order;
+                $modelnotiforder->jenis_layanan = $model->jenis_layanan;
+                $modelnotiforder->judul = $model->status;
+                $modelnotiforder->keterangan = 'Orderan';
+                $modelnotiforder->create_at = date('Y-m-d H:i:s');
+                $modelnotiforder->save(false);
                 return $this->redirect(['index']);
             }
         } else {
@@ -108,6 +115,7 @@ class OrderDisplayController extends Controller
             'model' => $model,
         ]);
     }
+
 
     /**
      * Updates an existing OrderDisplay model.
@@ -146,6 +154,14 @@ class OrderDisplayController extends Controller
                             $historiPoint->created_at = date('Y-m-d H:i:s');
                             $historiPoint->save(false);
                         }
+                        $modelnotifpoint = new NotifikasiPoint();
+                        $modelnotifpoint->id_order = $model->id_order;
+                        $modelnotifpoint->id_user = $model->id_user;
+                        $modelnotifpoint->jumlah_point = $pointvalue;
+                        $modelnotifpoint->judul = $model->status;
+                        $modelnotifpoint->keterangan = 'Point';
+                        $modelnotifpoint->create_at = date('Y-m-d H:i:s');
+                        $modelnotifpoint->save(false);
                     }
                 }
                 Yii::$app->session->setFlash('success', 'Pesanan berhasil diterima.');

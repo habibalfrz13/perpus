@@ -232,14 +232,6 @@ AppAsset::register($this);
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="<?= Yii::$app->urlManager->createUrl(['order-kondisi/index']) ?>" class="nav-link">
-                        <i class="far fa-circle nav-icon text-danger"></i>
-                        <p>
-                          Order Kondisi
-                        </p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
                       <a href="<?= Yii::$app->urlManager->createUrl(['order-history/index']) ?>" class="nav-link">
                         <i class="far fa-circle nav-icon text-danger"></i>
                         <p>
@@ -266,14 +258,6 @@ AppAsset::register($this);
                         <i class="far fa-circle nav-icon text-danger"></i>
                         <p>
                           FeedBack
-                        </p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="<?= Yii::$app->urlManager->createUrl(['foto-feedback/index']) ?>" class="nav-link">
-                        <i class="far fa-circle nav-icon text-danger"></i>
-                        <p>
-                          Foto FeedBack
                         </p>
                       </a>
                     </li>
@@ -571,14 +555,6 @@ AppAsset::register($this);
                 <i class="far fa-circle nav-icon text-danger"></i>
                 <p>
                   FeedBack
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= Yii::$app->urlManager->createUrl(['foto-feedback/index']) ?>" class="nav-link">
-                <i class="far fa-circle nav-icon text-danger"></i>
-                <p>
-                  Foto FeedBack
                 </p>
               </a>
             </li>

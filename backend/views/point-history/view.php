@@ -35,5 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'created_at',
         ],
     ]) ?>
-
+    <div class="mt-3">
+        <?= Html::a('Back', ['index'], ['class' => 'btn btn-dark']) ?>
+    </div>
 </div>

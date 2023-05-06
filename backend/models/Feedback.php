@@ -40,8 +40,9 @@ class Feedback extends \yii\db\ActiveRecord
             [['id_user', 'id_teknisi', 'rating', 'ulasan', 'create_at', 'point'], 'required'],
             [['id_user', 'id_order', 'id_teknisi', 'point'], 'integer'],
             [['rating'], 'number'],
-            [['create_at'], 'safe'],
+            [['create_at', 'foto_feedback'], 'safe'],
             [['ulasan'], 'string', 'max' => 50],
+            [['foto_feedback'], 'file', 'skipOnEmpty' => true, 'extensions' => ['pdf', 'jpg', 'jpeg', 'png'], 'maxSize' => 1024 * 1024 * 10],
             [['id_order'], 'exist', 'skipOnError' => true, 'targetClass' => OrderDisplay::className(), 'targetAttribute' => ['id_order' => 'id_order']],
             [['id_teknisi'], 'exist', 'skipOnError' => true, 'targetClass' => Teknisi::className(), 'targetAttribute' => ['id_teknisi' => 'id_teknisi']],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
@@ -62,6 +63,7 @@ class Feedback extends \yii\db\ActiveRecord
             'ulasan' => 'Ulasan',
             'create_at' => 'Create At',
             'point' => 'Point',
+            'foto_feedback' => 'Foto FeedBack',
         ];
     }
 

@@ -35,5 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'keterangan',
         ],
     ]) ?>
-
+    <div class="mt-3">
+        <?= Html::a('Back', ['index'], ['class' => 'btn btn-dark']) ?>
+    </div>
 </div>

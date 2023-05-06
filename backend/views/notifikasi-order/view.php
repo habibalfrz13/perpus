@@ -1,7 +1,10 @@
 <?php
 
+use backend\models\Layanan;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use backend\models\Pelanggan;
+use backend\models\OrderDisplay;
 
 /** @var yii\web\View $this */
 /** @var backend\models\NotifikasiOrder $model */
@@ -21,19 +24,30 @@ $this->params['breadcrumbs'][] = $this->title;
             'attributes' => [
                 'id',
                 [
+                    'attribute' => 'id_order',
                     'label' => 'Nama Pelanggan',
                     'value' => function ($model) {
-                        return $model->nama_pelanggan; // Ganti "nama_pelanggan" dengan nama atribut yang sesuai di model Anda
-                    }
+                        $history = OrderDisplay::find()->where(['id_order' => $model->id_order])->one();
+                        $pelanggan = Pelanggan::find()->where(['id_user' => $history->id_user])->one();
+                        return $pelanggan ? $pelanggan->nama : "Tidak ada nama";
+                    },
+                ],
+                [
+                    'label' => 'Jenis Layanan',
+                    'value' => function ($model) {
+                        $history = OrderDisplay::find()->where(['id_order' => $model->id_order])->one();
+                        $layanan = Layanan::find()->where(['id_layanan' => $history->jenis_layanan])->one();
+                        return $layanan ? $layanan->nama_layanan : "Tidak ada";
+                    },
                 ],
                 'judul',
                 'keterangan',
                 'create_at',
             ],
         ]) ?>
-
     </div>
+
     <div class="mt-3">
-        <a href="<?= Yii::$app->request->referrer ?>" class="btn btn-dark">Back</a>
+        <?= Html::a('Back', ['index'], ['class' => 'btn btn-dark']) ?>
     </div>
 </div>

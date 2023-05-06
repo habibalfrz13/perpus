@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?php if (Yii::$app->user->identity->role == 'admin') : ?>
+    <?php if (Yii::$app->user->identity->role == 'operator') : ?>
         <p>
             <?= Html::a('Create Notifikasi Order', ['create'], ['class' => 'btn btn-success']) ?>
         </p>

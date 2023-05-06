@@ -28,6 +28,14 @@ use yii\helpers\ArrayHelper;
     <?= $form->field($model, 'masalah')->textInput(['maxlength' => true]) ?>
 
 
+    <?= $form->field($model, 'kondisi_ac')->label('Kondisi Ac')->checkboxList(
+        ArrayHelper::map(\backend\models\KondisiAc::find()->all(), 'id', 'nama'),
+        ['class' => 'form-check form-check-lg']
+    ) ?>
+
+
+
+
     <?= $form->field($model, 'id_merk')->label('Merk AC')->dropDownList(
         ArrayHelper::map(\backend\models\MerkAc::find()->all(), 'id', 'nama'),
         ['prompt' => 'Pilih Merk Ac']
@@ -79,7 +87,7 @@ use yii\helpers\ArrayHelper;
 
         <?php ActiveForm::end(); ?>
 
-        <a href="<?= Yii::$app->request->referrer ?>" class="btn btn-dark">Back</a>
+        <?= Html::a('Back', ['index'], ['class' => 'btn btn-dark']) ?>
     </div>
 
 </div>

@@ -16,6 +16,7 @@ use PhpParser\Node\Scalar;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 use Yii;
 
 /**
@@ -95,6 +96,12 @@ class FeedbackController extends Controller
                 $model->id_user = $user->id;
                 $model->id_order = $orderid;
                 $model->id_teknisi = $idteknisi;
+                $model->foto_feedback = UploadedFile::getInstance($model, 'foto_feedback');
+                if ($model->foto_feedback) {
+                    $fotoName = 'foto_' . time() . '.' . $model->foto_feedback->extension;
+                    $model->foto_feedback->saveAs(Yii::getAlias('@app/uploads/fotofeedback/') . $fotoName);
+                    $model->foto_feedback = $fotoName;
+                }
                 $model->create_at = date('Y-m-d H:i:s');
                 $model->point = $point;
                 if ($model->save(false)) {

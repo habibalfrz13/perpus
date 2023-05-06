@@ -1,5 +1,8 @@
 <?php
 
+use backend\models\AlamatKategori;
+use backend\models\Pelanggan;
+use PhpParser\Node\Stmt\Label;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
@@ -13,6 +16,14 @@ use yii\helpers\ArrayHelper;
     <div class="alamat-form">
 
         <?php $form = ActiveForm::begin(); ?>
+
+        <?= $form->field($model, 'id_user')->label('Nama Pelanggan')->dropDownList(
+            ArrayHelper::map(\backend\models\Pelanggan::find()->all(), 'id_user', 'nama'),
+            [
+                'value' => ArrayHelper::getValue($model, 'nama'),
+                'disabled' => true, // membuat dropdown list menjadi readonly
+            ]
+        ) ?>
 
         <?= $form->field($model, 'provinsi')->textInput(['maxlength' => true]) ?>
 
@@ -28,19 +39,17 @@ use yii\helpers\ArrayHelper;
 
         <?= $form->field($model, 'longitude')->textInput() ?>
 
-        <?= $form->field($model, 'status')->dropDownList([0 => '0', 10 => '10',], ['prompt' => '']) ?>
+        <?= $form->field($model, 'id_kategori')->dropDownList(
+            ArrayHelper::map(\backend\models\AlamatKategori::find()->all(), 'id', 'nama'),
+            [
+                'prompt' => '- Pilih Kategori -',
+            ]
+        ) ?>
 
-
-        <?= $form->field($model, 'id_kategori')->dropDownList([
-            '' => '- Pilih Kategori -',
-            1 => 'Kantor',
-            2 => 'Rumah',
-            3 => 'Kos-Kosan',
-        ]) ?>
 
         <div class="form-group">
             <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-            <a href="<?= Yii::$app->request->referrer ?>" class="btn btn-dark">Back</a>
+            <?= Html::a('Back', ['index'], ['class' => 'btn btn-dark']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>

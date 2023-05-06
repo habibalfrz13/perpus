@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use backend\models\Pelanggan;
+use backend\models\OrderDisplay;
+use backend\models\Layanan;
 
 /** @var yii\web\View $this */
 /** @var backend\models\NotifikasiPoint $model */
@@ -31,15 +34,33 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= DetailView::widget([
             'model' => $model,
             'attributes' => [
-                'id',
-                'id_order',
-                'id_user',
+                // 'id',
+                // 'id_order',
+                [
+                    'attribute' => 'id_user',
+                    'label' => 'Nama Pelanggan',
+                    'value' => function ($model) {
+                        $pelanggan = Pelanggan::find()->where(['id_user' => $model->id_user])->one();
+                        return $pelanggan ? $pelanggan->nama : "Tidak ada nama";
+                    },
+                ],
+                [
+                    'label' => 'Jenis Layanan',
+                    'value' => function ($model) {
+                        $history = OrderDisplay::find()->where(['id_order' => $model->id_order])->one();
+                        $layanan = Layanan::find()->where(['id_layanan' => $history->jenis_layanan])->one();
+                        return $layanan ? $layanan->nama_layanan : "Tidak ada";
+                    },
+                ],
                 'jumlah_point',
                 'judul',
                 'keterangan',
                 'create_at',
             ],
         ]) ?>
+        <div class="mt-3">
+            <?= Html::a('Back', ['index'], ['class' => 'btn btn-dark']) ?>
+        </div>
 
     </div>
 </div>

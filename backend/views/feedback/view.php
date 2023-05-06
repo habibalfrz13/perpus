@@ -2,6 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use backend\models\Pelanggan;
+use backend\models\OrderHistori;
+use backend\models\Teknisi;
+use backend\models\Layanan;
 
 /** @var yii\web\View $this */
 /** @var backend\models\Feedback $model */
@@ -31,18 +35,47 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= DetailView::widget([
             'model' => $model,
             'attributes' => [
-                'id_feedback',
-                'id_user',
-                'id_order',
-                'id_teknisi',
+                // 'id_feedback',
+                'id_user' => [
+                    'attribute' => 'id_user',
+                    'label' => 'Nama Pelanggan',
+                    'value' => function ($model) {
+                        $pelanggan = Pelanggan::find()->where(['id_user' => $model->id_user])->one();
+                        return $pelanggan ? $pelanggan->nama : "Pelanggan Belum Ada";
+                    },
+                ],
+                [
+                    'attribute' => 'id_order',
+                    'label' => 'Jenis Layanan',
+                    'value' => function ($model) {
+                        $history = OrderHistori::find()->where(['id_order' => $model->id_order])->one();
+                        $layanan = Layanan::find()->where(['id_layanan' => $history->jenis_layanan])->one();
+                        return $layanan ? $layanan->jenis_layanan : "Layanan Belum Ada";
+                    },
+                ],
+                'id_teknisi' => [
+                    'attribute' => 'id_teknisi',
+                    'label' => 'Nama Teknisi',
+                    'value' => function ($model) {
+                        $teknisi = Teknisi::find()->where(['id_teknisi' => $model->id_teknisi])->one();
+                        return $teknisi ? $teknisi->nama_lengkap : "Teknisi Belum Ada";
+                    },
+                ],
                 'rating',
                 'ulasan',
+                [
+                    'attribute' => 'foto_feedback',
+                    'format' => 'raw',
+                    'value' => function ($model) {
+                        return Html::img('../../backend/uploads/fotofeedback/' . $model->foto_feedback, ['alt' => 'Foto', 'class' => 'img-thumbnail', 'width' => '150px']);
+                    }
+                ],
                 'create_at',
                 'point',
             ],
         ]) ?>
         <div class="mt-3">
-            <a href="<?= Yii::$app->request->referrer ?>" class="btn btn-dark">Back</a>
+            <?= Html::a('Back', ['index'], ['class' => 'btn btn-dark']) ?>
         </div>
     </div>
 </div>

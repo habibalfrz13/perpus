@@ -33,7 +33,7 @@ use yii\helpers\ArrayHelper;
 
         <div class="form-group">
             <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-            <a href="<?= Yii::$app->request->referrer ?>" class="btn btn-dark">Back</a>
+            <?= Html::a('Back', ['index'], ['class' => 'btn btn-dark']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>

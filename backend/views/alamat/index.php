@@ -5,6 +5,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use backend\models\Pelanggan;
 
 /** @var yii\web\View $this */
 /** @var backend\models\AlamatSearch $searchModel */
@@ -17,9 +18,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create Alamat', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?php if (Yii::$app->user->identity->role == 'admin') : ?>
+        <p>
+            <?= Html::a('Create Alamat', ['create'], ['class' => 'btn btn-success']) ?>
+        </p>
+    <?php endif; ?>
+
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); 
     ?>
@@ -31,7 +35,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['class' => 'yii\grid\SerialColumn'],
 
                 // 'id_alamat',
-                // 'id_user',
+                'id_user' => [
+                    'attribute' => 'id_user',
+                    'label' => 'Nama Pelanggan',
+                    'value' => function ($model) {
+                        $pelanggan = Pelanggan::find()->where(['id_user' => $model->id_user])->one();
+                        return $pelanggan ? $pelanggan->nama : "Pelanggan Belum Ada";
+                    },
+                ],
                 'provinsi',
                 'kota',
                 'kecamatan',

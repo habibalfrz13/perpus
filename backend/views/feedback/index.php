@@ -72,10 +72,19 @@ $this->params['breadcrumbs'][] = $this->title;
                         //'point',
                         [
                             'class' => ActionColumn::className(),
+                            'template' => '{view}',
+                            'buttons' => [
+                                'view' => function ($url, $model, $key) {
+                                    return Html::a('<i class="bi bi-eye"></i>', $url, [
+                                        'title' => Yii::t('yii', 'View'),
+                                    ]);
+                                },
+                            ],
                             'urlCreator' => function ($action, Feedback $model, $key, $index, $column) {
                                 return Url::toRoute([$action, 'id_feedback' => $model->id_feedback]);
                             }
                         ],
+
                     ],
                 ]); ?>
             </div>
