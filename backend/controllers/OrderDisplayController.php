@@ -2,6 +2,8 @@
 
 namespace backend\controllers;
 
+use backend\models\KondisAcorder;
+use backend\models\KondisiAc;
 use backend\models\NotifikasiOrder;
 use backend\models\NotifikasiPoint;
 use backend\models\OrderDisplay;
@@ -97,7 +99,20 @@ class OrderDisplayController extends Controller
         $model->tgl_pesan = date('Y-m-d H:i:s');
         $model->status = 'dipesan';
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post())) {
+                $kondisi = Yii::$app->request->post('kondisi_ac', []);
+                if ($model->save()) {
+                    foreach ($kondisi as $data) {
+
+                        $data_kondisi = KondisiAc::find()->where(['id' => $data])->one();
+                        // print_r($data_kondisi->nama);
+                        // die();
+                        $data2 = new KondisAcorder();
+                        $data2->id_order = $model->id_order;
+                        $data2->kondisi = $data_kondisi->nama;
+                        $data2->save();
+                    }
+                }
                 $modelnotiforder = new NotifikasiOrder();
                 $modelnotiforder->id_order = $model->id_order;
                 $modelnotiforder->jenis_layanan = $model->jenis_layanan;

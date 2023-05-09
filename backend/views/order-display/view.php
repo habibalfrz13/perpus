@@ -1,11 +1,14 @@
 <?php
 
 use backend\models\Alamat;
+use backend\models\KondisAcorder;
 use backend\models\MerkAc;
 use backend\models\Pelanggan;
+use backend\models\KondisiAc;
 use backend\models\Teknisi;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+
 
 /** @var yii\web\View $this */
 /** @var backend\models\OrderDisplay $model */
@@ -69,15 +72,24 @@ $this->params['breadcrumbs'][] = $this->title;
                         ],
                         'detail',
                         'masalah',
+                        [
+                            'label' => 'Kondisi Ac',
+                            'value' => function ($model) {
+                                $kondisiacorder = KondisAcorder::find()->where(['id_order' => $model->id_order])->all();
+                                if ($kondisiacorder) {
+                                    $kondisi = [];
+                                    foreach ($kondisiacorder as $k) {
+                                        $kondisi[] = KondisiAc::findOne($k->id)->nama;
+                                    }
+                                    return implode(', ', $kondisi);
+                                }
+                                return '-';
+                            },
+                        ],
                         'id_merk' => [
                             'label' => 'Merk AC',
                             'attribute' => 'id_merk',
                             'value' => $merk->nama,
-                        ],
-                        'type_ac',
-                        [
-                            'label' => 'Alamat',
-                            'value' => $alamat->alamat,
                         ],
                         'jadwal_pengerjaan',
                         'status',

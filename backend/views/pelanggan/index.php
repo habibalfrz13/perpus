@@ -54,7 +54,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     'nama',
                     'no_hp',
                     'email:email',
-                    'foto',
+                    [
+                        'attribute' => 'foto',
+                        'format' => 'raw',
+                        'value' => function ($model) {
+                            return Html::img('../../backend/uploads/foto/' . $model->foto, ['alt' => 'Foto', 'class' => 'img-thumbnail', 'width' => '150px']);
+                        }
+                    ],
                     [
                         'class' => ActionColumn::className(),
                         'urlCreator' => function ($action, Pelanggan $model, $key, $index, $column) {
@@ -79,7 +85,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     'nama',
                     'no_hp',
                     'email:email',
-                    'foto',
+                    [
+                        'attribute' => 'foto',
+                        'format' => 'raw',
+                        'value' => function ($model) {
+                            return Html::img('../../backend/uploads/foto/' . $model->foto, ['alt' => 'Foto', 'class' => 'img-thumbnail', 'width' => '150px']);
+                        }
+                    ],
                     [
                         'class' => ActionColumn::className(),
                         'urlCreator' => function ($action, Pelanggan $model, $key, $index, $column) {

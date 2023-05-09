@@ -208,6 +208,14 @@ AppAsset::register($this);
                         </p>
                       </a>
                     </li>
+                    <li class="nav-item">
+                      <a href="<?= Yii::$app->urlManager->createUrl(['topup/index']) ?>" class="nav-link">
+                        <i class="far fa-circle nav-icon text-danger"></i>
+                        <p>
+                          Topup
+                        </p>
+                      </a>
+                    </li>
                   </ul>
                 </li>
 
@@ -517,14 +525,6 @@ AppAsset::register($this);
                 <i class="far fa-circle nav-icon text-danger"></i>
                 <p>
                   Order Display
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= Yii::$app->urlManager->createUrl(['order-kondisi/index']) ?>" class="nav-link">
-                <i class="far fa-circle nav-icon text-danger"></i>
-                <p>
-                  Order Kondisi
                 </p>
               </a>
             </li>

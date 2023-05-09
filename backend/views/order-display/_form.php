@@ -1,5 +1,6 @@
 <?php
 
+use backend\models\KondisiAc;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\date\DatePicker;
@@ -27,13 +28,12 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'masalah')->textInput(['maxlength' => true]) ?>
 
-
-    <?= $form->field($model, 'kondisi_ac')->label('Kondisi Ac')->checkboxList(
-        ArrayHelper::map(\backend\models\KondisiAc::find()->all(), 'id', 'nama'),
-        ['class' => 'form-check form-check-lg']
-    ) ?>
-
-
+    <?= Html::label('Kondisi AC') ?>
+    <br>
+    <?php $kondisi = KondisiAc::find()->all(); ?>
+    <?php foreach ($kondisi as $data) : ?>
+        <?= Html::checkbox('kondisi_ac[]', false, ['label' => $data->nama, 'value' => $data->id]) ?>
+    <?php endforeach; ?>
 
 
     <?= $form->field($model, 'id_merk')->label('Merk AC')->dropDownList(

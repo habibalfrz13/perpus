@@ -21,26 +21,28 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Point History', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); 
+    ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+    <div class="card card-body">
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'id_user',
-            'point',
-            'created_at',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, PointHistory $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                 }
+                'id',
+                'id_user',
+                'point',
+                'created_at',
+                [
+                    'class' => ActionColumn::className(),
+                    'urlCreator' => function ($action, PointHistory $model, $key, $index, $column) {
+                        return Url::toRoute([$action, 'id' => $model->id]);
+                    }
+                ],
             ],
-        ],
-    ]); ?>
-
+        ]); ?>
+    </div>
 
 </div>
