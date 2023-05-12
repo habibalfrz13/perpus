@@ -76,14 +76,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             'label' => 'Kondisi Ac',
                             'value' => function ($model) {
                                 $kondisiacorder = KondisAcorder::find()->where(['id_order' => $model->id_order])->all();
-                                if ($kondisiacorder) {
-                                    $kondisi = [];
-                                    foreach ($kondisiacorder as $k) {
-                                        $kondisi[] = KondisiAc::findOne($k->id)->nama;
-                                    }
-                                    return implode(', ', $kondisi);
+                                $kondisiAcArray = [];
+                                foreach ($kondisiacorder as $kondisi) {
+                                    $kondisiAcArray[] = $kondisi->kondisi; //ganti attribute dengan atribut yang diinginkan dari model KondisAcorder
                                 }
-                                return '-';
+                                return implode(", ", $kondisiAcArray);
                             },
                         ],
                         'id_merk' => [
