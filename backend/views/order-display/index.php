@@ -4,6 +4,7 @@ use backend\models\OrderDisplay;
 use backend\models\Alamat;
 use backend\models\Layanan;
 use backend\models\Pelanggan;
+use backend\models\Teknisi;
 use PhpParser\Node\Stmt\Label;
 use yii\bootstrap5\ActiveForm;
 use yii\helpers\Html;
@@ -80,7 +81,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 <?php if (Yii::$app->user->identity->role == 'operator') : ?>
-    <div>
+    <div class="Table Cuci Ac">
         <div class="card-body">
             <div class="card">
                 <div class="card-body table-hover">
@@ -107,7 +108,14 @@ $this->params['breadcrumbs'][] = $this->title;
                             //'jadwal_pengerjaan',
                             'status',
                             //'tgl_pesan',
-                            'id_teknisi',
+                            'id_teknisi' => [
+                                'label' => 'Nama Teknisi',
+                                'attribute' => 'id_teknisi',
+                                'value' => function ($model) {
+                                    $teknisi = Teknisi::find()->where(['id_teknisi' => $model->id_teknisi])->one();
+                                    return $teknisi ? $teknisi->nama_lengkap : "Teknisi Belum Ada";
+                                },
+                            ],
                             //'point_teknisi',
                             [
                                 'class' => ActionColumn::className(),
@@ -148,7 +156,14 @@ $this->params['breadcrumbs'][] = $this->title;
                             //'jadwal_pengerjaan',
                             'status',
                             //'tgl_pesan',
-                            'id_teknisi',
+                            'id_teknisi' => [
+                                'label' => 'Nama Teknisi',
+                                'attribute' => 'id_teknisi',
+                                'value' => function ($model) {
+                                    $teknisi = Teknisi::find()->where(['id_teknisi' => $model->id_teknisi])->one();
+                                    return $teknisi ? $teknisi->nama_lengkap : "Teknisi Belum Ada";
+                                },
+                            ],
                             //'point_teknisi',
                             [
                                 'class' => ActionColumn::className(),
