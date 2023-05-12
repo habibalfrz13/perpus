@@ -1,6 +1,7 @@
 <?php
 
 use backend\models\OrderHistori;
+use backend\models\Teknisi;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -59,7 +60,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="card-body table-hover">
                 <?= GridView::widget([
                     'dataProvider' => $dataProvider,
-                    'filterModel' => $searchModel,
                     'columns' => [
                         ['class' => 'yii\grid\SerialColumn'],
 
@@ -68,7 +68,15 @@ $this->params['breadcrumbs'][] = $this->title;
                         'id_order',
                         'jenis_layanan',
                         'tanggal',
-                        'id_teknisi',
+                        [
+                            'attribute' => 'id_teknisi',
+                            'label' => 'Teknisi',
+                            'value' => function ($model) {
+                                $teknisi = Teknisi::find()->where(['id_teknisi' => $model->id_teknisi])->one();
+                                return isset($teknisi->nama_lengkap) ? $teknisi->nama_lengkap : 'Tidak Ada Teknisi';
+                            }
+                        ],
+
                         //'status',
                         [
                             'class' => ActionColumn::className(),
@@ -96,7 +104,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         'id_order',
                         'jenis_layanan',
                         'tanggal',
-                        'id_teknisi',
+                        [
+                            'attribute' => 'id_teknisi',
+                            'value' => function ($model) {
+                                return isset($model->id_teknisi) ? $model->id_teknisi : 'Teknisi tidak ada';
+                            }
+                        ],
                         //'status',
                         [
                             'class' => ActionColumn::className(),

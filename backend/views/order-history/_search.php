@@ -25,7 +25,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'tanggal') ?>
 
-    <?php // echo $form->field($model, 'status') ?>
+    <?= $form->field($model, 'id_teknisi') ?>
+
+    <?php // echo $form->field($model, 'status') 
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
