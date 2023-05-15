@@ -55,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'value' => function ($model) {
                                 $history = OrderHistori::find()->where(['id_order' => $model->id_order])->one();
                                 $layanan = Layanan::find()->where(['id_layanan' => $history->jenis_layanan])->one();
-                                return $layanan ? $layanan->jenis_layanan : "Layanan Belum Ada";
+                                return $layanan ? $layanan->nama_layanan : "Layanan Belum Ada";
                             },
                         ],
                         'id_teknisi' => [
@@ -102,19 +102,50 @@ $this->params['breadcrumbs'][] = $this->title;
                         ['class' => 'yii\grid\SerialColumn'],
 
                         // 'id_feedback',
-                        'id_user',
-                        'id_order',
-                        'id_teknisi',
+                        'id_user' => [
+                            'attribute' => 'id_user',
+                            'label' => 'Nama Pelanggan',
+                            'value' => function ($model) {
+                                $pelanggan = Pelanggan::find()->where(['id_user' => $model->id_user])->one();
+                                return $pelanggan ? $pelanggan->nama : "Pelanggan Belum Ada";
+                            },
+                        ],
+                        [
+                            'attribute' => 'id_order',
+                            'label' => 'Jenis Layanan',
+                            'value' => function ($model) {
+                                $history = OrderHistori::find()->where(['id_order' => $model->id_order])->one();
+                                $layanan = Layanan::find()->where(['id_layanan' => $history->jenis_layanan])->one();
+                                return $layanan ? $layanan->nama_layanan : "Layanan Belum Ada";
+                            },
+                        ],
+                        'id_teknisi' => [
+                            'attribute' => 'id_teknisi',
+                            'label' => 'Nama Teknisi',
+                            'value' => function ($model) {
+                                $teknisi = Teknisi::find()->where(['id_teknisi' => $model->id_teknisi])->one();
+                                return $teknisi ? $teknisi->nama_lengkap : "Teknisi Belum Ada";
+                            },
+                        ],
                         'rating',
                         'ulasan',
                         //'create_at',
                         //'point',
                         [
                             'class' => ActionColumn::className(),
+                            'template' => '{view}',
+                            'buttons' => [
+                                'view' => function ($url, $model, $key) {
+                                    return Html::a('<i class="bi bi-eye"></i>', $url, [
+                                        'title' => Yii::t('yii', 'View'),
+                                    ]);
+                                },
+                            ],
                             'urlCreator' => function ($action, Feedback $model, $key, $index, $column) {
                                 return Url::toRoute([$action, 'id_feedback' => $model->id_feedback]);
                             }
                         ],
+
                     ],
                 ]); ?>
             </div>

@@ -4,6 +4,7 @@ use backend\models\OrderDisplay;
 use backend\models\Alamat;
 use backend\models\Layanan;
 use backend\models\Pelanggan;
+use backend\models\MerkAc;
 use backend\models\Teknisi;
 use PhpParser\Node\Stmt\Label;
 use yii\bootstrap5\ActiveForm;
@@ -16,10 +17,34 @@ use yii\grid\GridView;
 /** @var backend\models\OrderDisplaySearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
+if (!Yii::$app->user->isGuest) {
+    // Mendapatkan model pengguna yang telah login
+    $user = Yii::$app->user->identity;
+    $teknisi = Teknisi::find()->where(['id_user' => $user->id])->one();
+    // Jika pengguna adalah admin, maka data yang ditampilkan tidak dibatasi
+    if ($user->role == 'admin') {
+        $searchModel->id_user = null;
+    } else if ($user->role == 'operator') {
+        $searchModel->id_user = null;
+    } else if ($user->role == 'teknisi') {
+        $dataProvider1->query->andWhere(['id_teknisi' => $teknisi->id_teknisi]);
+    }
+    // Jika pengguna bukan admin dan operator, maka data yang ditampilkan dibatasi hanya pada data yang sesuai dengan akun mereka
+    else {
+        $searchModel->id_user = $user->id;
+        $dataProvider->query->andWhere(['id_user' => $user->id])
+            ->andWhere(['!=', 'status', 'selesai']);
+    }
+}
+
 $this->title = 'Order Display';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-
+<style>
+    .btn-simetris {
+        width: 70px;
+    }
+</style>
 
 <?php if (Yii::$app->user->identity->role == 'customer') : ?>
     <p>
@@ -202,9 +227,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'filterModel' => $searchModel1,
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
-
-                'id_order',
-                // 'id_user',
+                // 'id_order',
+                'id_user' => [
+                    'label' => 'Nama Pelanggan',
+                    'attribute' => 'id_merk',
+                    'value' =>  function ($model) {
+                        $pelanggan = Pelanggan::find()->where(['id_user' => $model->id_user])->one();
+                        return $pelanggan->nama;
+                    },
+                ],
                 // 'jumlah',
                 'jenis_layanan' => [
                     'attribute' => 'jenis_layanan',
@@ -216,7 +247,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 //'masalah',
                 //'id_merk',
                 //'type_ac',
-                'alamat',
+                'alamat' => [
+                    'label' => 'Alamat',
+                    'attribute' => 'alamat',
+                    'value' => function ($model) {
+                        $alamat = Alamat::find()->where(['id_alamat' => $model->alamat])->one();
+                        return $alamat->alamat;
+                    }
+                ],
                 //'jadwal_pengerjaan',
                 'status',
                 //'tgl_pesan',
@@ -286,7 +324,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     //'point_teknisi',
                     [
                         'class' => ActionColumn::className(),
-                        'template' => '{terima}',
+                        'template' => '{terima} {view}',
                         'buttons' => [
                             'terima' => function ($url, $model) {
                                 if ($model->status == 'diterima') {
@@ -297,7 +335,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             'title' => Yii::t('yii', 'Pesanan Selesai'),
                                             'data-confirm' => Yii::t('yii', 'Apakah pesanan anda sudah selesai?'),
                                             'data-method' => 'post',
-                                            'class' => 'btn btn-success',
+                                            'class' => 'btn btn-success btn-simetris',
                                         ]
                                     );
                                 } else {
@@ -308,12 +346,20 @@ $this->params['breadcrumbs'][] = $this->title;
                                             'title' => Yii::t('yii', 'Cancel Pesanan'),
                                             'data-confirm' => Yii::t('yii', 'Apakah anda yakin ingin membatalkan pesanan ini?'),
                                             'data-method' => 'post',
-                                            'class' => 'btn btn-danger',
+                                            'class' => 'btn btn-danger btn-simetris',
                                         ]
                                     );
                                 }
                             },
+                            'view' => function ($url, $model) {
+                                return Html::a('<span class="btn btn-info btn-simetris">View</span>', $url, [
+                                    'title' => Yii::t('yii', 'View'),
+                                ]);
+                            },
                         ],
+                        'urlCreator' => function ($action, OrderDisplay $model, $key, $index) {
+                            return Url::toRoute([$action, 'id_order' => $model->id_order]);
+                        },
                     ],
                 ],
             ]); ?>

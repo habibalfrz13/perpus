@@ -77,6 +77,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
+                'class' => ActionColumn::className(),
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn'],
 
@@ -94,9 +95,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                     [
                         'class' => ActionColumn::className(),
-                        'urlCreator' => function ($action, Pelanggan $model, $key, $index, $column) {
+                        'template' => '{view} {update}',
+                        'urlCreator' => function ($action, Pelanggan $model, $key, $index) {
                             return Url::toRoute([$action, 'id_pelanggan' => $model->id_pelanggan]);
-                        }
+                        },
                     ],
                 ],
             ]); ?>

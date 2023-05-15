@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'value' => function ($model) {
                         $history = OrderHistori::find()->where(['id_order' => $model->id_order])->one();
                         $layanan = Layanan::find()->where(['id_layanan' => $history->jenis_layanan])->one();
-                        return $layanan ? $layanan->jenis_layanan : "Layanan Belum Ada";
+                        return $layanan ? $layanan->nama_layanan : "Layanan Belum Ada";
                     },
                 ],
                 'id_teknisi' => [

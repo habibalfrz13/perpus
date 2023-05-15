@@ -429,26 +429,10 @@ AppAsset::register($this);
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="<?= Yii::$app->urlManager->createUrl(['/user/index']) ?>" class="nav-link">
-                <i class="far fa-circle nav-icon text-danger"></i>
-                <p>
-                  User
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
               <a href="<?= Yii::$app->urlManager->createUrl(['/teknisi/index']) ?>" class="nav-link">
                 <i class="far fa-circle nav-icon text-success"></i>
                 <p>
                   Teknisi
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= Yii::$app->urlManager->createUrl(['/teknisi/index2']) ?>" class="nav-link">
-                <i class="far fa-circle nav-icon text-success"></i>
-                <p>
-                  Operator
                 </p>
               </a>
             </li>
@@ -681,27 +665,23 @@ AppAsset::register($this);
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
 
-
+        <li class="nav-item">
+          <a href="<?= Yii::$app->urlManager->createUrl(['/teknisi/index']) ?>" class="nav-link">
+            <i class="far fa-circle nav-icon text-info"></i>
+            <p>
+              Profil
+            </p>
+          </a>
+        </li>
 
         <!-- Point -->
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="<?= Yii::$app->urlManager->createUrl(['/point-history/index']) ?>" class="nav-link">
             <i class="nav-icon fas bi bi-database "></i>
             <p>
-              Data Point
-              <i class="fas fa-angle-left right"></i>
+              Top Up Point
             </p>
           </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="<?= Yii::$app->urlManager->createUrl(['topup/create']) ?>" class="nav-link">
-                <i class="far fa-circle nav-icon text-danger"></i>
-                <p>
-                  Top Up Point
-                </p>
-              </a>
-            </li>
-          </ul>
         </li>
 
 
@@ -720,36 +700,15 @@ AppAsset::register($this);
               <a href="<?= Yii::$app->urlManager->createUrl(['order-display/index']) ?>" class="nav-link">
                 <i class="far fa-circle nav-icon text-danger"></i>
                 <p>
-                  Data Order
-                </p>
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <!-- FeedBack -->
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas bi bi-list-check "></i>
-            <p>
-              Data FeedBack
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="<?= Yii::$app->urlManager->createUrl(['feedback/index']) ?>" class="nav-link">
-                <i class="far fa-circle nav-icon text-danger"></i>
-                <p>
-                  FeedBack
+                  Order Display
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= Yii::$app->urlManager->createUrl(['foto-feedback/index']) ?>" class="nav-link">
+              <a href="<?= Yii::$app->urlManager->createUrl(['order-history/index']) ?>" class="nav-link">
                 <i class="far fa-circle nav-icon text-danger"></i>
                 <p>
-                  Foto FeedBack
+                  History Order
                 </p>
               </a>
             </li>
@@ -757,38 +716,6 @@ AppAsset::register($this);
         </li>
 
         <!-- Data Alamat -->
-
-        <!-- Data Invoice -->
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-
-            <i class="nav-icon fas bi bi-receipt "></i>
-            <p>
-              Data Invoice
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="<?= Yii::$app->urlManager->createUrl(['invoice/index']) ?>" class="nav-link">
-                <i class="far fa-circle nav-icon text-danger"></i>
-                <p>
-                  Invoice
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= Yii::$app->urlManager->createUrl(['invoice-detail/index']) ?>" class="nav-link">
-                <i class="far fa-circle nav-icon text-danger"></i>
-                <p>
-                  Detail Invoice
-                </p>
-              </a>
-            </li>
-          </ul>
-        </li>
-
-
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
@@ -887,29 +814,6 @@ AppAsset::register($this);
           </ul>
         </li>
 
-        <!-- FeedBack -->
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-
-            <i class="nav-icon fas bi bi-list-check "></i>
-            <p>
-              Data FeedBack
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="<?= Yii::$app->urlManager->createUrl(['feedback/index']) ?>" class="nav-link">
-                <i class="far fa-circle nav-icon text-danger"></i>
-                <p>
-                  FeedBack
-                </p>
-              </a>
-            </li>
-
-          </ul>
-        </li>
-
         <!-- Data Alamat -->
         <li class="nav-item">
           <a href="#" class="nav-link">
@@ -933,7 +837,7 @@ AppAsset::register($this);
         </li>
 
 
-        <!-- Data Invoice -->
+        <!-- Data Invoice
         <li class="nav-item">
           <a href="#" class="nav-link">
 
@@ -965,8 +869,10 @@ AppAsset::register($this);
 
 
       </ul>
-    </nav>
-    <!-- /.sidebar-menu -->
+    </nav> -->
+
+
+        <!-- /.sidebar-menu -->
   </div>
   <!-- /.sidebar -->
   </aside>

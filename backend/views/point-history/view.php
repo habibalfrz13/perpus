@@ -1,5 +1,6 @@
 <?php
 
+use backend\models\Topup;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -33,6 +34,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_user',
             'point',
             'created_at',
+            [
+                'label' => 'Keterangan',
+                'value' => function ($model) {
+                    $topupket = Topup::find()->where(['jumlah_point' => $model->point])->one();
+                    return $topupket ? $topupket->keterangan : "Give Point";
+                },
+            ],
         ],
     ]) ?>
     <div class="mt-3">

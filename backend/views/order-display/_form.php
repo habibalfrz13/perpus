@@ -28,14 +28,12 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'masalah')->textInput(['maxlength' => true]) ?>
 
-    <?php if (!$model->isNewRecord && empty($model->masalah)) : ?>
-        <?= Html::label('Kondisi AC') ?>
-        <br>
-        <?php $kondisi = KondisiAc::find()->all(); ?>
-        <?php foreach ($kondisi as $data) : ?>
-            <?= Html::checkbox('kondisi_ac[]', false, ['label' => $data->nama, 'value' => $data->id]) ?>
-        <?php endforeach; ?>
-    <?php endif; ?>
+    <?= Html::label('Kondisi AC') ?>
+    <br>
+    <?php $kondisi = KondisiAc::find()->all(); ?>
+    <?php foreach ($kondisi as $data) : ?>
+        <?= Html::checkbox('kondisi_ac[]', false, ['label' => $data->nama, 'value' => $data->id]) ?>
+    <?php endforeach; ?>
 
 
     <?= $form->field($model, 'id_merk')->label('Merk AC')->dropDownList(

@@ -231,7 +231,8 @@ class OrderDisplayController extends Controller
                     $modelHistory->tanggal = date('Y-m-d H:i:s');
                     if ($modelHistory->save()) {
                         Yii::$app->session->setFlash('success', 'Pesanan berhasil dibatalkan.');
-                        $model->delete(); // Hapus Model setelah ModelHistory berhasil disimpan
+                        $model->status = 'selesai'; // Hapus Model setelah ModelHistory berhasil disimpan
+                        $model->save(false);
                         return $this->redirect(['order-history/index']);
                     } else {
                         Yii::$app->session->setFlash('error', 'Gagal menyimpan data.');
@@ -246,7 +247,8 @@ class OrderDisplayController extends Controller
                     $modelHistory->id_teknisi = $model->id_teknisi;
                     if ($modelHistory->save()) {
                         Yii::$app->session->setFlash('success', 'Pesanan Telah Selesai.');
-                        $model->delete(); // Hapus Model setelah ModelHistory berhasil disimpan
+                        $model->status = 'selesai'; // Hapus Model setelah ModelHistory berhasil disimpan
+                        $model->save(false);
                         return $this->redirect(['feedback/create']);
                     } else {
                         Yii::$app->session->setFlash('error', 'Gagal menyimpan data.');
@@ -257,7 +259,8 @@ class OrderDisplayController extends Controller
             }
         } else {
             $model = $this->findModel($id_order);
-            $model->delete();
+            $model->status = 'selesai';
+            $model->save(false);
             return $this->redirect(['order-display/index']);
         }
     }

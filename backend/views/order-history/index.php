@@ -10,6 +10,24 @@ use yii\grid\GridView;
 /** @var yii\web\View $this */
 /** @var backend\models\OrderHistorySearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
+if (!Yii::$app->user->isGuest) {
+    // Mendapatkan model pengguna yang telah login
+    $user = Yii::$app->user->identity;
+    $teknisi = Teknisi::find()->where(['id_user' => $user->id])->one();
+    // Jika pengguna adalah admin, maka data yang ditampilkan tidak dibatasi
+    if ($user->role == 'admin') {
+        $searchModel->id_user = null;
+    } else if ($user->role == 'operator') {
+        $searchModel->id_user = null;
+    } else if ($user->role == 'teknisi') {
+        $dataProvider->query->andWhere(['id_teknisi' => $teknisi->id_teknisi]);
+    }
+    // Jika pengguna bukan admin dan operator, maka data yang ditampilkan dibatasi hanya pada data yang sesuai dengan akun mereka
+    else {
+        $searchModel->id_user = $user->id;
+        $dataProvider->query->andWhere(['id_user' => $user->id]);
+    }
+}
 
 $this->title = 'Order Historis';
 $this->params['breadcrumbs'][] = $this->title;
@@ -80,6 +98,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         //'status',
                         [
                             'class' => ActionColumn::className(),
+                            'template' => '{view}',
                             'urlCreator' => function ($action, OrderHistori $model, $key, $index, $column) {
                                 return Url::toRoute([$action, 'id_historis' => $model->id_historis]);
                             }
