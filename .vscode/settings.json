@@ -1,3 +1,5 @@
 {
-    "prettier.bracketSameLine": true
+    "prettier.bracketSameLine": true,
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+    "editor.formatOnSave": true
 }

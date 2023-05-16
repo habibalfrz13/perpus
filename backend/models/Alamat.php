@@ -73,7 +73,7 @@ class Alamat extends \yii\db\ActiveRecord
             'longitude' => 'Longitude',
             'status' => 'Status',
             'create_at' => 'Create At',
-            'id_kategori' => 'Id Kategori',
+            'id_kategori' => 'Kategori',
         ];
     }
 
