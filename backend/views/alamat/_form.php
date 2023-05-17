@@ -2,10 +2,18 @@
 
 use backend\models\AlamatKategori;
 use backend\models\Pelanggan;
+use backend\models\TbProvinsi;
+use backend\models\TbKotaKabupaten;
+use backend\models\TbKecamatan;
 use PhpParser\Node\Stmt\Label;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
+
+
+$user = Yii::$app->user->identity;
+$pelanggan = Pelanggan::find()->where(['id_user' => $user->id])->one();
+
 
 /** @var yii\web\View $this */
 /** @var backend\models\Alamat $model */
@@ -17,19 +25,26 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_user')->label('Nama Pelanggan')->dropDownList(
-      ArrayHelper::map(\backend\models\Pelanggan::find()->all(), 'id_user', 'nama'),
-      [
-        'value' => ArrayHelper::getValue($model, 'nama'),
-        'disabled' => true, // membuat dropdown list menjadi readonly
-      ]
+    <?= $form->field($model, 'id_user')->label('Nama Pelanggan')->textInput([
+      'value' => $pelanggan->nama,
+      'readonly' => true,
+    ]) ?>
+
+
+    <?= $form->field($model, 'provinsi')->dropDownList(
+      \yii\helpers\ArrayHelper::map(\backend\models\TbProvinsi::find()->all(), 'id', 'nama'),
+      ['prompt' => 'Pilih Provinsi']
     ) ?>
 
-    <?= $form->field($model, 'provinsi')->textInput(['maxlength' => true, 'placeholder' => 'Masukkan provinsi']) ?>
+    <?= $form->field($model, 'kota')->dropDownList(
+      \yii\helpers\ArrayHelper::map(\backend\models\TbKotaKabupaten::find()->all(), 'id', 'nama'),
+      ['prompt' => 'Pilih Kota/Kabupaten']
+    )->label('Kota/Kabupaten') ?>
 
-    <?= $form->field($model, 'kota')->textInput(['maxlength' => true, 'placeholder' => 'Masukkan kota/kabupaten'])->label('Kota/Kabupaten') ?>
-
-    <?= $form->field($model, 'kecamatan')->textInput(['maxlength' => true, 'placeholder' => 'Masukkan kecamatan']) ?>
+    <?= $form->field($model, 'kecamatan')->dropDownList(
+      \yii\helpers\ArrayHelper::map(\backend\models\TbKecamatan::find()->all(), 'id', 'nama'),
+      ['prompt' => 'Pilih Kecamatan']
+    )->label('Kecamatan') ?>
 
     <?= $form->field($model, 'alamat')->textInput(['maxlength' => true, 'placeholder' => 'Masukkan alamat']) ?>
 
