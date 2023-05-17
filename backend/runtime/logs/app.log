@@ -19192,3 +19192,611 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1684290926.5382
     'REQUEST_TIME' => 1684290926
 ]
+2023-05-17 05:05:49 [::1][1][899cnku2879nlkd6lan909gk66][error][yii\base\ErrorException:8] yii\base\ErrorException: Trying to get property 'nama' of non-object in C:\xampp\htdocs\app_tuser\backend\views\alamat\_form.php:29
+Stack trace:
+#0 C:\xampp\htdocs\app_tuser\backend\views\alamat\_form.php(29): yii\base\ErrorHandler->handleError(8, 'Trying to get p...', 'C:\\xampp\\htdocs...', 29, Array)
+#1 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(347): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(257): yii\base\View->renderPhpFile('C:\\xampp\\htdocs...', Array)
+#3 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\xampp\\htdocs...', Array, NULL)
+#4 C:\xampp\htdocs\app_tuser\backend\views\alamat\create.php(17): yii\base\View->render('_form', Array)
+#5 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(347): require('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(257): yii\base\View->renderPhpFile('C:\\xampp\\htdocs...', Array)
+#7 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\xampp\\htdocs...', Array, Object(backend\controllers\AlamatController))
+#8 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(407): yii\base\View->render('create', Array, Object(backend\controllers\AlamatController))
+#9 C:\xampp\htdocs\app_tuser\backend\controllers\AlamatController.php(88): yii\base\Controller->render('create', Array)
+#10 [internal function]: backend\controllers\AlamatController->actionCreate()
+#11 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#13 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('create', Array)
+#14 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('alamat/create', Array)
+#15 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 C:\xampp\htdocs\app_tuser\admin\index.php(18): yii\base\Application->run()
+#17 {main}
+2023-05-17 05:05:49 [::1][1][899cnku2879nlkd6lan909gk66][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'advanced-backend' => '899cnku2879nlkd6lan909gk66'
+    '_identity-backend' => '19e28b872067d04c92a583e0c050eff2eca66c0fb6dadd391d8b2d3e7a2464c5a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"NM_ZYlG3TpHzspsjE9SRh1QE1OxNl1pb\",2592000]\";}'
+    '_csrf-backend' => 'd74ef23da2d59be7edd4dde32d79064fcd83cf91c5ffcc1c73ac27483f46d3b5a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"bMnKVcsWUdF3NF7Qj_DxLXK84_7zHNc4\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost/app_tuser/admin/'
+    '__id' => 1
+    '__authKey' => 'NM_ZYlG3TpHzspsjE9SRh1QE1OxNl1pb'
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Microsoft Edge\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/app_tuser/admin/alamat/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'advanced-backend=899cnku2879nlkd6lan909gk66; _identity-backend=19e28b872067d04c92a583e0c050eff2eca66c0fb6dadd391d8b2d3e7a2464c5a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22NM_ZYlG3TpHzspsjE9SRh1QE1OxNl1pb%22%2C2592000%5D%22%3B%7D; _csrf-backend=d74ef23da2d59be7edd4dde32d79064fcd83cf91c5ffcc1c73ac27483f46d3b5a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22bMnKVcsWUdF3NF7Qj_DxLXK84_7zHNc4%22%3B%7D'
+    'PATH' => 'C:\\Program Files\\Microsoft\\jdk-11.0.18.10-hotspot\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Program Files\\Java\\jdk-19\\bin;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\;C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\USER\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\xampp\\php;C:\\Users\\USER\\AppData\\Roaming\\Composer\\v;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/app_tuser/admin/index.php'
+    'REMOTE_PORT' => '58635'
+    'REDIRECT_URL' => '/app_tuser/admin/alamat/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/app_tuser/admin/alamat/create'
+    'SCRIPT_NAME' => '/app_tuser/admin/index.php'
+    'PHP_SELF' => '/app_tuser/admin/index.php'
+    'REQUEST_TIME_FLOAT' => 1684292749.5138
+    'REQUEST_TIME' => 1684292749
+]
+2023-05-17 05:18:43 [::1][116][bdfp0bkvpkl43j6uukhk465006][error][Error] Error: Function name must be a string in C:\xampp\htdocs\app_tuser\backend\views\alamat\_form.php:30
+Stack trace:
+#0 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(347): require()
+#1 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(257): yii\base\View->renderPhpFile('C:\\xampp\\htdocs...', Array)
+#2 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\xampp\\htdocs...', Array, NULL)
+#3 C:\xampp\htdocs\app_tuser\backend\views\alamat\create.php(17): yii\base\View->render('_form', Array)
+#4 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(347): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(257): yii\base\View->renderPhpFile('C:\\xampp\\htdocs...', Array)
+#6 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\xampp\\htdocs...', Array, Object(backend\controllers\AlamatController))
+#7 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(407): yii\base\View->render('create', Array, Object(backend\controllers\AlamatController))
+#8 C:\xampp\htdocs\app_tuser\backend\controllers\AlamatController.php(88): yii\base\Controller->render('create', Array)
+#9 [internal function]: backend\controllers\AlamatController->actionCreate()
+#10 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#11 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#12 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('create', Array)
+#13 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('alamat/create', Array)
+#14 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#15 C:\xampp\htdocs\app_tuser\admin\index.php(18): yii\base\Application->run()
+#16 {main}
+2023-05-17 05:18:43 [::1][116][bdfp0bkvpkl43j6uukhk465006][info][application] $_GET = []
+
+$_POST = [
+    '_csrf-backend' => 'bOQ2gaulecANOXftUbHooWGLJP45XUIwUV8iVoBLwHgtg1DtnOYQ80lDGo8F-q3QN99Wz0EXKXcHFhIJxhinCg=='
+    'Alamat' => [
+        'id_user' => 'amie'
+        'provinsi' => '34'
+        'kota' => '1171'
+        'kecamatan' => '1101020'
+        'alamat' => 'Fajar ujung GG. Paweh No: 22'
+        'kode_pos' => '28292'
+        'latitude' => '4546432'
+        'longitude' => '543245'
+        'id_kategori' => '1'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'advanced-backend' => 'bdfp0bkvpkl43j6uukhk465006'
+    '_identity-backend' => 'fe97dff300a89e5b30dfa0d8f34028e844b600886ab20a5537a3369e80c34b65a:2:{i:0;s:17:\"_identity-backend\";i:1;s:48:\"[116,\"S_GvXs_rK_SJauoA27pElPGzYoT3BRE4\",2592000]\";}'
+    '_csrf-backend' => '5663bf18643546f98ef16eaef1dc576f447b273b3644a83127811bf2da5b5e46a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"Agfl7Ci3DzmbTKEqVTr1xJkGVI0_FSgr\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost/app_tuser/admin/'
+    '__id' => 116
+    '__authKey' => 'S_GvXs_rK_SJauoA27pElPGzYoT3BRE4'
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '368'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Microsoft Edge\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/app_tuser/admin/alamat/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'advanced-backend=bdfp0bkvpkl43j6uukhk465006; _identity-backend=fe97dff300a89e5b30dfa0d8f34028e844b600886ab20a5537a3369e80c34b65a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A48%3A%22%5B116%2C%22S_GvXs_rK_SJauoA27pElPGzYoT3BRE4%22%2C2592000%5D%22%3B%7D; _csrf-backend=5663bf18643546f98ef16eaef1dc576f447b273b3644a83127811bf2da5b5e46a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22Agfl7Ci3DzmbTKEqVTr1xJkGVI0_FSgr%22%3B%7D'
+    'PATH' => 'C:\\Program Files\\Microsoft\\jdk-11.0.18.10-hotspot\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Program Files\\Java\\jdk-19\\bin;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\;C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\USER\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\xampp\\php;C:\\Users\\USER\\AppData\\Roaming\\Composer\\v;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/app_tuser/admin/index.php'
+    'REMOTE_PORT' => '58895'
+    'REDIRECT_URL' => '/app_tuser/admin/alamat/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/app_tuser/admin/alamat/create'
+    'SCRIPT_NAME' => '/app_tuser/admin/index.php'
+    'PHP_SELF' => '/app_tuser/admin/index.php'
+    'REQUEST_TIME_FLOAT' => 1684293523.2097
+    'REQUEST_TIME' => 1684293523
+]
+2023-05-17 05:20:19 [::1][116][bdfp0bkvpkl43j6uukhk465006][error][Error] Error: Function name must be a string in C:\xampp\htdocs\app_tuser\backend\views\alamat\_form.php:30
+Stack trace:
+#0 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(347): require()
+#1 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(257): yii\base\View->renderPhpFile('C:\\xampp\\htdocs...', Array)
+#2 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\xampp\\htdocs...', Array, NULL)
+#3 C:\xampp\htdocs\app_tuser\backend\views\alamat\create.php(17): yii\base\View->render('_form', Array)
+#4 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(347): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(257): yii\base\View->renderPhpFile('C:\\xampp\\htdocs...', Array)
+#6 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\xampp\\htdocs...', Array, Object(backend\controllers\AlamatController))
+#7 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(407): yii\base\View->render('create', Array, Object(backend\controllers\AlamatController))
+#8 C:\xampp\htdocs\app_tuser\backend\controllers\AlamatController.php(88): yii\base\Controller->render('create', Array)
+#9 [internal function]: backend\controllers\AlamatController->actionCreate()
+#10 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#11 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#12 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('create', Array)
+#13 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('alamat/create', Array)
+#14 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#15 C:\xampp\htdocs\app_tuser\admin\index.php(18): yii\base\Application->run()
+#16 {main}
+2023-05-17 05:20:19 [::1][116][bdfp0bkvpkl43j6uukhk465006][info][application] $_GET = []
+
+$_POST = [
+    '_csrf-backend' => 'bOQ2gaulecANOXftUbHooWGLJP45XUIwUV8iVoBLwHgtg1DtnOYQ80lDGo8F-q3QN99Wz0EXKXcHFhIJxhinCg=='
+    'Alamat' => [
+        'id_user' => 'amie'
+        'provinsi' => '34'
+        'kota' => '1171'
+        'kecamatan' => '1101020'
+        'alamat' => 'Fajar ujung GG. Paweh No: 22'
+        'kode_pos' => '28292'
+        'latitude' => '4546432'
+        'longitude' => '543245'
+        'id_kategori' => '1'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'advanced-backend' => 'bdfp0bkvpkl43j6uukhk465006'
+    '_identity-backend' => 'fe97dff300a89e5b30dfa0d8f34028e844b600886ab20a5537a3369e80c34b65a:2:{i:0;s:17:\"_identity-backend\";i:1;s:48:\"[116,\"S_GvXs_rK_SJauoA27pElPGzYoT3BRE4\",2592000]\";}'
+    '_csrf-backend' => '5663bf18643546f98ef16eaef1dc576f447b273b3644a83127811bf2da5b5e46a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"Agfl7Ci3DzmbTKEqVTr1xJkGVI0_FSgr\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost/app_tuser/admin/'
+    '__id' => 116
+    '__authKey' => 'S_GvXs_rK_SJauoA27pElPGzYoT3BRE4'
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '368'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Microsoft Edge\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/app_tuser/admin/alamat/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'advanced-backend=bdfp0bkvpkl43j6uukhk465006; _identity-backend=fe97dff300a89e5b30dfa0d8f34028e844b600886ab20a5537a3369e80c34b65a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A48%3A%22%5B116%2C%22S_GvXs_rK_SJauoA27pElPGzYoT3BRE4%22%2C2592000%5D%22%3B%7D; _csrf-backend=5663bf18643546f98ef16eaef1dc576f447b273b3644a83127811bf2da5b5e46a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22Agfl7Ci3DzmbTKEqVTr1xJkGVI0_FSgr%22%3B%7D'
+    'PATH' => 'C:\\Program Files\\Microsoft\\jdk-11.0.18.10-hotspot\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Program Files\\Java\\jdk-19\\bin;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\;C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\USER\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\xampp\\php;C:\\Users\\USER\\AppData\\Roaming\\Composer\\v;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/app_tuser/admin/index.php'
+    'REMOTE_PORT' => '58916'
+    'REDIRECT_URL' => '/app_tuser/admin/alamat/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/app_tuser/admin/alamat/create'
+    'SCRIPT_NAME' => '/app_tuser/admin/index.php'
+    'PHP_SELF' => '/app_tuser/admin/index.php'
+    'REQUEST_TIME_FLOAT' => 1684293619.4127
+    'REQUEST_TIME' => 1684293619
+]
+2023-05-17 05:30:01 [::1][116][bdfp0bkvpkl43j6uukhk465006][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Getting unknown property: backend\models\Pelanggan::id in C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Component.php:154
+Stack trace:
+#0 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\db\BaseActiveRecord.php(296): yii\base\Component->__get('id')
+#1 C:\xampp\htdocs\app_tuser\backend\views\alamat\_form.php(28): yii\db\BaseActiveRecord->__get('id')
+#2 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(347): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(257): yii\base\View->renderPhpFile('C:\\xampp\\htdocs...', Array)
+#4 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\xampp\\htdocs...', Array, NULL)
+#5 C:\xampp\htdocs\app_tuser\backend\views\alamat\create.php(17): yii\base\View->render('_form', Array)
+#6 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(347): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(257): yii\base\View->renderPhpFile('C:\\xampp\\htdocs...', Array)
+#8 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\xampp\\htdocs...', Array, Object(backend\controllers\AlamatController))
+#9 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(407): yii\base\View->render('create', Array, Object(backend\controllers\AlamatController))
+#10 C:\xampp\htdocs\app_tuser\backend\controllers\AlamatController.php(88): yii\base\Controller->render('create', Array)
+#11 [internal function]: backend\controllers\AlamatController->actionCreate()
+#12 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#13 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#14 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('create', Array)
+#15 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('alamat/create', Array)
+#16 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 C:\xampp\htdocs\app_tuser\admin\index.php(18): yii\base\Application->run()
+#18 {main}
+2023-05-17 05:30:00 [::1][116][bdfp0bkvpkl43j6uukhk465006][info][application] $_GET = []
+
+$_POST = [
+    '_csrf-backend' => 'bOQ2gaulecANOXftUbHooWGLJP45XUIwUV8iVoBLwHgtg1DtnOYQ80lDGo8F-q3QN99Wz0EXKXcHFhIJxhinCg=='
+    'Alamat' => [
+        'id_user' => 'amie'
+        'provinsi' => '34'
+        'kota' => '1171'
+        'kecamatan' => '1101020'
+        'alamat' => 'Fajar ujung GG. Paweh No: 22'
+        'kode_pos' => '28292'
+        'latitude' => '4546432'
+        'longitude' => '543245'
+        'id_kategori' => '1'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'advanced-backend' => 'bdfp0bkvpkl43j6uukhk465006'
+    '_identity-backend' => 'fe97dff300a89e5b30dfa0d8f34028e844b600886ab20a5537a3369e80c34b65a:2:{i:0;s:17:\"_identity-backend\";i:1;s:48:\"[116,\"S_GvXs_rK_SJauoA27pElPGzYoT3BRE4\",2592000]\";}'
+    '_csrf-backend' => '5663bf18643546f98ef16eaef1dc576f447b273b3644a83127811bf2da5b5e46a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"Agfl7Ci3DzmbTKEqVTr1xJkGVI0_FSgr\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost/app_tuser/admin/'
+    '__id' => 116
+    '__authKey' => 'S_GvXs_rK_SJauoA27pElPGzYoT3BRE4'
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '368'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Microsoft Edge\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/app_tuser/admin/alamat/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'advanced-backend=bdfp0bkvpkl43j6uukhk465006; _identity-backend=fe97dff300a89e5b30dfa0d8f34028e844b600886ab20a5537a3369e80c34b65a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A48%3A%22%5B116%2C%22S_GvXs_rK_SJauoA27pElPGzYoT3BRE4%22%2C2592000%5D%22%3B%7D; _csrf-backend=5663bf18643546f98ef16eaef1dc576f447b273b3644a83127811bf2da5b5e46a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22Agfl7Ci3DzmbTKEqVTr1xJkGVI0_FSgr%22%3B%7D'
+    'PATH' => 'C:\\Program Files\\Microsoft\\jdk-11.0.18.10-hotspot\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Program Files\\Java\\jdk-19\\bin;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\;C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\USER\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\xampp\\php;C:\\Users\\USER\\AppData\\Roaming\\Composer\\v;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/app_tuser/admin/index.php'
+    'REMOTE_PORT' => '59048'
+    'REDIRECT_URL' => '/app_tuser/admin/alamat/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/app_tuser/admin/alamat/create'
+    'SCRIPT_NAME' => '/app_tuser/admin/index.php'
+    'PHP_SELF' => '/app_tuser/admin/index.php'
+    'REQUEST_TIME_FLOAT' => 1684294200.9568
+    'REQUEST_TIME' => 1684294200
+]
+2023-05-17 05:47:45 [::1][116][bdfp0bkvpkl43j6uukhk465006][error][yii\db\Exception] PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_user' in 'where clause' in C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\db\Command.php:1302
+Stack trace:
+#0 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\db\Command.php(1302): PDOStatement->execute()
+#1 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\db\Command.php(1168): yii\db\Command->internalExecute('SELECT * FROM `...')
+#2 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\db\Command.php(424): yii\db\Command->queryInternal('fetch', NULL)
+#3 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\db\Query.php(287): yii\db\Command->queryOne()
+#4 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\db\ActiveQuery.php(304): yii\db\Query->one(NULL)
+#5 C:\xampp\htdocs\app_tuser\backend\views\alamat\index.php(67): yii\db\ActiveQuery->one()
+#6 [internal function]: yii\base\View->{closure}(Object(backend\models\Alamat), 6, 0, Object(yii\grid\DataColumn))
+#7 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\grid\DataColumn.php(250): call_user_func(Object(Closure), Object(backend\models\Alamat), 6, 0, Object(yii\grid\DataColumn))
+#8 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\grid\DataColumn.php(264): yii\grid\DataColumn->getDataCellValue(Object(backend\models\Alamat), 6, 0)
+#9 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\grid\Column.php(111): yii\grid\DataColumn->renderDataCellContent(Object(backend\models\Alamat), 6, 0)
+#10 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\grid\GridView.php(525): yii\grid\Column->renderDataCell(Object(backend\models\Alamat), 6, 0)
+#11 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\grid\GridView.php(494): yii\grid\GridView->renderTableRow(Object(backend\models\Alamat), 6, 0)
+#12 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\grid\GridView.php(358): yii\grid\GridView->renderTableBody()
+#13 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\widgets\BaseListView.php(160): yii\grid\GridView->renderItems()
+#14 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\grid\GridView.php(326): yii\widgets\BaseListView->renderSection('{items}')
+#15 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\widgets\BaseListView.php(135): yii\grid\GridView->renderSection('{items}')
+#16 [internal function]: yii\widgets\BaseListView->yii\widgets\{closure}(Array)
+#17 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\widgets\BaseListView.php(138): preg_replace_callback('/{\\w+}/', Object(Closure), '{summary}\n{item...')
+#18 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\grid\GridView.php(301): yii\widgets\BaseListView->run()
+#19 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Widget.php(146): yii\grid\GridView->run()
+#20 C:\xampp\htdocs\app_tuser\backend\views\alamat\index.php(84): yii\base\Widget::widget(Array)
+#21 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(347): require('C:\\xampp\\htdocs...')
+#22 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(257): yii\base\View->renderPhpFile('C:\\xampp\\htdocs...', '[<span class="s...')
+#23 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\xampp\\htdocs...', Array, Object(backend\controllers\AlamatController))
+#24 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(407): yii\base\View->render('index', Array, Object(backend\controllers\AlamatController))
+#25 C:\xampp\htdocs\app_tuser\backend\controllers\AlamatController.php(50): yii\base\Controller->render('index', Array)
+#26 [internal function]: backend\controllers\AlamatController->actionIndex()
+#27 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#28 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#29 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('index', Array)
+#30 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('alamat/index', Array)
+#31 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#32 C:\xampp\htdocs\app_tuser\admin\index.php(18): yii\base\Application->run()
+#33 {main}
+
+Next yii\db\Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_user' in 'where clause'
+The SQL being executed was: SELECT * FROM `tb_provinsi` WHERE `id_user`='32' in C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\db\Schema.php:676
+Stack trace:
+#0 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\db\Command.php(1307): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\db\Command.php(1168): yii\db\Command->internalExecute('SELECT * FROM `...')
+#2 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\db\Command.php(424): yii\db\Command->queryInternal('fetch', NULL)
+#3 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\db\Query.php(287): yii\db\Command->queryOne()
+#4 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\db\ActiveQuery.php(304): yii\db\Query->one(NULL)
+#5 C:\xampp\htdocs\app_tuser\backend\views\alamat\index.php(67): yii\db\ActiveQuery->one()
+#6 [internal function]: yii\base\View->{closure}(Object(backend\models\Alamat), 6, 0, Object(yii\grid\DataColumn))
+#7 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\grid\DataColumn.php(250): call_user_func(Object(Closure), Object(backend\models\Alamat), 6, 0, Object(yii\grid\DataColumn))
+#8 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\grid\DataColumn.php(264): yii\grid\DataColumn->getDataCellValue(Object(backend\models\Alamat), 6, 0)
+#9 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\grid\Column.php(111): yii\grid\DataColumn->renderDataCellContent(Object(backend\models\Alamat), 6, 0)
+#10 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\grid\GridView.php(525): yii\grid\Column->renderDataCell(Object(backend\models\Alamat), 6, 0)
+#11 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\grid\GridView.php(494): yii\grid\GridView->renderTableRow(Object(backend\models\Alamat), 6, 0)
+#12 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\grid\GridView.php(358): yii\grid\GridView->renderTableBody()
+#13 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\widgets\BaseListView.php(160): yii\grid\GridView->renderItems()
+#14 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\grid\GridView.php(326): yii\widgets\BaseListView->renderSection('{items}')
+#15 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\widgets\BaseListView.php(135): yii\grid\GridView->renderSection('{items}')
+#16 [internal function]: yii\widgets\BaseListView->yii\widgets\{closure}(Array)
+#17 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\widgets\BaseListView.php(138): preg_replace_callback('/{\\w+}/', Object(Closure), '{summary}\n{item...')
+#18 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\grid\GridView.php(301): yii\widgets\BaseListView->run()
+#19 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Widget.php(146): yii\grid\GridView->run()
+#20 C:\xampp\htdocs\app_tuser\backend\views\alamat\index.php(84): yii\base\Widget::widget(Array)
+#21 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(347): require('C:\\xampp\\htdocs...')
+#22 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(257): yii\base\View->renderPhpFile('C:\\xampp\\htdocs...', '[<span class="s...')
+#23 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\xampp\\htdocs...', Array, Object(backend\controllers\AlamatController))
+#24 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(407): yii\base\View->render('index', Array, Object(backend\controllers\AlamatController))
+#25 C:\xampp\htdocs\app_tuser\backend\controllers\AlamatController.php(50): yii\base\Controller->render('index', Array)
+#26 [internal function]: backend\controllers\AlamatController->actionIndex()
+#27 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#28 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#29 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('index', Array)
+#30 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('alamat/index', Array)
+#31 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#32 C:\xampp\htdocs\app_tuser\admin\index.php(18): yii\base\Application->run()
+#33 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'id_user' in 'where clause'
+)
+
+2023-05-17 05:47:45 [::1][116][bdfp0bkvpkl43j6uukhk465006][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'advanced-backend' => 'bdfp0bkvpkl43j6uukhk465006'
+    '_identity-backend' => 'fe97dff300a89e5b30dfa0d8f34028e844b600886ab20a5537a3369e80c34b65a:2:{i:0;s:17:\"_identity-backend\";i:1;s:48:\"[116,\"S_GvXs_rK_SJauoA27pElPGzYoT3BRE4\",2592000]\";}'
+    '_csrf-backend' => '5663bf18643546f98ef16eaef1dc576f447b273b3644a83127811bf2da5b5e46a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"Agfl7Ci3DzmbTKEqVTr1xJkGVI0_FSgr\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost/app_tuser/admin/'
+    '__id' => 116
+    '__authKey' => 'S_GvXs_rK_SJauoA27pElPGzYoT3BRE4'
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Microsoft Edge\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/app_tuser/admin/alamat/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'advanced-backend=bdfp0bkvpkl43j6uukhk465006; _identity-backend=fe97dff300a89e5b30dfa0d8f34028e844b600886ab20a5537a3369e80c34b65a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A48%3A%22%5B116%2C%22S_GvXs_rK_SJauoA27pElPGzYoT3BRE4%22%2C2592000%5D%22%3B%7D; _csrf-backend=5663bf18643546f98ef16eaef1dc576f447b273b3644a83127811bf2da5b5e46a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22Agfl7Ci3DzmbTKEqVTr1xJkGVI0_FSgr%22%3B%7D'
+    'PATH' => 'C:\\Program Files\\Microsoft\\jdk-11.0.18.10-hotspot\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Program Files\\Java\\jdk-19\\bin;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\;C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\USER\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\xampp\\php;C:\\Users\\USER\\AppData\\Roaming\\Composer\\v;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/app_tuser/admin/index.php'
+    'REMOTE_PORT' => '59408'
+    'REDIRECT_URL' => '/app_tuser/admin/alamat/index'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/app_tuser/admin/alamat/index'
+    'SCRIPT_NAME' => '/app_tuser/admin/index.php'
+    'PHP_SELF' => '/app_tuser/admin/index.php'
+    'REQUEST_TIME_FLOAT' => 1684295265.0962
+    'REQUEST_TIME' => 1684295265
+]

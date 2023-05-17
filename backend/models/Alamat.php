@@ -33,6 +33,8 @@ class Alamat extends \yii\db\ActiveRecord
     //     'Rumah' => 'Rumah',
     //     'Kos-Kosan' => 'Kos Kosan'
     // ];
+    public $nama;
+
     public static function tableName()
     {
         return 'alamat';
@@ -44,11 +46,11 @@ class Alamat extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_user', 'provinsi', 'kota', 'kecamatan', 'alamat', 'kode_pos', 'status', 'create_at', 'id_kategori'], 'required'],
-            [['id_user', 'kode_pos', 'id_kategori'], 'integer'],
+            [['provinsi', 'kota', 'kecamatan', 'alamat', 'kode_pos', 'status', 'create_at', 'id_kategori'], 'required'],
+            [['kode_pos', 'id_kategori'], 'integer'],
             [['latitude', 'longitude'], 'number'],
             [['status'], 'string'],
-            [['create_at'], 'safe'],
+            [['create_at', 'id_user'], 'safe'],
             [['provinsi', 'kota', 'kecamatan'], 'string', 'max' => 50],
             [['alamat'], 'string', 'max' => 200],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],

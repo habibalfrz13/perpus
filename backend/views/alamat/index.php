@@ -6,6 +6,9 @@ use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use backend\models\Pelanggan;
+use backend\models\TbKecamatan;
+use backend\models\TbKotaKabupaten;
+use backend\models\TbProvinsi;
 
 /** @var yii\web\View $this */
 /** @var backend\models\AlamatSearch $searchModel */
@@ -59,9 +62,30 @@ $this->params['breadcrumbs'][] = $this->title;
                         return $pelanggan ? $pelanggan->nama : "Pelanggan Belum Ada";
                     },
                 ],
-                'provinsi',
-                'kota',
-                'kecamatan',
+                'provinsi' => [
+                    'attribute' => 'provinsi',
+                    'label' => 'Provinsi',
+                    'value' => function ($model) {
+                        $provinsi = TbProvinsi::find()->where(['id' => $model->provinsi])->one();
+                        return $provinsi ? $provinsi->nama : "Tidak Ada Provinsi";
+                    }
+                ],
+                'kota' => [
+                    'attribute' => 'kota',
+                    'label' => 'Kota/Kabupater',
+                    'value' => function ($model) {
+                        $kota = TbKotaKabupaten::find()->where(['id' => $model->kota])->one();
+                        return $kota ? $kota->nama : "Tidak Ada kota";
+                    }
+                ],
+                'kecamatan' => [
+                    'attribute' => 'kecamatan',
+                    'label' => 'Kecamatan',
+                    'value' => function ($model) {
+                        $kecamatan = TbKecamatan::find()->where(['id' => $model->kecamatan])->one();
+                        return $kecamatan ? $kecamatan->nama : "Tidak Ada kecamatan";
+                    }
+                ],
                 //'alamat',
                 //'kode_pos',
                 //'latitude',

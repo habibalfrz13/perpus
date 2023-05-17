@@ -3,6 +3,9 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use backend\models\Pelanggan;
+use backend\models\TbProvinsi;
+use backend\models\TbKotaKabupaten;
+use backend\models\TbKecamatan;
 use backend\models\AlamatKategori;
 
 /** @var yii\web\View $this */
@@ -49,9 +52,30 @@ $this->params['breadcrumbs'][] = $this->title;
                             return $alamat ? $alamat->nama : "Alamat Tidak Tersedia";
                         },
                     ],
-                    'provinsi',
-                    'kota',
-                    'kecamatan',
+                    'provinsi' => [
+                        'attribute' => 'provinsi',
+                        'label' => 'Provinsi',
+                        'value' => function ($model) {
+                            $provinsi = TbProvinsi::find()->where(['id' => $model->provinsi])->one();
+                            return $provinsi ? $provinsi->nama : "Tidak Ada Provinsi";
+                        }
+                    ],
+                    'kota' => [
+                        'attribute' => 'kota',
+                        'label' => 'Kota/Kabupaten',
+                        'value' => function ($model) {
+                            $kota = TbKotaKabupaten::find()->where(['id' => $model->kota])->one();
+                            return $kota ? $kota->nama : "Tidak Ada kota";
+                        }
+                    ],
+                    'kecamatan' => [
+                        'attribute' => 'kecamatan',
+                        'label' => 'Kecamatan',
+                        'value' => function ($model) {
+                            $kecamatan = TbKecamatan::find()->where(['id' => $model->kecamatan])->one();
+                            return $kecamatan ? $kecamatan->nama : "Tidak Ada kecamatan";
+                        }
+                    ],
                     'alamat',
                     'kode_pos',
                     'latitude',
@@ -68,9 +92,30 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attributes' => [
                     // 'id_alamat',
                     // 'id_user',
-                    'provinsi',
-                    'kota',
-                    'kecamatan',
+                    'provinsi' => [
+                        'attribute' => 'provinsi',
+                        'label' => 'Provinsi',
+                        'value' => function ($model) {
+                            $provinsi = TbProvinsi::find()->where(['id' => $model->provinsi])->one();
+                            return $provinsi ? $provinsi->nama : "Tidak Ada Provinsi";
+                        }
+                    ],
+                    'kota' => [
+                        'attribute' => 'kota',
+                        'label' => 'Kota/Kabupaten',
+                        'value' => function ($model) {
+                            $kota = TbKotaKabupaten::find()->where(['id' => $model->kota])->one();
+                            return $kota ? $kota->nama : "Tidak Ada kota";
+                        }
+                    ],
+                    'kecamatan' => [
+                        'attribute' => 'kecamatan',
+                        'label' => 'Kecamatan',
+                        'value' => function ($model) {
+                            $kecamatan = TbKecamatan::find()->where(['id' => $model->kecamatan])->one();
+                            return $kecamatan ? $kecamatan->nama : "Tidak Ada kecamatan";
+                        }
+                    ],
                     'alamat',
                     'kode_pos',
                     'latitude',

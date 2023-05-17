@@ -72,12 +72,13 @@ class AlamatController extends Controller
     public function actionCreate()
     {
         $model = new Alamat();
-        $model->create_at = date('Y-m-d H:i:s');
         $user = Yii::$app->user->identity;
         $model->id_user = $user->id;
+        $model->create_at = date('Y-m-d H:i:s');
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post())) {
+                $model->save(false);
                 return $this->redirect(['view', 'id_alamat' => $model->id_alamat]);
             }
         } else {

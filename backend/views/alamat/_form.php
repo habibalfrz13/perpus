@@ -24,11 +24,17 @@ $pelanggan = Pelanggan::find()->where(['id_user' => $user->id])->one();
   <div class="alamat-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'id_user')->label('Nama Pelanggan')->textInput([
-      'value' => $pelanggan->nama,
-      'readonly' => true,
-    ]) ?>
+    <?php if (Yii::$app->user->identity->role == 'customer') : ?>
+      <?= $form->field($model, 'nama')->label('Nama Pelanggan')->textInput([
+        'value' => $pelanggan->nama,
+        'readonly' => true,
+      ]) ?>
+    <?php else : ?>
+      <?= $form->field($model, 'id_user')->label('Nama Pelanggan')->dropDownList(
+        ArrayHelper::map(\backend\models\Pelanggan::find()->all(), 'id_user', 'nama'),
+        ['prompt' => 'Pilih Nama Pelanggan']
+      ) ?>
+    <?php endif; ?>
 
 
     <?= $form->field($model, 'provinsi')->dropDownList(
