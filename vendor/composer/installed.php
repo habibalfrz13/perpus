@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'yiisoft/yii2-app-advanced',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '6a8c1e89b7290f5f5e4d7abd8c0ab815a834617c',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -235,6 +235,15 @@
             'aliases' => array(
                 0 => '1.4.x-dev',
             ),
+            'dev_requirement' => false,
+        ),
+        'kartik-v/yii2-widget-select2' => array(
+            'pretty_version' => 'v2.2.4',
+            'version' => '2.2.4.0',
+            'reference' => 'f74f2cfbd5b4628ea578735890c39f9a8e4ed062',
+            'type' => 'yii2-extension',
+            'install_path' => __DIR__ . '/../kartik-v/yii2-widget-select2',
+            'aliases' => array(),
             'dev_requirement' => false,
         ),
         'myclabs/deep-copy' => array(
@@ -567,6 +576,15 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'select2/select2' => array(
+            'pretty_version' => '4.0.13',
+            'version' => '4.0.13.0',
+            'reference' => '45f2b83ceed5231afa7b3d5b12b58ad335edd82e',
+            'type' => 'component',
+            'install_path' => __DIR__ . '/../select2/select2',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'symfony/browser-kit' => array(
             'pretty_version' => 'v4.2.4',
             'version' => '4.2.4.0',
@@ -781,9 +799,9 @@
             'dev_requirement' => false,
         ),
         'yiisoft/yii2-app-advanced' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '6a8c1e89b7290f5f5e4d7abd8c0ab815a834617c',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

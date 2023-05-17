@@ -27,13 +27,17 @@ if (!Yii::$app->user->isGuest) {
     } else if ($user->role == 'operator') {
         $searchModel->id_user = null;
     } else if ($user->role == 'teknisi') {
-        $dataProvider1->query->andWhere(['id_teknisi' => $teknisi->id_teknisi]);
+        $dataProvider1->query->andWhere(['id_teknisi' => $teknisi->id_teknisi])
+            ->andWhere(['IN', 'status', ['dipesan', 'diterima']])
+            ->andWhere(['OR', ['status' => 'diterima'], ['id_teknisi' => $teknisi->id_teknisi]]);
     }
+
+
     // Jika pengguna bukan admin dan operator, maka data yang ditampilkan dibatasi hanya pada data yang sesuai dengan akun mereka
     else {
         $searchModel->id_user = $user->id;
         $dataProvider->query->andWhere(['id_user' => $user->id])
-            ->andWhere(['!=', 'status', 'selesai']);
+            ->andWhere(['IN', 'status', ['dipesan', 'diterima']]);
     }
 }
 
@@ -247,14 +251,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 //'masalah',
                 //'id_merk',
                 //'type_ac',
-                'alamat' => [
-                    'label' => 'Alamat',
-                    'attribute' => 'alamat',
-                    'value' => function ($model) {
-                        $alamat = Alamat::find()->where(['id_alamat' => $model->alamat])->one();
-                        return $alamat->alamat;
-                    }
-                ],
+                // 'alamat' => [
+                //     'label' => 'Alamat',
+                //     'attribute' => 'alamat',
+                //     'value' => function ($model) {
+                //         $alamat = Alamat::find()->where(['id_alamat' => $model->alamat])->one();
+                //         return $alamat->alamat;
+                //     }
+                // ],
                 //'jadwal_pengerjaan',
                 'status',
                 //'tgl_pesan',
@@ -311,12 +315,23 @@ $this->params['breadcrumbs'][] = $this->title;
                     // 'id_order',
                     // 'id_user',
                     'jumlah',
-                    'jenis_layanan',
+                    'jenis_layanan' => [
+                        'attribute' => 'jenis_layanan',
+                        'value' => function ($model) {
+                            return $model->layanan->nama_layanan;
+                        },
+                    ],
                     'detail',
                     //'masalah',
                     //'id_merk',
                     //'type_ac',
-                    'alamat',
+                    'alamat' => [
+                        'attribute' => 'alamat',
+                        'value' => function ($model) {
+                            $alamat = Alamat::find()->where(['id_alamat' => $model->alamat])->one();
+                            return $alamat->alamat;
+                        },
+                    ],
                     //'jadwal_pengerjaan',
                     'status',
                     'tgl_pesan',

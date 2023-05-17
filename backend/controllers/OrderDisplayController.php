@@ -231,9 +231,9 @@ class OrderDisplayController extends Controller
                     $modelHistory->tanggal = date('Y-m-d H:i:s');
                     if ($modelHistory->save()) {
                         Yii::$app->session->setFlash('success', 'Pesanan berhasil dibatalkan.');
-                        $model->status = 'selesai'; // Hapus Model setelah ModelHistory berhasil disimpan
+                        $model->status = 'cancel';
                         $model->save(false);
-                        return $this->redirect(['order-history/index']);
+                        return $this->redirect(['order-display/index']);
                     } else {
                         Yii::$app->session->setFlash('error', 'Gagal menyimpan data.');
                     }

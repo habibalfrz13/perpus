@@ -25,7 +25,6 @@ if (!Yii::$app->user->isGuest) {
     }
     // Jika pengguna bukan admin dan operator, maka data yang ditampilkan dibatasi hanya pada data yang sesuai dengan akun mereka
     else {
-        $searchModel->id_user = $user->id;
         $dataProvider->query->andWhere(['id_user' => $user->id]);
     }
 }

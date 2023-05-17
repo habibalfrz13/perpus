@@ -3,6 +3,9 @@
 namespace backend\controllers;
 
 use backend\models\Alamat;
+use backend\models\TbProvinsi;
+use backend\models\TbKotaKabupaten;
+use backend\models\TbKecamatan;
 use backend\models\AlamatKategori;
 use backend\models\User;
 use backend\models\AlamatSearch;
@@ -11,6 +14,8 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use Yii;
 use yii\helpers\ArrayHelper;
+use yii\web\Response;
+use yii\helpers\Json;
 
 /**
  * AlamatController implements the CRUD actions for Alamat model.
@@ -123,6 +128,65 @@ class AlamatController extends Controller
 
         return $this->redirect(['index']);
     }
+
+
+
+    public function actionListregs($id = null)
+    {
+        if ($id) {
+            $countRegs = \backend\models\TbKotaKabupaten::find()
+                ->where(['id_provinsi' => $id])
+                ->count();
+
+            $regs = \backend\models\TbKotaKabupaten::find()
+                ->where(['id_provinsi' => $id])
+                ->orderBy(['nama' => SORT_ASC])
+                ->all();
+
+            if ($countRegs > 0) {
+                $options = '';
+                foreach ($regs as $reg) {
+                    $options .= "<option value='" . $reg->id . "'>" . $reg->nama . "</option>";
+                }
+                echo $options;
+            } else {
+                echo "<option>-</option>";
+            }
+            return;
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionListkecamatan($id = null)
+    {
+        if ($id) {
+            $countKec = \backend\models\TbKecamatan::find()
+                ->where(['id_kota_kabupaten' => $id])
+                ->count();
+
+            $regs = \backend\models\TbKecamatan::find()
+                ->where(['id_kota_kabupaten' => $id])
+                ->orderBy(['nama' => SORT_ASC])
+                ->all();
+
+            if ($countKec > 0) {
+                $options = '';
+                foreach ($regs as $reg) {
+                    $options .= "<option value='" . $reg->id . "'>" . $reg->nama . "</option>";
+                }
+                echo $options;
+            } else {
+                echo "<option>-</option>";
+            }
+            return;
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+
+
 
     /**
      * Finds the Alamat model based on its primary key value.

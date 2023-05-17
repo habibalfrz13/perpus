@@ -5,15 +5,13 @@ use backend\models\Pelanggan;
 use backend\models\TbProvinsi;
 use backend\models\TbKotaKabupaten;
 use backend\models\TbKecamatan;
-use PhpParser\Node\Stmt\Label;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
-
+use kartik\select2\Select2;
 
 $user = Yii::$app->user->identity;
 $pelanggan = Pelanggan::find()->where(['id_user' => $user->id])->one();
-
 
 /** @var yii\web\View $this */
 /** @var backend\models\Alamat $model */
@@ -36,21 +34,48 @@ $pelanggan = Pelanggan::find()->where(['id_user' => $user->id])->one();
       ) ?>
     <?php endif; ?>
 
+    <?= $form->field($model, 'provinsi')->widget(Select2::class, [
+      'data' => ArrayHelper::map(TbProvinsi::find()->all(), 'id', 'nama'),
+      'options' => [
+        'placeholder' => '-Pilih-',
+        'onchange' => '$.post("listregs?id=' . '"+$(this).val(),
+            function(data) {
+                $("#kota-select").html(data);
+            });'
+      ],
+      'pluginOptions' => [
+        'allowClear' => true
+      ],
+    ])->label('Provinsi') ?>
 
-    <?= $form->field($model, 'provinsi')->dropDownList(
-      \yii\helpers\ArrayHelper::map(\backend\models\TbProvinsi::find()->all(), 'id', 'nama'),
-      ['prompt' => 'Pilih Provinsi']
-    ) ?>
+    <?= $form->field($model, 'kota')->widget(Select2::class, [
+      'data' => [],
+      'options' => [
+        'placeholder' => 'Pilih Kota/Kabupaten',
+        'id' => 'kota-select',
+        'onchange' => '$.post("listkecamatan?id=' . '"+$(this).val(),
+            function(data) {
+                $("#kecamatan-select").html(data);
+            });',
+      ],
+      'pluginOptions' => [
+        'allowClear' => true
+      ],
+    ])->label('Kota/Kabupaten') ?>
 
-    <?= $form->field($model, 'kota')->dropDownList(
-      \yii\helpers\ArrayHelper::map(\backend\models\TbKotaKabupaten::find()->all(), 'id', 'nama'),
-      ['prompt' => 'Pilih Kota/Kabupaten']
-    )->label('Kota/Kabupaten') ?>
 
-    <?= $form->field($model, 'kecamatan')->dropDownList(
-      \yii\helpers\ArrayHelper::map(\backend\models\TbKecamatan::find()->all(), 'id', 'nama'),
-      ['prompt' => 'Pilih Kecamatan']
-    )->label('Kecamatan') ?>
+    <?= $form->field($model, 'kecamatan')->widget(Select2::class, [
+      'data' => [],
+      'options' => [
+        'placeholder' => 'Pilih Kecamatan',
+        'id' => 'kecamatan-select',
+      ],
+      'pluginOptions' => [
+        'allowClear' => true
+      ],
+    ])->label('Kecamatan') ?>
+
+
 
     <?= $form->field($model, 'alamat')->textInput(['maxlength' => true, 'placeholder' => 'Masukkan alamat']) ?>
 

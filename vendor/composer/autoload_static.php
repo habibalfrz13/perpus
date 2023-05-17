@@ -38,6 +38,7 @@ class ComposerStaticInit94bea449b0934612c7211cde83bed149
         ),
         'k' => 
         array (
+            'kartik\\select2\\' => 15,
             'kartik\\date\\' => 12,
             'kartik\\base\\' => 12,
         ),
@@ -140,6 +141,10 @@ class ComposerStaticInit94bea449b0934612c7211cde83bed149
         'yii\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2',
+        ),
+        'kartik\\select2\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-select2/src',
         ),
         'kartik\\date\\' => 
         array (
