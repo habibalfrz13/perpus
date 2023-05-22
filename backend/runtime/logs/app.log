@@ -25224,3 +25224,483 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1684316669.9075
     'REQUEST_TIME' => 1684316669
 ]
+2023-05-19 06:12:06 [::1][-][p082imi5005j1pnpa433598vni][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: site/<svg width= in C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php:149
+Stack trace:
+#0 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('<svg width=', Array)
+#1 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/<svg width...', Array)
+#2 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 C:\xampp\htdocs\app_tuser\admin\index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\xampp\htdocs\app_tuser\admin\index.php(18): yii\base\Application->run()
+#2 {main}
+2023-05-19 06:12:06 [::1][-][p082imi5005j1pnpa433598vni][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf-backend' => '16426828cf7d4c8bd95ce43170ad525fb27109295d8a2accd97b2d8a93300658a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"NRknil-JOweXAFa2SLRSaTTPfjw57Qq8\";}'
+    'advanced-backend' => 'p082imi5005j1pnpa433598vni'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost/app_tuser/admin/'
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Microsoft Edge\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'no-cors'
+    'HTTP_SEC_FETCH_DEST' => 'image'
+    'HTTP_REFERER' => 'http://localhost/app_tuser/admin/site/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => '_csrf-backend=16426828cf7d4c8bd95ce43170ad525fb27109295d8a2accd97b2d8a93300658a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22NRknil-JOweXAFa2SLRSaTTPfjw57Qq8%22%3B%7D; advanced-backend=p082imi5005j1pnpa433598vni'
+    'PATH' => 'C:\\Program Files\\Microsoft\\jdk-11.0.18.10-hotspot\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Program Files\\Java\\jdk-19\\bin;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\;C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\USER\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\xampp\\php;C:\\Users\\USER\\AppData\\Roaming\\Composer\\v;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/app_tuser/admin/index.php'
+    'REMOTE_PORT' => '61242'
+    'REDIRECT_URL' => '/app_tuser/admin/site/<svg width='
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/app_tuser/admin/site/%3Csvg%20width='
+    'SCRIPT_NAME' => '/app_tuser/admin/index.php'
+    'PHP_SELF' => '/app_tuser/admin/index.php'
+    'REQUEST_TIME_FLOAT' => 1684469526.6283
+    'REQUEST_TIME' => 1684469526
+]
+2023-05-22 10:21:57 [::1][117][k3q7rip8oj048bfhhun1o3jfar][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: id_teknisi in C:\xampp\htdocs\app_tuser\backend\views\order-display\index.php:31
+Stack trace:
+#0 C:\xampp\htdocs\app_tuser\backend\views\order-display\index.php(31): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 31, Array)
+#1 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(347): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(257): yii\base\View->renderPhpFile('C:\\xampp\\htdocs...', Array)
+#3 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\xampp\\htdocs...', Array, Object(backend\controllers\OrderDisplayController))
+#4 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(407): yii\base\View->render('index', Array, Object(backend\controllers\OrderDisplayController))
+#5 C:\xampp\htdocs\app_tuser\backend\controllers\OrderDisplayController.php(72): yii\base\Controller->render('index', Array)
+#6 [internal function]: backend\controllers\OrderDisplayController->actionIndex()
+#7 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#8 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('index', Array)
+#10 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('order-display/i...', Array)
+#11 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 C:\xampp\htdocs\app_tuser\admin\index.php(18): yii\base\Application->run()
+#13 {main}
+2023-05-22 10:21:57 [::1][117][k3q7rip8oj048bfhhun1o3jfar][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'advanced-backend' => 'k3q7rip8oj048bfhhun1o3jfar'
+    '_identity-backend' => 'eb3db05c08bddf4fa142a78abf7198f4d4295460f4ebdadf82bbec4de5ce5ffaa:2:{i:0;s:17:\"_identity-backend\";i:1;s:48:\"[117,\"JujayN2C1Mh6u5os1KhLMsa9rmO2Hldl\",2592000]\";}'
+    '_csrf-backend' => '4ffa61c4228bddb4208ffa450a711c376ae69610b796a9ae628643522a3343e8a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"QS3IJ6AMkbq5vIs7Yl2HygMw8TmRMuM_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost/app_tuser/admin/'
+    '__id' => 117
+    '__authKey' => 'JujayN2C1Mh6u5os1KhLMsa9rmO2Hldl'
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Microsoft Edge\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/app_tuser/admin/site/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'advanced-backend=k3q7rip8oj048bfhhun1o3jfar; _identity-backend=eb3db05c08bddf4fa142a78abf7198f4d4295460f4ebdadf82bbec4de5ce5ffaa%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A48%3A%22%5B117%2C%22JujayN2C1Mh6u5os1KhLMsa9rmO2Hldl%22%2C2592000%5D%22%3B%7D; _csrf-backend=4ffa61c4228bddb4208ffa450a711c376ae69610b796a9ae628643522a3343e8a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22QS3IJ6AMkbq5vIs7Yl2HygMw8TmRMuM_%22%3B%7D'
+    'PATH' => 'C:\\Program Files\\Microsoft\\jdk-11.0.18.10-hotspot\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Program Files\\Java\\jdk-19\\bin;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\;C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\USER\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\xampp\\php;C:\\Users\\USER\\AppData\\Roaming\\Composer\\v;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/app_tuser/admin/index.php'
+    'REMOTE_PORT' => '63434'
+    'REDIRECT_URL' => '/app_tuser/admin/order-display/index'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/app_tuser/admin/order-display/index'
+    'SCRIPT_NAME' => '/app_tuser/admin/index.php'
+    'PHP_SELF' => '/app_tuser/admin/index.php'
+    'REQUEST_TIME_FLOAT' => 1684743717.4213
+    'REQUEST_TIME' => 1684743717
+]
+2023-05-22 10:25:30 [::1][119][fiih7lindms1r02unqp65barsa][error][yii\base\ErrorException:8] yii\base\ErrorException: Trying to get property 'jumlah_point' of non-object in C:\xampp\htdocs\app_tuser\backend\controllers\OrderDisplayController.php:157
+Stack trace:
+#0 C:\xampp\htdocs\app_tuser\backend\controllers\OrderDisplayController.php(157): yii\base\ErrorHandler->handleError(8, 'Trying to get p...', 'C:\\xampp\\htdocs...', 157, Array)
+#1 [internal function]: backend\controllers\OrderDisplayController->actionUpdate('107')
+#2 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#3 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('update', Array)
+#5 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('order-display/u...', Array)
+#6 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 C:\xampp\htdocs\app_tuser\admin\index.php(18): yii\base\Application->run()
+#8 {main}
+2023-05-22 10:25:30 [::1][119][fiih7lindms1r02unqp65barsa][info][application] $_GET = [
+    'id_order' => '107'
+]
+
+$_POST = [
+    '_csrf-backend' => 'jAUGORxTpEtSyt2AxT0Z1JCQzeVj35HDOitYKbf6kADmak4JcSHnHQKvj9qzCEmHydyco1eK-JZIWBZlj6DgYQ=='
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'advanced-backend' => 'fiih7lindms1r02unqp65barsa'
+    '_identity-backend' => '0f9da487d9deabb1442a56c72e79e33cc4732f98085a724c6923417173a95654a:2:{i:0;s:17:\"_identity-backend\";i:1;s:48:\"[119,\"_eQFzKDOVG_Cf4fXHHV4XjObDD3_iwtD\",2592000]\";}'
+    '_csrf-backend' => '4b2b1f6e7d99b59e475d64e32f7d1253ff76ee743e6618fad794a9c80cd41779a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"joH0mrCVPeRZv5PSYLQF4UiUrsNL8Zpa\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost/app_tuser/admin/'
+    '__id' => 119
+    '__authKey' => '_eQFzKDOVG_Cf4fXHHV4XjObDD3_iwtD'
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '106'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Microsoft Edge\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/app_tuser/admin/order-display/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'advanced-backend=fiih7lindms1r02unqp65barsa; _identity-backend=0f9da487d9deabb1442a56c72e79e33cc4732f98085a724c6923417173a95654a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A48%3A%22%5B119%2C%22_eQFzKDOVG_Cf4fXHHV4XjObDD3_iwtD%22%2C2592000%5D%22%3B%7D; _csrf-backend=4b2b1f6e7d99b59e475d64e32f7d1253ff76ee743e6618fad794a9c80cd41779a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22joH0mrCVPeRZv5PSYLQF4UiUrsNL8Zpa%22%3B%7D'
+    'PATH' => 'C:\\Program Files\\Microsoft\\jdk-11.0.18.10-hotspot\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Program Files\\Java\\jdk-19\\bin;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\;C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\USER\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\xampp\\php;C:\\Users\\USER\\AppData\\Roaming\\Composer\\v;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/app_tuser/admin/index.php'
+    'REMOTE_PORT' => '63469'
+    'REDIRECT_URL' => '/app_tuser/admin/order-display/update'
+    'REDIRECT_QUERY_STRING' => 'id_order=107'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'id_order=107'
+    'REQUEST_URI' => '/app_tuser/admin/order-display/update?id_order=107'
+    'SCRIPT_NAME' => '/app_tuser/admin/index.php'
+    'PHP_SELF' => '/app_tuser/admin/index.php'
+    'REQUEST_TIME_FLOAT' => 1684743930.0064
+    'REQUEST_TIME' => 1684743930
+]
+2023-05-22 10:25:54 [::1][119][fiih7lindms1r02unqp65barsa][error][yii\base\ErrorException:8] yii\base\ErrorException: Trying to get property 'jumlah_point' of non-object in C:\xampp\htdocs\app_tuser\backend\controllers\OrderDisplayController.php:157
+Stack trace:
+#0 C:\xampp\htdocs\app_tuser\backend\controllers\OrderDisplayController.php(157): yii\base\ErrorHandler->handleError(8, 'Trying to get p...', 'C:\\xampp\\htdocs...', 157, Array)
+#1 [internal function]: backend\controllers\OrderDisplayController->actionUpdate('107')
+#2 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#3 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('update', Array)
+#5 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('order-display/u...', Array)
+#6 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 C:\xampp\htdocs\app_tuser\admin\index.php(18): yii\base\Application->run()
+#8 {main}
+2023-05-22 10:25:53 [::1][119][fiih7lindms1r02unqp65barsa][info][application] $_GET = [
+    'id_order' => '107'
+]
+
+$_POST = [
+    '_csrf-backend' => 'O4BBUcXQD3kaavPGEEyI0DUYetJGbFagvM2sp5AvhXtR7wlhqKJML0oPoZxmediDbFQrlHI5P_XOvuLrqHX1Gg=='
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'advanced-backend' => 'fiih7lindms1r02unqp65barsa'
+    '_identity-backend' => '0f9da487d9deabb1442a56c72e79e33cc4732f98085a724c6923417173a95654a:2:{i:0;s:17:\"_identity-backend\";i:1;s:48:\"[119,\"_eQFzKDOVG_Cf4fXHHV4XjObDD3_iwtD\",2592000]\";}'
+    '_csrf-backend' => '4b2b1f6e7d99b59e475d64e32f7d1253ff76ee743e6618fad794a9c80cd41779a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"joH0mrCVPeRZv5PSYLQF4UiUrsNL8Zpa\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost/app_tuser/admin/'
+    '__id' => 119
+    '__authKey' => '_eQFzKDOVG_Cf4fXHHV4XjObDD3_iwtD'
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '106'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Microsoft Edge\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/app_tuser/admin/order-display/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'advanced-backend=fiih7lindms1r02unqp65barsa; _identity-backend=0f9da487d9deabb1442a56c72e79e33cc4732f98085a724c6923417173a95654a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A48%3A%22%5B119%2C%22_eQFzKDOVG_Cf4fXHHV4XjObDD3_iwtD%22%2C2592000%5D%22%3B%7D; _csrf-backend=4b2b1f6e7d99b59e475d64e32f7d1253ff76ee743e6618fad794a9c80cd41779a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22joH0mrCVPeRZv5PSYLQF4UiUrsNL8Zpa%22%3B%7D'
+    'PATH' => 'C:\\Program Files\\Microsoft\\jdk-11.0.18.10-hotspot\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Program Files\\Java\\jdk-19\\bin;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\;C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\USER\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\xampp\\php;C:\\Users\\USER\\AppData\\Roaming\\Composer\\v;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/app_tuser/admin/index.php'
+    'REMOTE_PORT' => '63488'
+    'REDIRECT_URL' => '/app_tuser/admin/order-display/update'
+    'REDIRECT_QUERY_STRING' => 'id_order=107'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'id_order=107'
+    'REQUEST_URI' => '/app_tuser/admin/order-display/update?id_order=107'
+    'SCRIPT_NAME' => '/app_tuser/admin/index.php'
+    'PHP_SELF' => '/app_tuser/admin/index.php'
+    'REQUEST_TIME_FLOAT' => 1684743953.9734
+    'REQUEST_TIME' => 1684743953
+]
+2023-05-22 10:27:33 [::1][119][fiih7lindms1r02unqp65barsa][error][yii\base\ErrorException:8] yii\base\ErrorException: Trying to get property 'jumlah_point' of non-object in C:\xampp\htdocs\app_tuser\backend\controllers\OrderDisplayController.php:157
+Stack trace:
+#0 C:\xampp\htdocs\app_tuser\backend\controllers\OrderDisplayController.php(157): yii\base\ErrorHandler->handleError(8, 'Trying to get p...', 'C:\\xampp\\htdocs...', 157, Array)
+#1 [internal function]: backend\controllers\OrderDisplayController->actionUpdate('107')
+#2 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#3 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Module.php(552): yii\base\Controller->runAction('update', Array)
+#5 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('order-display/u...', Array)
+#6 C:\xampp\htdocs\app_tuser\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 C:\xampp\htdocs\app_tuser\admin\index.php(18): yii\base\Application->run()
+#8 {main}
+2023-05-22 10:27:33 [::1][119][fiih7lindms1r02unqp65barsa][info][application] $_GET = [
+    'id_order' => '107'
+]
+
+$_POST = [
+    '_csrf-backend' => 'NvR37lzMBukIL6DWBHP53xIg41seIT7rxu0EjKuEfo1cmz_eMb5Fv1hK8oxyRqmMS2yyHSp0V760nkrAk94O7A=='
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    'advanced-backend' => 'fiih7lindms1r02unqp65barsa'
+    '_identity-backend' => '0f9da487d9deabb1442a56c72e79e33cc4732f98085a724c6923417173a95654a:2:{i:0;s:17:\"_identity-backend\";i:1;s:48:\"[119,\"_eQFzKDOVG_Cf4fXHHV4XjObDD3_iwtD\",2592000]\";}'
+    '_csrf-backend' => '4b2b1f6e7d99b59e475d64e32f7d1253ff76ee743e6618fad794a9c80cd41779a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"joH0mrCVPeRZv5PSYLQF4UiUrsNL8Zpa\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://localhost/app_tuser/admin/'
+    '__id' => 119
+    '__authKey' => '_eQFzKDOVG_Cf4fXHHV4XjObDD3_iwtD'
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '106'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Microsoft Edge\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/app_tuser/admin/order-display/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'advanced-backend=fiih7lindms1r02unqp65barsa; _identity-backend=0f9da487d9deabb1442a56c72e79e33cc4732f98085a724c6923417173a95654a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A48%3A%22%5B119%2C%22_eQFzKDOVG_Cf4fXHHV4XjObDD3_iwtD%22%2C2592000%5D%22%3B%7D; _csrf-backend=4b2b1f6e7d99b59e475d64e32f7d1253ff76ee743e6618fad794a9c80cd41779a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22joH0mrCVPeRZv5PSYLQF4UiUrsNL8Zpa%22%3B%7D'
+    'PATH' => 'C:\\Program Files\\Microsoft\\jdk-11.0.18.10-hotspot\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Program Files\\Java\\jdk-19\\bin;C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.17.8-hotspot\\bin;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Java\\jdk-18.0.2.1\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\;C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\USER\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\xampp\\php;C:\\Users\\USER\\AppData\\Roaming\\Composer\\v;C:\\Users\\USER\\AppData\\Local\\Android\\Sdk\\platform-tools;'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/app_tuser/admin/index.php'
+    'REMOTE_PORT' => '65501'
+    'REDIRECT_URL' => '/app_tuser/admin/order-display/update'
+    'REDIRECT_QUERY_STRING' => 'id_order=107'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'id_order=107'
+    'REQUEST_URI' => '/app_tuser/admin/order-display/update?id_order=107'
+    'SCRIPT_NAME' => '/app_tuser/admin/index.php'
+    'PHP_SELF' => '/app_tuser/admin/index.php'
+    'REQUEST_TIME_FLOAT' => 1684744053.4932
+    'REQUEST_TIME' => 1684744053
+]

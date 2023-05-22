@@ -27,9 +27,8 @@ if (!Yii::$app->user->isGuest) {
     } else if ($user->role == 'operator') {
         $searchModel->id_user = null;
     } else if ($user->role == 'teknisi') {
-        $dataProvider1->query->andWhere(['id_teknisi' => $teknisi->id_teknisi])
-            ->andWhere(['IN', 'status', ['dipesan', 'diterima']])
-            ->andWhere(['OR', ['status' => 'diterima'], ['id_teknisi' => $teknisi->id_teknisi]]);
+        $dataProvider1->query->andWhere(['IN', 'status', ['dipesan', 'diterima']]);
+        $dataProvider1->query->andWhere(['OR', ['status' => 'dipesan'], ['AND', ['status' => 'diterima'], ['id_teknisi' => $teknisi->id_teknisi]]]);
     }
 
 
@@ -225,7 +224,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 <?php if (Yii::$app->user->identity->role == 'teknisi') : ?>
-    <div class="card-body table-hover">
+    <div class="card card-body table-hover">
         <?= GridView::widget([
             'dataProvider' => $dataProvider1,
             'filterModel' => $searchModel1,
