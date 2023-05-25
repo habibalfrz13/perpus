@@ -150,7 +150,13 @@ class OrderDisplayController extends Controller
                 ->where(['user.id' => $id_user])
                 ->scalar();
             $model->id_teknisi = $teknisiId;
+            $teknisi = Teknisi::find()->where(['id_teknisi' => $teknisiId])->one();
+            if ($teknisi->point < 10) {
+                Yii::$app->session->setFlash('error', 'Anda tidak dapat mengambil pesanan karena jumlah poin Anda kurang, Silahkan Top Up');
+                return $this->redirect(['index']);
+            }
         }
+
         $jumlahAc = $model->jumlah;
         // kurang sama dengan, atau lebih sama dengan
         $point = PointMaster::find()->where(['>=', 'jumlah_ac', $jumlahAc])->one();

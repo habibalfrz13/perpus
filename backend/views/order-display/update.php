@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var backend\models\OrderDisplay $model */
 
-$this->title = 'Update Order Display: ' . $model->id_order;
+$this->title = 'Detail Order: ' . $model->id_order;
 $this->params['breadcrumbs'][] = ['label' => 'Order Displays', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id_order, 'url' => ['view', 'id_order' => $model->id_order]];
 $this->params['breadcrumbs'][] = 'Update';
