@@ -71,7 +71,7 @@ AppAsset::register($this);
 
               . Html::submitButton(
                 'Logout',
-                ['class' => 'btn btn-primary']
+                ['class' => 'btn btn-primary ']
               )
               . Html::endForm();
             ?>
@@ -906,7 +906,7 @@ AppAsset::register($this);
 
 
 <footer class="main-footer">
-  <div class="container">
+  <div class="container mb-3">
     <p class="float-start">&copy; 2023</p>
     <p class="float-end">@Argenesia</p>
   </div>

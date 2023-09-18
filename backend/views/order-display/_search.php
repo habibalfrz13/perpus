@@ -25,23 +25,32 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'detail') ?>
 
-    <?php // echo $form->field($model, 'masalah') ?>
+    <?php // echo $form->field($model, 'masalah') 
+    ?>
 
-    <?php // echo $form->field($model, 'id_merk') ?>
+    <?php // echo $form->field($model, 'id_merk') 
+    ?>
 
-    <?php // echo $form->field($model, 'type_ac') ?>
+    <?php // echo $form->field($model, 'type_ac') 
+    ?>
 
-    <?php // echo $form->field($model, 'alamat') ?>
+    <?php // echo $form->field($model, 'alamat') 
+    ?>
 
-    <?php // echo $form->field($model, 'jadwal_pengerjaan') ?>
+    <?php // echo $form->field($model, 'jadwal_pengerjaan') 
+    ?>
 
-    <?php // echo $form->field($model, 'status') ?>
+    <?php // echo $form->field($model, 'status') 
+    ?>
 
-    <?php // echo $form->field($model, 'tgl_pesan') ?>
+    <?php // echo $form->field($model, 'tgl_pesan') 
+    ?>
 
-    <?php // echo $form->field($model, 'id_teknisi') ?>
+    <?php // echo $form->field($model, 'id_teknisi') 
+    ?>
 
-    <?php // echo $form->field($model, 'point_teknisi') ?>
+    <?php // echo $form->field($model, 'point_teknisi') 
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
